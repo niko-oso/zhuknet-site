@@ -509,3 +509,5 @@ form.sent .done{display:flex}
 .cta-art{flex:1 1 auto;margin:calc(var(--cta-pad) - 20px) calc(-1 * var(--cta-pad)) 0}
 /* Баннер на мобильном: пара на диване по центру кадра, мужчина не обрезается */
 @media (max-width:600px){.hero-photo{object-position:88% center}}
+/* Тарифы на мобильном: расстояние от табов до карточек вдвое меньше (было 48 + 16 = 64px, стало 32px) */
+@media (max-width:600px){#tariffs .tariffs-head{margin-bottom:16px}}
