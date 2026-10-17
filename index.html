@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZHUKNET — домашний интернет в Жуковском</title>
+<meta name="description" content="Zhukovsky.Net — интернет-провайдер Жуковского 30 лет. Тарифы до 500 Мбит/с, бесплатное подключение, оплата онлайн и личный кабинет.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 522 68"><path fill="currentColor" d="M1 0H69Q79 0 79 10V17.75L24.2 52H84V0H100V27H136V0H152V68H136V43H100V68H6Q0 68 0 62V52L1 48.4L53.2 16H1Z M156 0H172V48Q172 52 176 52H209Q213 52 213 48V0H229V56Q229 68 217 68H168Q156 68 156 56Z M235 0H251V27H286V0H302V27L307 45V68H291V42H251V68H235Z M313 10Q313 0 323 0H329L363 45.7V0H378V62Q378 68 372 68H358L328 20.75V68H313Z M386 14Q386 0 400 0H522V16H496V68H479V16H402V27H446V43H402V52H448V68H396Q386 68 386 58Z"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/></g></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></g></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17a9 9 0 1 1 17 0"/><path d="M12 14l4-5"/><circle cx="12" cy="14" r="1.5"/></g></symbol>
+  <symbol id="i-head" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></g></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M5.5 12.4a10 10 0 0 1 13 0"/><path d="M9 15.9a5 5 0 0 1 6 0"/><circle cx="12" cy="19.2" r="1.1" fill="currentColor"/></g></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></g></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z M9 13l8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></g></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="2.5"/><path d="M8 21h8"/></g></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></g></symbol>
+  <symbol id="i-cable" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v5M11 3v5M5 8h8v4a4 4 0 0 1-8 0z"/><path d="M9 16v1a4 4 0 0 0 4 4h2a4 4 0 0 0 4-4V7"/></g></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></g></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></g></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
+</svg>
+
+<a class="sr" href="#main">Перейти к содержанию</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="group">
+      <span class="hide-sm tb-item"><svg class="tb-ico" width="15" height="15" aria-hidden="true"><use href="#i-clock"/></svg>Абонентский отдел: 09:00–18:00</span>
+      <span class="hide-sm tb-item"><svg class="tb-ico" width="15" height="15" aria-hidden="true"><use href="#i-pin"/></svg>Жуковский, ул. Гагарина, 48</span>
+    </div>
+    <div class="group">
+      <a class="tb-mail tb-item" href="mailto:admin@zhukovsky.net"><svg class="tb-ico" width="15" height="15" aria-hidden="true"><use href="#i-mail"/></svg>admin@zhukovsky.net</a>
+      <a class="phone" href="tel:84984835700">8 (498) 48-3-57-00</a>
+      <a class="hide-xs tb-item" href="https://t.me/zhuknet/" aria-label="Telegram" title="Telegram"><svg class="tb-ico" width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="url(#tgGrad)"/><path d="M22.9866 10.2088C23.1112 9.40332 22.3454 8.76755 21.6292 9.082L7.36482 15.3448C6.85123 15.5703 6.8888 16.3483 7.42147 16.5179L10.3631 17.4547C10.9246 17.6335 11.5325 17.541 12.0228 17.2023L18.655 12.6203C18.855 12.4821 19.073 12.7665 18.9021 12.9426L14.1281 17.8646C13.665 18.3421 13.7569 19.1512 14.314 19.5005L19.659 22.8523C20.2585 23.2282 21.0297 22.8506 21.1418 22.1261L22.9866 10.2088Z" fill="#fff"/><defs><linearGradient id="tgGrad" x1="16" y1="2" x2="16" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#37BBFE"/><stop offset="1" stop-color="#007DBB"/></linearGradient></defs></svg></a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ZHUKNET — интернет-провайдер Жуковского 30 лет, на главную">
+      <span class="logo"><svg viewBox="0 0 522 68" aria-hidden="true"><use href="#logo"/></svg></span>
+      <span class="brand-tag" aria-hidden="true"><b>30 лет</b><span>интернет-провайдер<br>Жуковского</span></span>
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="#tariffs">Тарифы</a>
+      <a href="#connect">Подключение</a>
+      <a href="#extras">ТВ и услуги</a>
+      <a href="#news">Новости</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="lk-btn" href="https://lk.zhukovsky.net" aria-label="Войти в личный кабинет" title="Личный кабинет"><svg width="20" height="20" aria-hidden="true"><use href="#i-user"/></svg><span class="lk-label">Войти</span></a>
+      <button class="btn btn-blue" type="button" data-open="pay">Оплатить</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1><span>Домашний интернет, в&nbsp;котором качество превыше всего</span></h1>
+      <p class="lead">Гарантированная скорость до 500 Мбит/с, тарифы для квартир и частных домов и бесплатное подключение.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-lamp" type="button" data-open="connect">Подключить интернет</button>
+        <a class="btn btn-ghost" href="#tariffs">Смотреть тарифы</a>
+      </div>
+      <div class="hero-facts">
+        <div><strong>от 600 ₽</strong><span>в месяц за безлимит</span></div>
+        <div><strong>0 ₽</strong><span>за подключение</span></div>
+        <div><strong>до 500 Мбит/с</strong><span>в частном секторе</span></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="hero-visual" aria-hidden="true"><img class="hero-photo" src="img/hero.jpg" width="1944" height="809" alt="" fetchpriority="high" decoding="async"></div>
+</section>
+
+<!-- БЫСТРЫЙ ДОСТУП -->
+<section class="quick" aria-label="Быстрый доступ">
+  <div class="wrap">
+    <div class="quick-grid">
+      <a class="quick-item" href="https://lk.zhukovsky.net"><span class="quick-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-user"/></svg></span><span><b>Личный кабинет</b><span>Баланс, тариф, платежи</span></span></a>
+      <button class="quick-item" type="button" data-open="pay"><span class="quick-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-card"/></svg></span><span><b>Оплатить онлайн</b><span>Картой по номеру договора</span></span></button>
+      <a class="quick-item" href="#tariffs"><span class="quick-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-gauge"/></svg></span><span><b>Тарифы</b><span>Квартира и частный дом</span></span></a>
+      <a class="quick-item" href="tel:84984835700"><span class="quick-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-head"/></svg></span><span><b>Техподдержка</b><span>8 (498) 48-3-57-00</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section class="section" id="tariffs">
+  <div class="wrap">
+    <div class="tariffs-head">
+      <div>
+        <h2>Тарифы на интернет</h2>
+        <p class="lead">Безлимитный трафик и гарантированная скорость на всех тарифах. Цены действуют с 1 июля 2026 года.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Где подключаем">
+        <button class="tab" role="tab" type="button" aria-selected="true" data-tab="flat">Квартира</button>
+        <button class="tab" role="tab" type="button" aria-selected="false" data-tab="house">Частный дом</button>
+        <button class="tab" role="tab" type="button" aria-selected="false" data-tab="daily">Посуточно</button>
+      </div>
+    </div>
+
+    <div class="plans" id="plans" role="tabpanel" aria-live="polite"></div>
+
+    <div class="tariffs-foot">
+      <span id="plans-foot">Абонентская плата списывается 1-го числа месяца. Реальный IP-адрес — 200 ₽/мес. Тарифы для физических лиц.</span>
+      <a href="https://zhukovsky.net/tarifs"><b>Все тарифы и документы</b></a>
+    </div>
+
+    <div class="high-speed">
+      <div>
+        <h3>Нужна скорость выше 100 Мбит/с?</h3>
+        <p>Проверим техническую возможность по вашему адресу и перезвоним.</p>
+      </div>
+      <button class="btn btn-blue" type="button" data-open="speed">Оставить заявку</button>
+    </div>
+  </div>
+</section>
+
+<!-- ПОЧЕМУ ZHUKNET -->
+<section aria-label="О компании">
+  <div class="wrap">
+    <div class="why">
+      <div class="why-mesh" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div>
+        <div class="big"><span class="big-num" data-to="30">30</span><small>лет обеспечиваем горожан Жуковского качественным интернетом</small></div>
+        <p class="why-quote">Честность, ответственность, качество услуги.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-gauge"/></svg><b>Гарантированная скорость</b><span>Скорость по тарифу закреплена в договоре.</span></div>
+        <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-tag"/></svg><b>Гибкая тарифная сетка</b><span>Отдельные тарифы для квартир, частных домов и посуточная оплата.</span></div>
+        <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-map"/></svg><b>Большой охват</b><span>Подключаем многоквартирные дома и частный сектор Жуковского.</span></div>
+        <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-chip"/></svg><b>Современное оборудование</b><span>Сеть рассчитана на скорости до 500 Мбит/с.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК ПОДКЛЮЧИТЬСЯ -->
+<section class="section" id="connect">
+  <div class="wrap">
+    <div class="tariffs-head" style="margin-bottom:0">
+      <h2>Как подключиться</h2>
+      <button class="btn btn-blue" type="button" data-open="connect">Оставить заявку</button>
+    </div>
+    <ol class="steps">
+      <li class="step"><span class="step-n">1</span><b>Заявка на сайте</b><span>Оставьте адрес и телефон — подтвердим возможность подключения и согласуем время.</span></li>
+      <li class="step"><span class="step-n">2</span><b>Договор</b><span>Заключите договор в абонентском отделе на ул. Гагарина, 48 или онлайн.</span></li>
+      <li class="step"><span class="step-n">3</span><b>Подключение</b><span>Монтажники проведут кабель и настроят интернет. Подключение бесплатное.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ТВ И ДОП. УСЛУГИ -->
+<section class="section" id="extras" style="background:var(--mist)">
+  <div class="wrap">
+    <h2>Телевидение и другие услуги</h2>
+    <div class="extras">
+      <a class="extra" href="https://smotreshka.promo/zhukovsky/"><img class="extra-img" src="img/services/smotreshka.jpg" alt="Семья на диване смотрит «Смотрёшку» на большом телевизоре, вокруг афиши онлайн-кинотеатров" loading="lazy" width="1200" height="800"><b>ТВ «Смотрёшка»</b><span>IPTV-пакеты с PREMIER, AMEDIATEKA, START и WINK.</span><em>от 249 ₽/мес</em></a>
+      <a class="extra" href="http://zhuktv.ru"><img class="extra-img" src="img/services/cable-tv.jpg" alt="Мужчина с пультом на диване, вокруг сцены из фильмов, спорта и передач о космосе" loading="lazy" width="1200" height="800"><b>Кабельное ТВ</b><span>Телевидение по кабелю для многоквартирных домов.</span><em>zhuktv.ru</em></a>
+      <a class="extra" href="https://zhukovsky.net/tarifs"><img class="extra-img" src="img/services/real-ip.jpg" alt="Ноутбук, смартфон и роутер на столе, над ними светящийся глобус с линиями соединений" loading="lazy" width="1200" height="800"><b>Реальный IP-адрес</b><span>Для видеонаблюдения, серверов и удалённого доступа.</span><em>200 ₽/мес</em></a>
+      <a class="extra" href="http://security.zhukovsky.net"><img class="extra-img" src="img/services/security.jpg" alt="Камера наблюдения у дома и смартфон с трансляцией с камер двора, входа и гаража" loading="lazy" width="1200" height="800"><b>Системы безопасности</b><span>Умный домофон и видеонаблюдение.</span><em>security.zhukovsky.net</em></a>
+    </div>
+  </div>
+</section>
+
+<!-- НОВОСТИ -->
+<section class="section" id="news">
+  <div class="wrap">
+    <div class="news-head">
+      <h2>Новости</h2>
+      <a href="https://zhukovsky.net/news"><b>Все новости</b></a>
+    </div>
+    <div class="news">
+      <button class="news-card lead-news" type="button" data-news="0"><time datetime="2026-06-11">11 июня 2026</time><b>График работы в День России</b><p>Абонентский отдел и техподдержка в праздничные дни работают по особому графику.</p><span class="more">Читать</span></button>
+      <button class="news-card" type="button" data-news="1"><time datetime="2026-05-27">27 мая 2026</time><b>Обновление тарифных планов</b><p>С 1 июля 2026 года проведена индексация базовых тарифов.</p><span class="more">Читать</span></button>
+      <button class="news-card" type="button" data-news="2"><time datetime="2026-04-29">29 апреля 2026</time><b>Работа в майские праздники</b><p>График абонентского отдела и техподдержки с 30 апреля по 11 мая.</p><span class="more">Читать</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-grid">
+    <div class="faq-side">
+      <h2 id="faq-title">Частые вопросы</h2>
+      <p class="lead">Не нашли ответ? Позвоните или напишите — поможем.</p>
+      <div class="faq-actions">
+        <!-- На продакшене: открыть чат JivoSite (jivo_api.open()); пока ведёт в Telegram -->
+        <a class="btn faq-ask" href="https://t.me/zhuknet/">Задать вопрос</a>
+      </div>
+    </div>
+    <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Как узнать, можно ли подключиться по моему адресу?<span class="faq-ico" aria-hidden="true"></span></summary>
+          <p>Оставьте заявку на сайте или позвоните по номеру 8 (498) 48-3-57-00 — проверим техническую возможность и предложим подходящий тариф.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Сколько стоит подключение?<span class="faq-ico" aria-hidden="true"></span></summary>
+          <p>Подключение бесплатное. Вы платите только абонентскую плату по выбранному тарифу.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Где заключить договор?<span class="faq-ico" aria-hidden="true"></span></summary>
+          <p>Онлайн на сайте или в абонентском отделе по адресу: г. Жуковский, ул. Гагарина, 48. Отдел работает с 09:00 до 18:00.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Как оплатить интернет?<span class="faq-ico" aria-hidden="true"></span></summary>
+          <p>Онлайн банковской картой по номеру договора — кнопка «Оплатить» в шапке сайта. Также оплата доступна в личном кабинете.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Когда списывается абонентская плата?<span class="faq-ico" aria-hidden="true"></span></summary>
+          <p>На тарифах «Безлимитный» и «Дачный» — 1-го числа каждого месяца в полном объёме. На тарифе «На каждый день» — ежедневно. Услуги предоставляются при положительном балансе.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Можно ли подключить скорость выше 100 Мбит/с?<span class="faq-ico" aria-hidden="true"></span></summary>
+          <p>В многоквартирных домах доступны тарифы до 200 и 300 Мбит/с, в частном секторе — до 500 Мбит/с, при технической возможности. Оставьте заявку, и мы проверим ваш адрес.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Как подключить телевидение «Смотрёшка»?<span class="faq-ico" aria-hidden="true"></span></summary>
+          <p>Пакеты стоят от 249 ₽ в месяц и подключаются к любому ежемесячному тарифу на интернет. Подробнее о пакетах — на странице «Смотрёшки».</p>
+        </details>
+        <details class="faq-item">
+          <summary>Пропал интернет. Что делать?<span class="faq-ico" aria-hidden="true"></span></summary>
+          <p>Проверьте баланс в личном кабинете и перезагрузите роутер. Если не помогло — посмотрите инструкции в разделе «Настройки» или позвоните в техподдержку: 8 (498) 48-3-57-00.</p>
+        </details>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section id="contacts">
+  <div class="wrap contacts">
+    <div class="cta-card">
+      <h2>Подключим интернет по вашему адресу</h2>
+      <p>Оставьте заявку — проверим техническую возможность и предложим подходящий тариф.</p>
+      <div class="cta-row">
+        <button class="btn btn-lamp" type="button" data-open="connect">Оставить заявку</button>
+        <a class="btn btn-ghost" href="https://t.me/zhuknet/">Написать в Telegram</a>
+      </div>
+      <svg class="cta-art" viewBox="0 56 640 144" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="ctaPulse" x1="0" x2="1"><stop offset="0" stop-color="#7FE3FF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+          <radialGradient id="ctaGlow"><stop offset="0" stop-color="#A6B4FF" stop-opacity=".55"/><stop offset="1" stop-color="#A6B4FF" stop-opacity="0"/></radialGradient>
+        </defs>
+        <g transform="translate(548 186) scale(.8) translate(-548 -186)">
+        <circle cx="548" cy="132" r="100" fill="url(#ctaGlow)"/>
+        </g>
+        <g class="cta-strands"><path d="M-10 190 C 170 196, 330 120, 507 170"/><path d="M-10 128 C 190 108, 350 196, 507 176"/><path d="M-10 160 C 230 148, 390 178, 507 173"/><path d="M-10 88 C 160 150, 320 142, 507 166"/><path d="M 590 172 C 622 170, 642 162, 662 154"/></g>
+        <g class="cta-pulses"><path class="cta-pulse" d="M-10 190 C 170 196, 330 120, 507 170" pathLength="100" style="animation-delay:0.0s;animation-duration:3.2s"/><path class="cta-pulse" d="M-10 128 C 190 108, 350 196, 507 176" pathLength="100" style="animation-delay:0.7s;animation-duration:3.7s"/><path class="cta-pulse" d="M-10 160 C 230 148, 390 178, 507 173" pathLength="100" style="animation-delay:1.4s;animation-duration:4.2s"/><path class="cta-pulse" d="M-10 88 C 160 150, 320 142, 507 166" pathLength="100" style="animation-delay:2.1s;animation-duration:4.7s"/></g>
+        <g transform="translate(548 186) scale(.8) translate(-548 -186)">
+        <g class="cta-house">
+          <path d="M484 140 L548 88 L612 140"/>
+          <path d="M496 132 V186 H600 V132"/>
+          <rect class="cta-win" x="534" y="148" width="28" height="24" rx="3"/>
+        </g>
+        <g class="cta-wifi" transform="translate(548 66)">
+          <path class="w1" d="M-10 0 a14 14 0 0 1 20 0"/>
+          <path class="w2" d="M-20 -10 a28 28 0 0 1 40 0"/>
+          <path class="w3" d="M-30 -20 a42 42 0 0 1 60 0"/>
+        </g>
+        </g>
+      </svg>
+    </div>
+    <div class="info-card">
+      <h2 style="font-size:28px">Контакты</h2>
+      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-phone"/></svg></span><div><small>Техподдержка и абонентский отдел</small><a href="tel:84984835700">8 (498) 48-3-57-00</a></div></div>
+      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-pin"/></svg></span><div><small>Абонентский отдел</small><b>г. Жуковский, ул. Гагарина, 48</b></div></div>
+      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-clock"/></svg></span><div><small>Режим работы</small><b>09:00–18:00</b></div></div>
+      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-mail"/></svg></span><div><small>Почта</small><a href="mailto:admin@zhukovsky.net">admin@zhukovsky.net</a></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <a class="logo" href="#top" aria-label="ZHUKNET — наверх"><svg viewBox="0 0 522 68" role="img" aria-label="ZHUKNET"><use href="#logo"/></svg></a>
+        <span>Интернет-провайдер Жуковского с 30-летней историей.</span>
+        <a href="tel:84984835700" style="color:#fff;font-weight:800;font-size:20px">8 (498) 48-3-57-00</a>
+      </div>
+      <nav aria-label="Подключение"><b>Подключение</b><a href="#tariffs">Тарифы</a><button type="button" data-open="connect" style="all:unset;cursor:pointer">Онлайн-подключение</button><button type="button" data-open="speed" style="all:unset;cursor:pointer">Скорость выше 100 Мбит/с</button></nav>
+      <nav aria-label="Абонентам"><b>Абонентам</b><a href="https://lk.zhukovsky.net">Личный кабинет</a><button type="button" data-open="pay" style="all:unset;cursor:pointer">Оплата онлайн</button><a href="https://zhukovsky.net/settings">Настройки</a><a href="https://zhukovsky.net/docs">Документы</a></nav>
+      <nav aria-label="Компания"><b>Компания</b><a href="https://zhukovsky.net/news">Новости</a><a href="https://zhukovsky.net/hot">Акции</a><a href="https://t.me/zhuknet/">Telegram</a><a href="#contacts">Контакты</a></nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© ООО «Телесервис», 140180, Московская обл., г. Жуковский, ул. Гагарина, д. 48 · ИНН 5013053231 · ОГРН 1065013008455</span>
+      <a href="https://zhukovsky.net/docs">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Кнопка «наверх». Виджет JivoSite подключается своим кодом и рисует собственную кнопку -->
+<button class="to-top" type="button" aria-label="Наверх" title="Наверх"><svg width="26" height="26" aria-hidden="true"><use href="#i-up"/></svg></button>
+
+<!-- ПОПАП: онлайн-подключение -->
+<dialog id="dlg-connect" aria-labelledby="t-connect">
+  <form class="modal" novalidate>
+    <div class="modal-head">
+      <div><h2 id="t-connect">Онлайн-подключение</h2><p class="sub">Заполните заявку — перезвоним и согласуем подключение.</p></div>
+      <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="form-body" style="display:flex;flex-direction:column;gap:14px">
+      <div class="field"><label for="c-name">Имя и фамилия</label><input id="c-name" name="name" autocomplete="name" required></div>
+      <div class="row2">
+        <div class="field"><label for="c-phone">Телефон</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
+        <div class="field"><label for="c-type">Тип жилья</label><select id="c-type" name="type"><option>Квартира</option><option>Частный дом</option></select></div>
+      </div>
+      <div class="field"><label for="c-addr">Адрес подключения</label><input id="c-addr" name="address" autocomplete="street-address" placeholder="Улица, дом, квартира" required></div>
+      <div class="field"><label for="c-plan">Тариф</label><select id="c-plan" name="plan"></select><span class="hint">Тарифы выше 100 Мбит/с — при технической возможности.</span></div>
+      <label class="check"><input type="checkbox" required checked> Согласен на обработку персональных данных</label>
+      <button class="btn btn-blue" type="submit">Отправить заявку</button>
+    </div>
+    <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-check"/></svg></span><h2>Заявка отправлена</h2><p class="sub" style="margin:0">Перезвоним в рабочее время: 09:00–18:00.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
+  </form>
+</dialog>
+
+<!-- ПОПАП: скорость выше 100 Мбит/с -->
+<dialog id="dlg-speed" aria-labelledby="t-speed">
+  <form class="modal" novalidate>
+    <div class="modal-head">
+      <div><h2 id="t-speed">Заявка на высокую скорость</h2><p class="sub">Проверим техническую возможность по вашему адресу.</p></div>
+      <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="form-body" style="display:flex;flex-direction:column;gap:14px">
+      <div class="field"><label for="s-speed">Желаемая скорость</label><select id="s-speed" name="speed"><option>до 200 Мбит/с</option><option>до 300 Мбит/с</option><option>до 500 Мбит/с (частный сектор)</option><option>[до 2000 Мбит/с — уточнить у заказчика]</option></select></div>
+      <div class="row2">
+        <div class="field"><label for="s-name">Имя</label><input id="s-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="s-phone">Телефон</label><input id="s-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
+      </div>
+      <div class="field"><label for="s-addr">Адрес</label><input id="s-addr" name="address" placeholder="Улица, дом, квартира" required></div>
+      <div class="field"><label for="s-contract">Номер договора</label><input id="s-contract" name="contract" inputmode="numeric"><span class="hint">Если вы уже наш абонент.</span></div>
+      <label class="check"><input type="checkbox" required checked> Согласен на обработку персональных данных</label>
+      <button class="btn btn-blue" type="submit">Отправить заявку</button>
+    </div>
+    <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-check"/></svg></span><h2>Заявка отправлена</h2><p class="sub" style="margin:0">Проверим адрес и перезвоним в рабочее время.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
+  </form>
+</dialog>
+
+<!-- ПОПАП: оплатить онлайн -->
+<dialog id="dlg-pay" aria-labelledby="t-pay">
+  <form class="modal" novalidate>
+    <div class="modal-head">
+      <div><h2 id="t-pay">Оплатить онлайн</h2><p class="sub">Банковской картой через ЮKassa. Вход в личный кабинет не нужен.</p></div>
+      <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="form-body" style="display:flex;flex-direction:column;gap:14px">
+      <div class="field"><label for="p-contract">Номер договора</label><input id="p-contract" name="contract" inputmode="numeric" required></div>
+      <div class="field"><label for="p-sum">Сумма, ₽</label><input id="p-sum" name="sum" inputmode="numeric" value="600" required></div>
+      <div class="sum-chips" aria-label="Быстрый выбор суммы"><button type="button" data-sum="600">600 ₽</button><button type="button" data-sum="850">850 ₽</button><button type="button" data-sum="1050">1050 ₽</button><button type="button" data-sum="2000">2000 ₽</button></div>
+      <button class="btn btn-blue" type="submit">Перейти к оплате</button>
+      <span class="hint" style="font-size:13px;color:var(--muted)">Абонентская плата списывается 1-го числа. Услуги предоставляются при положительном балансе.</span>
+    </div>
+    <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-card"/></svg></span><h2>Переходим к оплате</h2><p class="sub" style="margin:0">На продакшене здесь откроется платёжная форма ЮKassa.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
+  </form>
+</dialog>
+
+<!-- ПОПАП: карточка новости -->
+<dialog id="dlg-news" aria-labelledby="t-news">
+  <div class="modal news-full">
+    <div class="modal-head">
+      <div><time id="n-date"></time><h2 id="t-news" style="margin-top:6px"></h2></div>
+      <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="body" id="n-body"></div>
+    <a href="https://zhukovsky.net/news"><b>Все новости</b></a>
+  </div>
+</dialog>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
