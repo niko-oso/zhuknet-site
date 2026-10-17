@@ -507,3 +507,5 @@ form.sent .done{display:flex}
 }
 /* «Подключим интернет»: иллюстрация посередине между кнопками и нижним краем карточки */
 .cta-art{flex:1 1 auto;margin:calc(var(--cta-pad) - 20px) calc(-1 * var(--cta-pad)) 0}
+/* Баннер на мобильном: пара на диване по центру кадра, мужчина не обрезается */
+@media (max-width:600px){.hero-photo{object-position:88% center}}
