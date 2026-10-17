@@ -208,6 +208,8 @@ h2{font-size:clamp(30px,3.6vw,46px);line-height:1.08;font-weight:700}
 .footer nav b{color:#fff}
 .footer a{color:#C9D4FF;text-decoration:none}
 .footer a:hover{color:#fff}
+.footer .footer-tg{align-self:flex-start;display:inline-flex;color:#fff}
+.footer .footer-tg svg{display:block}
 .footer-bottom{border-top:1px solid #26336B;margin-top:48px;padding-top:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px;color:#9FAEE6}
 
 /* виджет чата (место под JivoSite) */
@@ -410,8 +412,8 @@ form.sent .done{display:flex}
   .steps.anim::before{clip-path:inset(0 0 100% 0)}
   .steps.anim.in::before{clip-path:inset(0 0 0 0)}
 }
-.tb-item{display:inline-flex;align-items:center;gap:6px}
-.tb-ico{flex:none;color:var(--blue)}
+.tb-item{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;line-height:1.2}
+.tb-ico{display:block;flex:none;color:var(--blue)}
 
 /* Иллюстрация «интернет приходит в дом» в карточке заявки */
 .cta-card{--cta-pad:clamp(32px,4.5vw,60px)}
@@ -447,7 +449,8 @@ form.sent .done{display:flex}
   .btn,.lk-btn,.tab,.to-top,.sum-chips button,.close{transition:transform .18s ease,background-color .15s ease,color .15s ease,opacity .25s ease,visibility .25s}
   .btn:hover,.lk-btn:hover,.tab:hover,.sum-chips button:hover,.close:hover,.to-top.show:hover{transform:scale(1.05)}
   .btn:active,.lk-btn:active,.tab:active{transform:scale(.97)}
-  .nav a,.topbar a,.tariffs-foot a,.news-head a,.info-row a,.footer a,.footer nav button,.brand{display:inline-block;transition:transform .18s ease,color .15s ease}
+  .nav a,.topbar a:not(.tb-item),.tariffs-foot a,.news-head a,.info-row a,.footer a,.footer nav button,.brand{display:inline-block;transition:transform .18s ease,color .15s ease}
+  .topbar .tb-item{transition:transform .18s ease,color .15s ease}
   .nav a:hover,.topbar a:hover,.tariffs-foot a:hover,.news-head a:hover,.info-row a:hover,.footer a:hover,.footer nav button:hover,.brand:hover{transform:scale(1.06)}
   .footer nav a,.footer nav button,.topbar a,.info-row a{transform-origin:left center}
   .footer nav a,.footer nav button{align-self:flex-start}
@@ -456,3 +459,26 @@ form.sent .done{display:flex}
   .quick-item:hover,.news-card:hover{transform:scale(1.02)}
   .extra:hover{transform:translateY(-4px) scale(1.02)}
 }
+
+/* Адаптив: правки по аудиту 320–1920 */
+/* Шапка: подпись «интернет-провайдер Жуковского» не помещается рядом с кнопками до ~760px, плашка «30 лет» — до 420px */
+@media (max-width:760px){.brand-tag span{display:none}}
+@media (max-width:420px){.brand-tag{display:none}}
+/* Тарифы: «₽ / мес» не переносится, крупная цена ужимается в узких колонках */
+.plan-price span{white-space:nowrap}
+@media (max-width:900px){.plan-price{flex-wrap:wrap;row-gap:0}}
+@media (min-width:901px){.plan-price b{font-size:clamp(40px,4.6vw,64px)}}
+@media (min-width:901px) and (max-width:1150px){.plans[data-plans="4"]{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1151px){.plans[data-plans="4"] .plan-price b{font-size:44px}.plans[data-plans="4"] .plan-speed{font-size:22px}}
+.tabs{max-width:100%}
+/* Длинные адреса не вылезают из карточек */
+.extra em,.info-row a{overflow-wrap:anywhere}
+.info-row > div{min-width:0}
+/* Попапы: длинный заголовок не выталкивает кнопку закрытия */
+.modal-head > div{min-width:0}
+.modal h2{overflow-wrap:break-word}
+@media (max-width:400px){.modal h2{font-size:20px}}
+/* Удобнее попадать пальцем по ссылкам в подвале и верхней полосе */
+@media (max-width:900px){.footer nav a,.footer nav button{padding:6px 0 !important}.footer nav{gap:4px}}
+@media (max-width:600px){.topbar .group a{padding:6px 0}.topbar .wrap{padding-top:4px;padding-bottom:4px}}
+@media (max-width:400px){.info-card{padding:24px 20px}.info-row b,.info-row a{font-size:15px}}

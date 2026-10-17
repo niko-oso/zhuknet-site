@@ -16,11 +16,12 @@
     var d = DATA[key];
     var featuredIdx = d.plans.length > 1 ? 1 : -1;
     plansEl.style.setProperty('--cols', Math.min(d.plans.length, 4) === 1 ? 2 : d.plans.length);
+    plansEl.dataset.plans = d.plans.length;
     plansEl.innerHTML = d.plans.map(function(p,i){
       var f = i === featuredIdx;
       var high = p.s > 100;
       return '<article class="plan'+(f?' featured':'')+'">' +
-        '<div class="plan-top"><div><div class="plan-name">«'+d.name+'»</div><div class="plan-speed">до <span class="count" data-to="'+p.s+'">'+p.s+'</span> Мбит/с</div></div>' +
+        '<div class="plan-top"><div><div class="plan-name">«'+d.name+'»</div><div class="plan-speed">до <span class="count" data-to="'+p.s+'">'+p.s+'</span>&nbsp;Мбит/&#8288;с</div></div>' +
         '</div>' +
         '<div class="meter" aria-hidden="true"><div class="meter-track"><div class="meter-fill" data-w="'+(p.s/MAX*100)+'%"></div></div><div class="meter-scale"><span>0</span><span>500 Мбит/с</span></div></div>' +
         '<div class="plan-price"><b class="count" data-to="'+p.p+'">'+p.p.toLocaleString('ru-RU')+'</b><span>₽ / мес</span></div>' +
@@ -58,7 +59,7 @@
   function countUp(root){
     if (noMotion) return;
     var els = root.querySelectorAll('.count');
-    if (!seen){ els.forEach(function(el){ el.textContent = '0'; }); return; }
+    if (!seen) return; // до первого показа держим реальные цифры, чтобы никто не увидел «0 ₽»
     els.forEach(function(el, i){
       var to = +el.dataset.to, start = null, dur = 1300, delay = i * 60;
       el.textContent = '0';
@@ -111,7 +112,7 @@
   if (!noMotion && 'IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       if (entries[0].isIntersecting){ seen = true; countUp(plansEl); io.disconnect(); }
-    }, {threshold: 0.35});
+    }, {threshold: 0, rootMargin: '0px 0px -30% 0px'}); // процентный порог не срабатывает на высоких блоках и низких экранах
     io.observe(plansEl);
   } else { seen = true; plansEl.querySelectorAll('.count').forEach(function(el){ el.textContent = fmt(+el.dataset.to); }); }
 
