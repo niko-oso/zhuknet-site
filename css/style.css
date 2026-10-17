@@ -482,3 +482,28 @@ form.sent .done{display:flex}
 @media (max-width:900px){.footer nav a,.footer nav button{padding:6px 0 !important}.footer nav{gap:4px}}
 @media (max-width:600px){.topbar .group a{padding:6px 0}.topbar .wrap{padding-top:4px;padding-bottom:4px}}
 @media (max-width:400px){.info-card{padding:24px 20px}.info-row b,.info-row a{font-size:15px}}
+
+/* Мобильная версия: правки по замечаниям */
+@media (max-width:900px){
+  /* стрелочки у всех карточек тарифов смотрят вниз */
+  .plan.featured::after{top:auto;bottom:-14px}
+  /* заголовок первого экрана крупнее */
+  .hero h1 span{font-size:clamp(28px,5.4vw,40px)}
+  /* «Как подключиться»: кнопка под последним шагом */
+  #connect .wrap{display:flex;flex-direction:column}
+  #connect .tariffs-head{display:contents}
+  #connect .tariffs-head .btn{order:2;align-self:flex-start;margin:32px 0 0 80px}
+}
+@media (max-width:600px){
+  /* табы тарифов в одну строку */
+  .tabs{display:flex;flex-wrap:nowrap;width:100%}
+  .tab{flex:1 1 auto;padding:0 8px;font-size:14px;white-space:nowrap}
+  /* блок «30 лет»: цифра меньше, белые карточки шире */
+  .why{padding:32px 12px}
+  .why > div:nth-child(2){padding:0 12px}
+  .why .big{font-size:84px}
+  .why .big small{font-size:20px;margin-top:14px}
+  .why-card{padding:20px}
+}
+/* «Подключим интернет»: иллюстрация посередине между кнопками и нижним краем карточки */
+.cta-art{flex:1 1 auto;margin:calc(var(--cta-pad) - 20px) calc(-1 * var(--cta-pad)) 0}
