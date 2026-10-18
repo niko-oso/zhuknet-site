@@ -208,8 +208,6 @@ h2{font-size:clamp(30px,3.6vw,46px);line-height:1.08;font-weight:700}
 .footer nav b{color:#fff}
 .footer a{color:#C9D4FF;text-decoration:none}
 .footer a:hover{color:#fff}
-.footer .footer-tg{align-self:flex-start;display:inline-flex;color:#fff}
-.footer .footer-tg svg{display:block}
 .footer-bottom{border-top:1px solid #26336B;margin-top:48px;padding-top:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px;color:#9FAEE6}
 
 /* виджет чата (место под JivoSite) */
@@ -412,13 +410,15 @@ form.sent .done{display:flex}
   .steps.anim::before{clip-path:inset(0 0 100% 0)}
   .steps.anim.in::before{clip-path:inset(0 0 0 0)}
 }
-.tb-item{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;line-height:1.2}
-.tb-ico{display:block;flex:none;color:var(--blue)}
+.tb-item{display:inline-flex;align-items:center;gap:6px}
+.tb-ico{flex:none;color:var(--blue)}
 
 /* Иллюстрация «интернет приходит в дом» в карточке заявки */
 .cta-card{--cta-pad:clamp(32px,4.5vw,60px)}
 .cta-card .cta-row{margin-top:0}
-.cta-art{position:relative;display:block;width:calc(100% + 2 * var(--cta-pad));max-width:none;height:auto;margin:4px calc(-1 * var(--cta-pad)) calc(-1 * var(--cta-pad));pointer-events:none}
+.cta-art{position:relative;display:block;width:calc(100% + 2 * var(--cta-pad));max-width:none;height:auto;margin:auto calc(-1 * var(--cta-pad));pointer-events:none}
+.cta-card{padding-bottom:20px}
+.cta-art{overflow:visible}
 .cta-strands path{fill:none;stroke:rgba(201,212,255,.38);stroke-width:1.8}
 .cta-pulses path{fill:none;stroke:url(#ctaPulse);stroke-width:3;stroke-linecap:round;stroke-dasharray:12 88;stroke-dashoffset:100;opacity:0;filter:drop-shadow(0 0 4px rgba(127,227,255,.9))}
 .cta-house path{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
@@ -438,10 +438,8 @@ form.sent .done{display:flex}
 
 /* Широкие экраны: картинка баннера целиком над плашкой быстрого доступа */
 @media (min-width:1151px){
-  .hero-visual{bottom:84px}
-  .hero-photo{position:absolute;top:0;right:0;width:auto;height:100%;max-width:none;object-fit:contain;
-    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%),linear-gradient(to top,transparent 0,#000 12%);-webkit-mask-composite:source-in;
-    mask-image:linear-gradient(to right,transparent 0,#000 14%),linear-gradient(to top,transparent 0,#000 12%);mask-composite:intersect}
+  .hero-photo{position:absolute;top:calc((100% - 100px) * -0.05);right:0;width:auto;height:calc((100% - 100px) * 1.25);max-width:none;object-fit:contain;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%);mask-image:linear-gradient(to right,transparent 0,#000 14%)}
 }
 
 /* Лёгкое увеличение кнопок и ссылок при наведении */
@@ -449,8 +447,8 @@ form.sent .done{display:flex}
   .btn,.lk-btn,.tab,.to-top,.sum-chips button,.close{transition:transform .18s ease,background-color .15s ease,color .15s ease,opacity .25s ease,visibility .25s}
   .btn:hover,.lk-btn:hover,.tab:hover,.sum-chips button:hover,.close:hover,.to-top.show:hover{transform:scale(1.05)}
   .btn:active,.lk-btn:active,.tab:active{transform:scale(.97)}
-  .nav a,.topbar a:not(.tb-item),.tariffs-foot a,.news-head a,.info-row a,.footer a,.footer nav button,.brand{display:inline-block;transition:transform .18s ease,color .15s ease}
-  .topbar .tb-item{transition:transform .18s ease,color .15s ease}
+  .nav a,.topbar a,.tariffs-foot a,.news-head a,.info-row a,.footer a,.footer nav button,.brand{display:inline-block;transition:transform .18s ease,color .15s ease}
+  .topbar a.tb-item{display:inline-flex}
   .nav a:hover,.topbar a:hover,.tariffs-foot a:hover,.news-head a:hover,.info-row a:hover,.footer a:hover,.footer nav button:hover,.brand:hover{transform:scale(1.06)}
   .footer nav a,.footer nav button,.topbar a,.info-row a{transform-origin:left center}
   .footer nav a,.footer nav button{align-self:flex-start}
@@ -460,54 +458,7 @@ form.sent .done{display:flex}
   .extra:hover{transform:translateY(-4px) scale(1.02)}
 }
 
-/* Адаптив: правки по аудиту 320–1920 */
-/* Шапка: подпись «интернет-провайдер Жуковского» не помещается рядом с кнопками до ~760px, плашка «30 лет» — до 420px */
-@media (max-width:760px){.brand-tag span{display:none}}
-@media (max-width:420px){.brand-tag{display:none}}
-/* Тарифы: «₽ / мес» не переносится, крупная цена ужимается в узких колонках */
-.plan-price span{white-space:nowrap}
-@media (max-width:900px){.plan-price{flex-wrap:wrap;row-gap:0}}
-@media (min-width:901px){.plan-price b{font-size:clamp(40px,4.6vw,64px)}}
-@media (min-width:901px) and (max-width:1150px){.plans[data-plans="4"]{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (min-width:1151px){.plans[data-plans="4"] .plan-price b{font-size:44px}.plans[data-plans="4"] .plan-speed{font-size:22px}}
-.tabs{max-width:100%}
-/* Длинные адреса не вылезают из карточек */
-.extra em,.info-row a{overflow-wrap:anywhere}
-.info-row > div{min-width:0}
-/* Попапы: длинный заголовок не выталкивает кнопку закрытия */
-.modal-head > div{min-width:0}
-.modal h2{overflow-wrap:break-word}
-@media (max-width:400px){.modal h2{font-size:20px}}
-/* Удобнее попадать пальцем по ссылкам в подвале и верхней полосе */
-@media (max-width:900px){.footer nav a,.footer nav button{padding:6px 0 !important}.footer nav{gap:4px}}
-@media (max-width:600px){.topbar .group a{padding:6px 0}.topbar .wrap{padding-top:4px;padding-bottom:4px}}
-@media (max-width:400px){.info-card{padding:24px 20px}.info-row b,.info-row a{font-size:15px}}
-
-/* Мобильная версия: правки по замечаниям */
-@media (max-width:900px){
-  /* стрелочки у всех карточек тарифов смотрят вниз */
-  .plan.featured::after{top:auto;bottom:-14px}
-  /* заголовок первого экрана крупнее */
-  .hero h1 span{font-size:clamp(28px,5.4vw,40px)}
-  /* «Как подключиться»: кнопка под последним шагом */
-  #connect .wrap{display:flex;flex-direction:column}
-  #connect .tariffs-head{display:contents}
-  #connect .tariffs-head .btn{order:2;align-self:flex-start;margin:32px 0 0 80px}
-}
-@media (max-width:600px){
-  /* табы тарифов в одну строку */
-  .tabs{display:flex;flex-wrap:nowrap;width:100%}
-  .tab{flex:1 1 auto;padding:0 8px;font-size:14px;white-space:nowrap}
-  /* блок «30 лет»: цифра меньше, белые карточки шире */
-  .why{padding:32px 12px}
-  .why > div:nth-child(2){padding:0 12px}
-  .why .big{font-size:84px}
-  .why .big small{font-size:20px;margin-top:14px}
-  .why-card{padding:20px}
-}
-/* «Подключим интернет»: иллюстрация посередине между кнопками и нижним краем карточки */
-.cta-art{flex:1 1 auto;margin:calc(var(--cta-pad) - 20px) calc(-1 * var(--cta-pad)) 0}
-/* Баннер на мобильном: пара на диване по центру кадра, мужчина не обрезается */
-@media (max-width:600px){.hero-photo{object-position:88% center}}
-/* Тарифы на мобильном: расстояние от табов до карточек вдвое меньше (было 48 + 16 = 64px, стало 32px) */
-@media (max-width:600px){#tariffs .tariffs-head{margin-bottom:16px}}
+/* Иконка Telegram в подвале (из локальной версии) */
+.footer-tg{align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.08);color:#fff}
+.footer-tg:hover{background:var(--blue);color:#fff}
+.footer .footer-tg{display:inline-flex;color:#fff}
