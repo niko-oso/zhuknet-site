@@ -1288,3 +1288,20 @@ button.extra{font:inherit;text-align:left;border:0;cursor:pointer;width:100%}
 }
 @media (min-width:601px) and (max-height:700px){.doc{padding:12px 16px}}
 @media (max-width:600px){.m-hide{display:none}}
+
+/* Тарифы: «Договор и документы» — аккуратная кнопка-таблетка (iOS не подставляет свой серый фон) */
+.tf-btn{-webkit-appearance:none;appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;flex:none;min-height:44px;padding:0 20px 0 16px;border:0;border-radius:999px;background:var(--ice);color:var(--navy);font:inherit;font-size:15px;font-weight:700;line-height:1;white-space:nowrap;cursor:pointer;transition:background-color .2s ease,color .2s ease}
+.tf-btn svg{flex:none;display:block;width:20px;height:20px;color:var(--blue);transition:color .2s ease}
+.tf-btn:hover,.tf-btn:focus-visible{background:var(--blue);color:#fff}
+.tf-btn:hover svg,.tf-btn:focus-visible svg{color:#fff}
+.tariffs-foot{align-items:center}
+@media (max-width:600px){.tariffs-foot .tf-btn{align-self:flex-start}}
+/* Документы: сброс системных стилей списка и ссылок (iOS) */
+.doc-list li{margin:0;padding:0}
+.doc,.doc *{text-decoration:none}
+.doc-ico i{font-style:normal}
+/* «Договор и документы»: снова ссылка (без фона), иконка ровно по центру текста */
+.tf-btn{min-height:44px;padding:0;gap:8px;border-radius:0;background:none;color:var(--blue)}
+.tf-btn svg{width:18px;height:18px;color:currentColor}
+.tf-btn:hover,.tf-btn:focus-visible{background:none;color:var(--navy)}
+.tf-btn:hover svg,.tf-btn:focus-visible svg{color:currentColor}
