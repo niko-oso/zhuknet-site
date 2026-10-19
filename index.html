@@ -38,6 +38,7 @@
   <symbol id="i-gift" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="5" rx="1.5"/><path d="M5 13v7h14v-7M12 8v12M12 8S10.5 3.5 8 4.2C5.8 4.8 7 8 12 8zm0 0s1.5-4.5 4-3.8C18.2 4.8 17 8 12 8z"/></g></symbol>
   <symbol id="i-bank" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><path d="M9.5 9.5l2 2 3.5-3.5"/></g></symbol>
   <symbol id="i-office" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9.5 21v-6h5v6"/></g></symbol>
+  <symbol id="i-file" viewBox="0 0 40 48"><path d="M7 1h19l13 13v28a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V6a5 5 0 0 1 5-5z" fill="currentColor"/><path d="M26 1v8a5 5 0 0 0 5 5h8z" fill="#fff" fill-opacity=".45"/></symbol>
   <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></g></symbol>
   <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
 </svg>
@@ -141,7 +142,7 @@
 
     <div class="tariffs-foot">
       <span id="plans-foot">Абонентская плата списывается 1-го числа месяца. Реальный IP-адрес — 200 ₽/мес. Тарифы для физических лиц.</span>
-      <a href="#docs"><b>Договор и документы</b></a>
+      <button class="tf-btn" type="button" data-open="docs"><svg width="18" height="18" aria-hidden="true"><use href="#i-doc"/></svg>Договор и документы</button>
     </div>
 
     <div class="high-speed">
@@ -501,7 +502,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2006–2026 ZHUKNET · ООО «Телесервис»</span>
-      <a href="files/pers.pdf">Политика обработки персональных данных</a>
+      <a href="files/pers.pdf" target="_blank" rel="noopener">Политика обработки персональных данных</a>
     </div>
   </div>
 </footer>
@@ -561,7 +562,7 @@
         <div class="field"><label for="c-by">Кем выдан</label><input id="c-by" name="kev_vidan" placeholder="Как указано в паспорте" required></div>
         <label class="check"><input type="checkbox" id="c-same" checked> Адрес регистрации совпадает с адресом подключения</label>
         <div class="field" id="c-reg-f" hidden><label for="c-reg">Адрес регистрации</label><input id="c-reg" name="address_reg" placeholder="Город, улица, дом, квартира"></div>
-        <label class="check"><input type="checkbox" required checked> Согласен на обработку персональных данных. Они нужны только для оформления договора.</label>
+        <label class="check"><input type="checkbox" required checked> <span>Согласен на обработку <a href="files/pers.pdf" target="_blank" rel="noopener">персональных данных</a>. Они нужны только для оформления договора.</span></label>
         <div class="fstep-nav"><button class="btn btn-white" type="button" data-step-back>Назад</button><button class="btn btn-blue" type="submit">Отправить</button></div>
       </fieldset>
     </div>
@@ -584,7 +585,7 @@
       </div>
       <div class="field"><label for="s-addr">Адрес</label><input id="s-addr" name="address" placeholder="Улица, дом, квартира" required></div>
       <div class="field"><label for="s-contract">Номер договора</label><input id="s-contract" name="contract" inputmode="numeric"><span class="hint">Если вы уже наш абонент.</span></div>
-      <label class="check"><input type="checkbox" required checked> Согласен на обработку персональных данных</label>
+      <label class="check"><input type="checkbox" required checked> <span>Согласен на обработку <a href="files/pers.pdf" target="_blank" rel="noopener">персональных данных</a></span></label>
       <button class="btn btn-blue" type="submit">Отправить заявку</button>
     </div>
     <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-check"/></svg></span><h2>Заявка отправлена</h2><p class="sub" style="margin:0">Проверим адрес и перезвоним в рабочее время.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
@@ -608,7 +609,7 @@
         <div class="field"><label for="ip-goal">Для чего нужен</label><select id="ip-goal" name="goal"><button type="button"><selectedcontent></selectedcontent></button><option>Видеонаблюдение</option><option>Удалённый доступ</option><option>Сервер или NAS</option><option>Другое</option></select></div>
       </div>
       <span class="hint" style="font-size:13px;color:var(--muted)">Ещё не абонент? Сначала <button class="link-btn" type="button" data-open="connect">оформите договор</button> — IP-адрес добавим при подключении.</span>
-      <label class="check"><input type="checkbox" required checked> Согласен на обработку персональных данных</label>
+      <label class="check"><input type="checkbox" required checked> <span>Согласен на обработку <a href="files/pers.pdf" target="_blank" rel="noopener">персональных данных</a></span></label>
       <button class="btn btn-blue" type="submit">Отправить заявку</button>
     </div>
     <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-check"/></svg></span><h2>Заявка отправлена</h2><p class="sub" style="margin:0">Перезвоним в рабочее время абонентского отдела (<span class="nw">пн–пт 9:00–18:00,</span> <span class="nw">сб 10:00–17:00),</span> чтобы подтвердить подключение.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
@@ -650,11 +651,32 @@
         <div class="field"><label for="q-contract">Номер договора</label><input id="q-contract" name="contract" inputmode="numeric" placeholder="Если вы абонент"></div>
       </div>
       <div class="field"><label for="q-text">Вопрос</label><textarea id="q-text" name="question" rows="4" required></textarea><span class="hint">Пропал интернет? Быстрее позвонить: <a href="tel:84984835700">8 (498) 48-3-57-00</a></span></div>
-      <label class="check"><input type="checkbox" required checked> Согласен на обработку персональных данных</label>
+      <label class="check"><input type="checkbox" required checked> <span>Согласен на обработку <a href="files/pers.pdf" target="_blank" rel="noopener">персональных данных</a></span></label>
       <button class="btn btn-blue" type="submit">Отправить вопрос</button>
     </div>
     <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-check"/></svg></span><h2>Вопрос отправлен</h2><p class="sub" style="margin:0">Перезвоним в рабочее время абонентского отдела: пн–пт 9:00–18:00, сб 10:00–17:00.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
   </form>
+</dialog>
+
+<!-- ПОПАП: договор и документы -->
+<dialog id="dlg-docs" aria-labelledby="t-docs">
+  <div class="modal info-modal">
+    <div class="modal-head">
+      <div><h2 id="t-docs">Договор и документы</h2><p class="sub">Ознакомьтесь заранее: договор можно заключить онлайн или в абонентском отделе на ул.&nbsp;Гагарина,&nbsp;48.</p></div>
+      <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
+    </div>
+    <ul class="doc-list">
+      <li><a class="doc" href="files/dog_fiz.doc" download><span class="doc-ico doc-word"><svg width="40" height="48" aria-hidden="true"><use href="#i-file"/></svg><i>DOC</i></span><span class="doc-txt"><b>Договор для физических лиц</b><small>DOC · 92 КБ</small></span></a></li>
+      <li><a class="doc" href="files/dog_yur_new.doc" download><span class="doc-ico doc-word"><svg width="40" height="48" aria-hidden="true"><use href="#i-file"/></svg><i>DOC</i></span><span class="doc-txt"><b>Договор для юридических лиц</b><small>DOC · 113 КБ</small></span></a></li>
+      <li><a class="doc" href="files/reglament.doc" download><span class="doc-ico doc-word"><svg width="40" height="48" aria-hidden="true"><use href="#i-file"/></svg><i>DOC</i></span><span class="doc-txt"><b>Регламент оказания услуг</b><small>DOC · 62 КБ</small></span></a></li>
+      <li><a class="doc" href="files/dog_smotreshka.doc" download><span class="doc-ico doc-word"><svg width="40" height="48" aria-hidden="true"><use href="#i-file"/></svg><i>DOC</i></span><span class="doc-txt"><b>Договор ТВ «Смотрёшка»</b><small>DOC · 88 КБ</small></span></a></li>
+      <li><a class="doc" href="files/pers.pdf" target="_blank" rel="noopener"><span class="doc-ico doc-pdf"><svg width="40" height="48" aria-hidden="true"><use href="#i-file"/></svg><i>PDF</i></span><span class="doc-txt"><b>Политика обработки персональных данных</b><small>PDF · 2,6 МБ · откроется в новой вкладке</small></span></a></li>
+    </ul>
+    <div class="info-actions">
+      <button class="btn btn-white" type="button" data-close>Закрыть</button>
+      <button class="btn btn-blue" type="button" data-open="connect">Заключить<span class="m-hide"> договор</span> онлайн</button>
+    </div>
+  </div>
 </dialog>
 
 <!-- ПОПАП: условия акции «Приведи друга» -->
