@@ -1305,3 +1305,55 @@ button.extra{font:inherit;text-align:left;border:0;cursor:pointer;width:100%}
 .tf-btn svg{width:18px;height:18px;color:currentColor}
 .tf-btn:hover,.tf-btn:focus-visible{background:none;color:var(--navy)}
 .tf-btn:hover svg,.tf-btn:focus-visible svg{color:currentColor}
+/* Кнопки в карточках оплаты и новостей: контурные (синяя рамка 2px), при наведении — заливка */
+.pay-card em,.news-card .more{background:transparent;box-shadow:inset 0 0 0 2px var(--blue);color:var(--navy)}
+.pay-card:hover em,.pay-card:focus-visible em,.news-card:hover .more,.news-card:focus-visible .more{background:var(--blue);box-shadow:inset 0 0 0 2px var(--blue);color:#fff}
+/* на синей и тёмной карточках остаётся белая заливка */
+.pay-main em,.news-card.lead-news .more{background:#fff;box-shadow:none;color:var(--navy)}
+.pay-main:hover em,.pay-main:focus-visible em,.news-card.lead-news:hover .more,.news-card.lead-news:focus-visible .more{background:var(--ice);box-shadow:none;color:var(--navy)}
+/* Кнопки в карточках оплаты и новостей: светлая подложка фирменного синего, синий текст; при наведении — заливка */
+.pay-card em,.news-card .more{background:rgba(10,20,255,.1);box-shadow:none;color:var(--blue)}
+.pay-card:hover em,.pay-card:focus-visible em,.news-card:hover .more,.news-card:focus-visible .more{background:var(--blue);box-shadow:none;color:#fff}
+.pay-main em,.news-card.lead-news .more{background:#fff;color:var(--navy)}
+.pay-main:hover em,.pay-main:focus-visible em,.news-card.lead-news:hover .more,.news-card.lead-news:focus-visible .more{background:var(--ice);color:var(--navy)}
+/* Кнопки в карточках оплаты и новостей: белые с мягкой тенью — «приподняты» над карточкой */
+.pay-card em,.news-card .more{background:#fff;color:var(--navy);box-shadow:0 1px 2px rgba(12,22,64,.08),0 8px 18px -8px rgba(12,22,64,.28);transition:background-color .2s ease,color .2s ease,box-shadow .2s ease}
+.pay-card:hover em,.pay-card:focus-visible em,.news-card:hover .more,.news-card:focus-visible .more{background:var(--blue);color:#fff;box-shadow:0 10px 22px -8px rgba(10,20,255,.55)}
+.pay-main em,.news-card.lead-news .more{background:#fff;color:var(--navy);box-shadow:0 8px 18px -8px rgba(4,8,60,.45)}
+.pay-main:hover em,.pay-main:focus-visible em,.news-card.lead-news:hover .more,.news-card.lead-news:focus-visible .more{background:var(--ice);color:var(--navy);box-shadow:0 8px 18px -8px rgba(4,8,60,.45)}
+/* Кнопки в карточках оплаты и новостей: белые без тени, с тонкой обводкой */
+.pay-card em,.news-card .more{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1.5px rgba(12,22,64,.14)}
+.pay-card:hover em,.pay-card:focus-visible em,.news-card:hover .more,.news-card:focus-visible .more{background:var(--blue);color:#fff;box-shadow:inset 0 0 0 1.5px var(--blue)}
+.pay-main em,.news-card.lead-news .more{background:#fff;color:var(--navy);box-shadow:none}
+.pay-main:hover em,.pay-main:focus-visible em,.news-card.lead-news:hover .more,.news-card.lead-news:focus-visible .more{background:var(--ice);color:var(--navy);box-shadow:none}
+/* «ТВ и другие услуги»: кнопки как в оплате и новостях — белые с тонкой обводкой */
+.extra .extra-btn{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1.5px rgba(10,20,255,.22)}
+.extra:hover .extra-btn,.extra:focus-visible .extra-btn{background:var(--blue);color:#fff;box-shadow:inset 0 0 0 1.5px var(--blue)}
+/* Кнопки услуг и «Войти» в шапке — в стиле плашек иконок: светло-голубой фон, синий цвет, скругление 14px */
+.extra .extra-btn{border-radius:14px;background:var(--ice);color:var(--blue);box-shadow:none}
+.extra:hover .extra-btn,.extra:focus-visible .extra-btn{background:var(--blue);color:#fff;box-shadow:none}
+.lk-btn{border-radius:14px;background:var(--ice);color:var(--blue)}
+.lk-btn:hover,.lk-btn:focus-visible{background:var(--blue);color:#fff}
+/* Кнопки карточек оплаты и новостей: обводка ещё мягче + шеврон-«галочка» справа */
+.pay-card em,.news-card .more{--chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E");gap:6px;padding-right:14px;box-shadow:inset 0 0 0 1.5px rgba(12,22,64,.08)}
+.pay-card em::after,.news-card .more::after{content:"";flex:none;width:16px;height:16px;background:currentColor;-webkit-mask:var(--chev) center/contain no-repeat;mask:var(--chev) center/contain no-repeat;transition:translate .2s ease}
+.pay-card:hover em::after,.pay-card:focus-visible em::after,.news-card:hover .more::after,.news-card:focus-visible .more::after{translate:2px 0}
+.pay-main em,.news-card.lead-news .more{box-shadow:none}
+.pay-card:hover em,.pay-card:focus-visible em,.news-card:hover .more,.news-card:focus-visible .more{box-shadow:inset 0 0 0 1.5px var(--blue)}
+.pay-main:hover em,.pay-main:focus-visible em,.news-card.lead-news:hover .more,.news-card.lead-news:focus-visible .more{box-shadow:none}
+@media (max-width:600px){.pay-card em,.news-card .more{padding-right:12px}}
+/* Кнопки карточек оплаты и новостей: без обводки */
+.pay-card em,.news-card .more,.pay-card:hover em,.pay-card:focus-visible em,.news-card:hover .more,.news-card:focus-visible .more{box-shadow:none}
+/* Кнопки карточек оплаты и новостей: синий текст и стрелка */
+.pay-card em,.news-card .more,.pay-main em,.news-card.lead-news .more,.pay-main:hover em,.pay-main:focus-visible em,.news-card.lead-news:hover .more,.news-card.lead-news:focus-visible .more{color:var(--blue)}
+.pay-card:not(.pay-main):hover em,.pay-card:not(.pay-main):focus-visible em,.news-card:not(.lead-news):hover .more,.news-card:not(.lead-news):focus-visible .more{color:#fff}
+/* Попап новостей: «Предыдущая» — светло-голубая, «Следующая» — синяя */
+.news-pager .btn-white{background:var(--ice);color:var(--blue)}
+.news-pager .btn-white:not(:disabled):hover,.news-pager .btn-white:not(:disabled):focus-visible{background:var(--blue);color:#fff}
+.news-pager .btn:disabled:hover{transform:none}
+/* Единое скругление кнопок — 50px */
+.btn,.icon-btn,.tab,.sum-chips button,.lk-btn,.extra .extra-btn,.pay-card em,.news-card .more{border-radius:50px}
+/* Попап новостей: кнопки отделены от текста и прижаты влево */
+.news-pager{margin-top:calc(var(--sec) - var(--fg) + 20px)}
+@media (min-width:601px){.news-pager{justify-content:flex-start}}
+@media (max-width:600px){.news-pager{margin-top:auto;padding-top:20px}}
