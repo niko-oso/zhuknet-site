@@ -99,7 +99,7 @@
     }, {threshold: 0.35});
     ob.observe(s);
   })();
-  // Анимация большой цифры «30» при появлении блока
+  // Анимация большой цифры «20» при появлении блока
   (function(){
     var el = document.querySelector('.big-num');
     if (!el || noMotion || !('IntersectionObserver' in window)) return;
@@ -157,10 +157,23 @@
     mobile.addEventListener('change', function(){ setMenu(false); });
   })();
 
+  // Пошаговая форма (онлайн-договор): показываем шаг n, остальные прячем
+  function goStep(f, n){
+    var steps = f.querySelectorAll('.fstep');
+    steps.forEach(function(s, i){ s.hidden = i !== n; });
+    f.querySelectorAll('.fsteps li').forEach(function(li, i){
+      li.classList.toggle('on', i <= n);
+      if (i === n) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current');
+    });
+    f.dataset.step = n;
+  }
+  function curStep(f){ return +(f.dataset.step || 0); }
+
   // попапы
   function open(id, opts){
     var d = document.getElementById('dlg-'+id);
     var f = d.querySelector('form'); if (f) f.classList.remove('sent');
+    if (f && f.hasAttribute('data-steps')) goStep(f, 0);
     if (opts && opts.plan && id==='connect') planSel.value = opts.plan;
     if (opts && opts.plan && id==='speed') {
       var sp = d.querySelector('#s-speed');
@@ -170,7 +183,10 @@
   }
   document.addEventListener('click', function(e){
     var o = e.target.closest('[data-open]');
-    if (o){ open(o.dataset.open, {plan:o.dataset.plan}); return; }
+    if (o){
+      var od = o.closest('dialog'); if (od) od.close(); // переход из попапа в попап — без наложения
+      open(o.dataset.open, {plan:o.dataset.plan}); return;
+    }
     var c = e.target.closest('[data-close]');
     if (c){ c.closest('dialog').close(); return; }
     var s = e.target.closest('[data-sum]');
@@ -178,30 +194,116 @@
     if (e.target.tagName === 'DIALOG') e.target.close(); // клик по фону
   });
   document.querySelectorAll('dialog form').forEach(function(f){
+    var stepped = f.hasAttribute('data-steps');
     f.addEventListener('submit', function(e){
       e.preventDefault();
-      var bad = [].filter.call(f.querySelectorAll('[required]'), function(i){ return i.type==='checkbox' ? !i.checked : !i.value.trim(); });
+      // в пошаговой форме проверяем только видимый шаг
+      var scope = stepped ? f.querySelectorAll('.fstep')[curStep(f)] : f;
+      var bad = [].filter.call(scope.querySelectorAll('input,select,textarea'), function(i){
+        if (i.disabled || i.closest('[hidden]')) return false;
+        if (i.type === 'checkbox') return i.required && !i.checked;
+        var v = i.value.trim();
+        if (!v) return i.required;
+        return i.pattern && !new RegExp('^(?:' + i.pattern + ')$').test(v);
+      });
       f.querySelectorAll('input,select,textarea').forEach(function(i){ i.style.borderColor=''; });
       if (bad.length){ bad.forEach(function(i){ i.style.borderColor='#D93636'; }); bad[0].focus(); return; }
+      if (stepped && curStep(f) < f.querySelectorAll('.fstep').length - 1){
+        goStep(f, curStep(f) + 1);
+        var first = f.querySelectorAll('.fstep')[curStep(f)].querySelector('input:not([type=checkbox])');
+        if (first) first.focus();
+        return;
+      }
       f.classList.add('sent'); // здесь — отправка в CRM заказчика
+    });
+    if (stepped) f.addEventListener('click', function(e){
+      if (e.target.closest('[data-step-back]')) goStep(f, Math.max(curStep(f) - 1, 0));
     });
   });
 
-  // новости
-  var NEWS = [
-    {d:'11 июня 2026', t:'График работы в День России', b:'Уважаемые абоненты! Абонентский отдел Zhukovsky.Net в праздничные дни работает по следующему графику:\n12 июня — выходной.\n13 июня — с 09:00 до 15:00.\nС 14 июня — по обычному графику.\n\nТехническая поддержка:\n12 июня — с 09:00 до 18:00.\n13 июня — с 09:00 до 20:00.\nС 14 июня — по обычному графику.'},
-    {d:'27 мая 2026', t:'Обновление тарифных планов', b:'Уважаемые абоненты!\nОператор связи ZHUKNET (ООО «Телесервис») уведомляет, что с 1 июля 2026 года для физических лиц проводится индексация всех базовых тарифных планов на интернет-услуги, включая действующие и архивные.\n\nАктуальные тарифы — в разделе «Тарифы».'},
-    {d:'29 апреля 2026', t:'График работы в майские праздники', b:'Абонентский отдел:\n30 апреля — с 09:00 до 16:00.\n1 мая — выходной.\n2–7 мая — по рабочему графику.\n8 мая — с 09:00 до 16:00.\n9–10 мая — выходные.\n11 мая — с 09:00 до 16:00.\n\nТехническая поддержка:\n30 апреля — с 09:00 до 20:00.\n1 мая — с 09:00 до 18:00.\n2–8 мая — по рабочему графику.\n9 мая — с 09:00 до 18:00.\n10–11 мая — с 09:00 до 20:00.'}
-  ];
-  document.querySelectorAll('[data-news]').forEach(function(b){
-    b.addEventListener('click', function(){
-      var n = NEWS[+b.dataset.news];
-      document.getElementById('n-date').textContent = n.d;
-      document.getElementById('t-news').textContent = n.t;
-      document.getElementById('n-body').textContent = n.b;
-      document.getElementById('dlg-news').showModal();
+  // Онлайн-договор: квартира не нужна для частного дома, адрес регистрации — только если отличается
+  (function(){
+    var type = document.getElementById('c-type'), flatF = document.getElementById('c-flat-f');
+    var same = document.getElementById('c-same'), regF = document.getElementById('c-reg-f');
+    if (!type || !same) return;
+    function syncFlat(){
+      var house = type.value === 'Частный дом';
+      flatF.hidden = house; flatF.querySelector('input').required = !house;
+    }
+    function syncReg(){ regF.hidden = same.checked; regF.querySelector('input').required = !same.checked; }
+    type.addEventListener('change', syncFlat); same.addEventListener('change', syncReg);
+    syncFlat(); syncReg();
+  })();
+
+  // Маски: даты ДД.ММ.ГГГГ и только цифры (серия, номер паспорта)
+  document.querySelectorAll('[data-mask]').forEach(function(i){
+    i.addEventListener('input', function(){
+      var d = i.value.replace(/\D/g, '');
+      if (i.dataset.mask === 'date'){
+        d = d.slice(0, 8);
+        i.value = d.length > 4 ? d.slice(0,2)+'.'+d.slice(2,4)+'.'+d.slice(4) : d.length > 2 ? d.slice(0,2)+'.'+d.slice(2) : d;
+      } else i.value = d;
     });
   });
+
+  // Новости: новые — сверху массива. dt — дата для <time>, s — анонс на карточке, b — полный текст в попапе
+  var NEWS = [
+    {dt:'2026-06-11', d:'11 июня 2026', t:'График работы в День России', s:'Абонентский отдел и техподдержка в праздничные дни работают по особому графику.', b:'Уважаемые абоненты! Абонентский отдел Zhukovsky.Net в праздничные дни работает по следующему графику:\n12 июня — выходной.\n13 июня — с 09:00 до 15:00.\nС 14 июня — по обычному графику.\n\nТехническая поддержка:\n12 июня — с 09:00 до 18:00.\n13 июня — с 09:00 до 20:00.\nС 14 июня — по обычному графику.'},
+    {dt:'2026-05-27', d:'27 мая 2026', t:'Обновление тарифных планов', s:'С 1 июля 2026 года проводится индексация базовых тарифов для физических лиц.', b:'Уважаемые абоненты!\nОператор связи ZHUKNET (ООО «Телесервис») уведомляет, что с 1 июля 2026 года для физических лиц проводится индексация всех базовых тарифных планов на интернет-услуги, включая действующие и архивные.\n\nАктуальные тарифы — в разделе «Тарифы».'},
+    {dt:'2026-04-29', d:'29 апреля 2026', t:'Работа в майские праздники', s:'График абонентского отдела и техподдержки с 30 апреля по 11 мая.', b:'Абонентский отдел:\n30 апреля — с 09:00 до 16:00.\n1 мая — выходной.\n2–7 мая — по рабочему графику.\n8 мая — с 09:00 до 16:00.\n9–10 мая — выходные.\n11 мая — с 09:00 до 16:00.\nС 12 мая — по рабочему графику.\n\nТехническая поддержка:\n30 апреля — с 09:00 до 20:00.\n1 мая — с 09:00 до 18:00.\n2–8 мая — по рабочему графику.\n9 мая — с 09:00 до 18:00.\n10–11 мая — с 09:00 до 20:00.\nС 12 мая — по рабочему графику.'},
+    {dt:'2026-03-05', d:'5 марта 2026', t:'График работы на 8 Марта', s:'Как работают абонентский отдел и техподдержка с 7 по 9 марта.', b:'Абонентский отдел:\n7 марта — с 10:00 до 15:00.\n8 марта — выходной.\n9 марта — с 10:00 до 15:00.\nС 10 марта — по обычному графику.\n\nТехническая поддержка:\n8 марта — с 09:00 до 18:00.\n9 марта — с 09:00 до 20:00.\nС 10 марта — по обычному графику.'},
+    {dt:'2026-02-20', d:'20 февраля 2026', t:'График работы на 23 февраля', s:'Изменения в работе абонентского отдела и техподдержки 21 и 23 февраля.', b:'Абонентский отдел:\n21 февраля — с 10:00 до 16:00.\n23 февраля — выходной.\nС 24 февраля — по обычному графику.\n\nТехническая поддержка:\n23 февраля — с 09:00 до 18:00.\nС 24 февраля — по обычному графику.'},
+    {dt:'2025-12-29', d:'29 декабря 2025', t:'Новогодние праздники 2026', s:'График абонентского отдела и техподдержки с 30 декабря по 11 января.', b:'Абонентский отдел:\n30 декабря — с 09:00 до 15:00.\n31 декабря — с 10:00 до 15:00.\n1 января — выходной.\n2–3 января — с 10:00 до 15:00.\n4 января — выходной.\n5–6 января — с 10:00 до 15:00.\n7 января — выходной.\n8–10 января — с 10:00 до 15:00.\nС 12 января — по рабочему графику.\n\nТехническая поддержка:\n31 декабря — с 10:00 до 15:00.\n1 января — с 10:00 до 18:00.\n2–6 января — с 10:00 до 20:00.\n7 января — с 10:00 до 18:00.\n8–11 января — с 10:00 до 20:00.\nС 12 января — по рабочему графику.'}
+  ];
+  var track = document.getElementById('news-track'), newsIdx = 0;
+  function esc(s){ return s.replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  if (track){
+    track.innerHTML = NEWS.map(function(n, i){
+      return '<button class="news-card'+(i===0?' lead-news':'')+'" type="button" data-news="'+i+'"><time datetime="'+n.dt+'">'+n.d+'</time><b>'+esc(n.t)+'</b><p>'+esc(n.s)+'</p><span class="more">Читать</span></button>';
+    }).join('');
+  }
+  function showNews(i){
+    newsIdx = i; var n = NEWS[i];
+    document.getElementById('n-date').textContent = n.d;
+    document.getElementById('t-news').textContent = n.t;
+    // текст делим на абзацы; график из двух частей (отдел + техподдержка) ставим в две колонки
+    var body = document.getElementById('n-body'), parts = n.b.split('\n\n');
+    body.textContent = '';
+    parts.forEach(function(t){ var p = document.createElement('p'); p.textContent = t; body.appendChild(p); });
+    body.classList.toggle('two', parts.length === 2 && parts.every(function(t){ return t.split('\n').length >= 3; }));
+    document.querySelectorAll('[data-news-step]').forEach(function(b){
+      var j = i + +b.dataset.newsStep; b.disabled = j < 0 || j >= NEWS.length;
+    });
+  }
+  document.addEventListener('click', function(e){
+    var card = e.target.closest('[data-news]');
+    if (card){ showNews(+card.dataset.news); document.getElementById('dlg-news').showModal(); return; }
+    var st = e.target.closest('[data-news-step]');
+    if (st && !st.disabled){
+      showNews(newsIdx + +st.dataset.newsStep);
+      var c = track && track.children[newsIdx];
+      if (c) track.scrollLeft = c.offsetLeft - track.firstElementChild.offsetLeft; // лента под попапом едет за новостью
+    }
+  });
+  // Слайдер новостей: стрелки листают на одну карточку, на телефоне — свайп
+  (function(){
+    if (!track) return;
+    var btns = document.querySelectorAll('[data-sl]');
+    function upd(){
+      var max = track.scrollWidth - track.clientWidth - 2;
+      btns.forEach(function(b){ b.disabled = +b.dataset.sl < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= max; });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var card = track.firstElementChild; if (!card) return;
+        var step = card.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 0);
+        track.scrollBy({left: +b.dataset.sl * step, behavior: noMotion ? 'auto' : 'smooth'});
+      });
+    });
+    track.addEventListener('scroll', upd, {passive:true});
+    window.addEventListener('resize', upd);
+    upd();
+  })();
 
   // счётчик скорости на первом экране
   var cnt = document.querySelector('[data-count]');

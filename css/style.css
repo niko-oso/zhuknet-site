@@ -819,3 +819,431 @@ form.sent .done{display:flex}
 }
 @media (max-width:900px) and (prefers-reduced-motion:reduce){.gx .gx-lid{transform:translate(-108px,-18px) rotate(-14deg)}}
 @keyframes gxLidM{0%,17%{transform:none}25%{transform:translate(-108px,-52px) rotate(-26deg)}32%,80%{transform:translate(-108px,-18px) rotate(-14deg)}90%,100%{transform:none}}
+
+/* Контакты: дополнительные телефоны — отдельными плашками */
+.info-phones{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.info-row .info-phones a{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:14px;font-weight:700;color:var(--navy);white-space:nowrap;transition:background-color .15s ease,color .15s ease}
+.info-row .info-phones a:hover{background:var(--blue);color:#fff;box-shadow:none}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.info-row .info-phones a:hover{transform:none}}
+
+/* Первый экран на ПК: заголовок 48px и шире колонка текста */
+@media (min-width:1151px){
+  .hero .wrap{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}
+  .hero h1 span{font-size:clamp(40px,3.6vw,48px);line-height:1.1}
+  .hero .lead{max-width:34em}
+}
+
+/* «Как подключиться»: по линии бежит сигнал и по очереди подсвечивает шаги (цикл) */
+.step{z-index:1}
+.steps::after{content:"";position:absolute;left:28px;right:28px;top:27px;height:4px;border-radius:4px;z-index:0;pointer-events:none;opacity:0;
+  background:linear-gradient(90deg,rgba(10,20,255,0) 0,#0A14FF 55%,#7FE3FF 85%,rgba(127,227,255,0) 100%) no-repeat;background-size:180px 100%;background-position:-180px 0;
+  filter:drop-shadow(0 0 6px rgba(10,20,255,.55))}
+@media (max-width:900px){
+  .steps::after{left:26px;right:auto;top:28px;bottom:28px;width:4px;height:auto;
+    background-image:linear-gradient(180deg,rgba(10,20,255,0) 0,#0A14FF 55%,#7FE3FF 85%,rgba(127,227,255,0) 100%);background-size:100% 180px;background-position:0 -180px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .steps.anim.in::after{opacity:1;animation:stepSignal 4.8s linear 1.6s infinite}
+  .steps.anim.in .step-n{animation:stepGlow 4.8s ease-out infinite}
+  .steps.anim.in .step b{animation:stepText 4.8s ease-out infinite}
+  .steps.anim.in .step:nth-child(1) .step-n,.steps.anim.in .step:nth-child(1) b{animation-delay:1.6s}
+  .steps.anim.in .step:nth-child(2) .step-n,.steps.anim.in .step:nth-child(2) b{animation-delay:2.85s}
+  .steps.anim.in .step:nth-child(3) .step-n,.steps.anim.in .step:nth-child(3) b{animation-delay:4.1s}
+}
+@keyframes stepSignal{0%{background-position:-180px 0}78%,100%{background-position:calc(100% + 180px) 0}}
+@media (max-width:900px){@keyframes stepSignal{0%{background-position:0 -180px}78%,100%{background-position:0 calc(100% + 180px)}}}
+@keyframes stepGlow{
+  0%{transform:none;box-shadow:0 0 0 8px #fff}
+  6%{transform:scale(1.14);background:#2B36FF;box-shadow:0 0 0 8px #fff,0 0 0 16px rgba(10,20,255,.14),0 12px 30px rgba(10,20,255,.55)}
+  22%{transform:none;box-shadow:0 0 0 8px #fff,0 0 0 26px rgba(10,20,255,0),0 12px 30px rgba(10,20,255,0)}
+  100%{transform:none;box-shadow:0 0 0 8px #fff}
+}
+@keyframes stepText{0%,100%{color:inherit}6%,16%{color:var(--blue)}}
+
+/* «Как оплатить»: карточка «Картой на сайте» покачивается и по ней пробегает блик */
+.pay-main{position:relative;overflow:hidden;transform-origin:50% 100%}
+.pay-main::after{content:"";position:absolute;top:-20%;bottom:-20%;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);pointer-events:none;opacity:0}
+.pay-main > *{position:relative;z-index:1}
+@media (prefers-reduced-motion:no-preference){
+  .pay-main{animation:paySway 5s ease-in-out infinite}
+  .pay-main::after{animation:payShine 5s ease-in-out infinite}
+  .pay-main:hover,.pay-main:focus-visible{animation:none;transform:scale(1.03)}
+  .pay-main .quick-ico{animation:payIco 5s ease-in-out infinite}
+}
+@keyframes paySway{0%,58%,100%{transform:none}64%{transform:rotate(-2.2deg) translateY(-4px)}70%{transform:rotate(2deg) translateY(-4px)}76%{transform:rotate(-1.4deg) translateY(-2px)}82%{transform:rotate(.8deg)}88%{transform:none}}
+@keyframes payShine{0%,60%{left:-60%;opacity:0}62%{opacity:1}84%{left:130%;opacity:1}86%,100%{left:130%;opacity:0}}
+@keyframes payIco{0%,58%,100%{transform:none}66%{transform:scale(1.12) rotate(-8deg)}74%{transform:scale(1.12) rotate(6deg)}84%{transform:none}}
+.nw{white-space:nowrap}
+/* синхронизация подсветки шагов с бегущим сигналом */
+@media (prefers-reduced-motion:no-preference){
+  .steps.anim.in .step:nth-child(1) .step-n,.steps.anim.in .step:nth-child(1) b{animation-delay:1.67s}
+  .steps.anim.in .step:nth-child(2) .step-n,.steps.anim.in .step:nth-child(2) b{animation-delay:2.68s}
+  .steps.anim.in .step:nth-child(3) .step-n,.steps.anim.in .step:nth-child(3) b{animation-delay:3.7s}
+}
+@media (max-width:900px) and (prefers-reduced-motion:no-preference){
+  .steps.anim.in .step:nth-child(2) .step-n,.steps.anim.in .step:nth-child(2) b{animation-delay:2.48s}
+  .steps.anim.in .step:nth-child(3) .step-n,.steps.anim.in .step:nth-child(3) b{animation-delay:3.22s}
+}
+@media (max-width:900px) and (prefers-reduced-motion:no-preference){
+  .steps.anim.in .step:nth-child(1) .step-n,.steps.anim.in .step:nth-child(1) b{animation-delay:1.88s}
+  .steps.anim.in .step:nth-child(2) .step-n,.steps.anim.in .step:nth-child(2) b{animation-delay:2.64s}
+  .steps.anim.in .step:nth-child(3) .step-n,.steps.anim.in .step:nth-child(3) b{animation-delay:3.27s}
+}
+
+/* «Как подключиться»: бегущий сигнал тонкий, по толщине пунктира (2px) */
+.steps::after{top:28px;height:2px;border-radius:2px;filter:drop-shadow(0 0 4px rgba(10,20,255,.6))}
+@media (max-width:900px){.steps::after{left:27px;width:2px;height:auto}}
+
+/* Первый экран: «Подключить интернет» — пульсирующее кольцо, блик и лёгкий подскок раз в 4 с */
+.hero-ctas .btn-lamp{position:relative;overflow:hidden;isolation:isolate}
+.hero-ctas .btn-lamp::before{content:"";position:absolute;top:0;bottom:0;left:-70%;width:45%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(166,180,255,.55),transparent);transform:skewX(-20deg);pointer-events:none;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  .hero-ctas .btn-lamp{animation:ctaPulse 4s ease-out 1.2s infinite}
+  .hero-ctas .btn-lamp::before{animation:ctaShine 4s ease-in-out 1.2s infinite}
+  .hero-ctas .btn-lamp:hover,.hero-ctas .btn-lamp:focus-visible{animation:none}
+}
+@keyframes ctaPulse{
+  0%{transform:none;box-shadow:0 0 0 0 rgba(255,255,255,.55)}
+  8%{transform:translateY(-3px) scale(1.04)}
+  16%{transform:none}
+  40%,100%{box-shadow:0 0 0 18px rgba(255,255,255,0)}
+}
+@keyframes ctaShine{0%{left:-70%;opacity:0}4%{opacity:1}30%{left:130%;opacity:1}32%,100%{left:130%;opacity:0}}
+
+/* «Подключим интернет по вашему адресу»: «Оставить заявку» — тот же пульс, кольцо и блик, что на первом экране */
+.cta-row .btn-lamp{position:relative;overflow:hidden;isolation:isolate}
+.cta-row .btn-lamp::before{content:"";position:absolute;top:0;bottom:0;left:-70%;width:45%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(166,180,255,.55),transparent);transform:skewX(-20deg);pointer-events:none;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  .cta-row .btn-lamp{animation:ctaPulse 4s ease-out 1.2s infinite}
+  .cta-row .btn-lamp::before{animation:ctaShine 4s ease-in-out 1.2s infinite}
+  .cta-row .btn-lamp:hover,.cta-row .btn-lamp:focus-visible{animation:none}
+}
+
+/* ===== Бриф: лендинг ===== */
+
+/* Футер: колонки «Абонентам», «Разделы», «Документы», «Реквизиты» */
+.footer nav .f-btn{background:none;border:0;padding:0;font:inherit;color:#C9D4FF;cursor:pointer;text-align:left}
+.footer nav .f-btn:hover{color:#fff}
+.footer-req{display:flex;flex-direction:column;gap:10px;min-width:0}
+.footer-req > b{color:#fff}
+.footer-req dl{margin:0;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.4}
+.footer-req dt{font-size:12px;color:#8E9DD8}
+.footer-req dd{margin:0;color:#C9D4FF}
+.footer-top{grid-template-columns:1.2fr repeat(3,minmax(0,1fr)) minmax(0,1.15fr)}
+@media (max-width:1080px){.footer-top{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-req{grid-column:auto}}
+@media (max-width:600px){.footer-req{grid-column:1 / -1}}
+
+/* Онлайн-договор: шаги */
+#dlg-connect .form-body{display:flex;flex-direction:column;gap:12px}
+.fstep{border:0;margin:0;padding:0;min-width:0;display:flex;flex-direction:column;gap:12px}
+.fstep[hidden]{display:none}
+.fstep .field[hidden]{display:none}
+.fsteps{list-style:none;margin:0 0 4px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;counter-reset:none}
+.fsteps li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--muted);padding-top:10px;border-top:3px solid var(--line);transition:color .2s ease,border-color .2s ease}
+.fsteps li span{flex:none;width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--mist);color:var(--navy);font-size:13px;font-weight:800;transition:background-color .2s ease,color .2s ease}
+.fsteps li.on{color:var(--navy);border-top-color:var(--blue)}
+.fsteps li.on span{background:var(--blue);color:#fff}
+.fstep-nav{display:flex;gap:10px;margin-top:4px}
+.fstep-nav .btn{flex:1}
+.fstep-nav .btn-white,.news-pager .btn-white{background:var(--ice);color:var(--navy)}
+.fstep-nav .btn-white:hover,.news-pager .btn-white:hover{background:#DCE5FF}
+.row3{display:grid;grid-template-columns:.8fr 1fr 1.2fr;gap:12px}
+@media (prefers-reduced-motion:no-preference){.fstep:not([hidden]){animation:fstepIn .25s ease}}
+@keyframes fstepIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+@media (max-width:600px){
+  .fsteps li{font-size:12px;gap:6px}
+  .fsteps li span{width:22px;height:22px;font-size:12px}
+  .row3{grid-template-columns:1fr 1fr}
+  .row3 > :last-child{grid-column:1 / -1}
+  .fstep,#dlg-connect .form-body{gap:10px}
+}
+@media (max-width:360px){.fsteps li{flex-direction:column;align-items:flex-start;gap:4px}}
+
+/* Новости: слайдер */
+.sl-nav{display:flex;gap:10px}
+.sl-btn{width:48px;height:48px;border-radius:50%;border:0;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .15s ease,color .15s ease,opacity .15s ease}
+.sl-btn svg{rotate:90deg}
+.sl-btn[data-sl="1"] svg{rotate:-90deg}
+.sl-btn:hover:not(:disabled){background:var(--navy);color:#fff}
+.sl-btn:disabled{opacity:.35;cursor:default}
+.news.news-slider{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px) / 3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;outline:none}
+.news-slider::-webkit-scrollbar{display:none}
+.news-slider:focus-visible{box-shadow:0 0 0 3px var(--blue);border-radius:var(--r-l)}
+.news-slider .news-card{scroll-snap-align:start}
+.news-slider .news-card:hover{transform:none}
+@media (max-width:1080px){.news.news-slider{grid-auto-columns:calc((100% - 20px) / 2)}}
+@media (max-width:600px){
+  .news.news-slider{grid-auto-columns:86%;gap:14px}
+  .sl-btn{width:44px;height:44px}
+  #news .news-head{flex-wrap:nowrap;align-items:center}
+}
+/* попап новости: листать соседние */
+.news-pager{display:flex;gap:10px;flex-wrap:wrap}
+.news-pager .btn{flex:1;min-height:46px;padding:0 18px}
+.news-pager .btn:disabled{opacity:.4;cursor:default}
+
+/* ===== Попапы без внутренней прокрутки ===== */
+/* Онлайн-договор шире: по три поля в строке */
+#dlg-connect{width:min(760px,calc(100vw - 32px))}
+.row3-eq{grid-template-columns:repeat(3,minmax(0,1fr))}
+.row-addr{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:12px}
+.row-addr:has(> [hidden]){grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+@media (max-width:600px){
+  .row-addr{grid-template-columns:1fr 1fr;gap:10px}
+  .row-addr > :first-child{grid-column:1 / -1}
+}
+
+/* Новость: шире, текст абзацами, график — в две колонки */
+#dlg-news{width:min(860px,calc(100vw - 32px))}
+.news-full .body{display:flex;flex-direction:column;gap:14px;line-height:1.55}
+.news-full .body p{margin:0;white-space:pre-line}
+@media (min-width:640px){
+  .news-full .body.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .news-full .body.two p{background:var(--mist);border-radius:var(--r-s);padding:18px 20px}
+  .news-full .body.two p::first-line{font-weight:700;color:var(--navy)}
+}
+.news-pager{margin-top:4px}
+@media (min-width:601px){.news-pager .btn{flex:0 1 220px}.news-pager{justify-content:flex-end}}
+
+/* Невысокие экраны ноутбуков: попапы компактнее */
+@media (min-width:601px) and (max-height:820px){
+  .modal{padding:24px 32px;gap:14px}
+  .modal h2{font-size:23px}
+  .modal p.sub{margin-top:4px;font-size:15px}
+  .modal .form-body,.fstep{gap:10px !important}
+  .field{gap:4px}
+  .field label{font-size:13px}
+  .field input,.field select{min-height:46px;padding:9px 14px}
+  .field textarea{min-height:88px}
+  .close{flex-basis:40px;height:40px}
+  .fsteps li{padding-top:8px}
+  .modal .btn{min-height:48px}
+  .news-full .body.two p{padding:14px 18px}
+}
+@media (min-width:601px) and (max-height:640px){
+  dialog{max-height:calc(100dvh - 16px)}
+  .modal{padding:18px 28px;gap:10px}
+  .modal h2{font-size:21px}
+  .modal p.sub{font-size:14px}
+  .modal .form-body,.fstep{gap:8px !important}
+  .field input,.field select{min-height:42px;padding:7px 12px}
+  .field textarea{min-height:72px}
+  .field .hint{display:none}
+  .modal .btn{min-height:44px}
+  .news-full .body{line-height:1.45;font-size:15px}
+}
+
+/* Телефоны: попап во весь экран, на невысоких — плотнее */
+@media (max-width:600px){
+  .news-full .body{font-size:15px;line-height:1.45;gap:10px}
+}
+@media (max-width:600px) and (max-height:760px){
+  .modal{padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));gap:10px}
+  .modal h2{font-size:19px}
+  .modal p.sub{font-size:13px;line-height:1.4;margin-top:2px}
+  .modal .form-body,.fstep{gap:8px !important}
+  .row2,.row3,.row-addr{gap:8px}
+  .field{gap:3px}
+  .field label{font-size:12px}
+  .field input,.field select{min-height:42px;padding:7px 12px}
+  .field textarea{min-height:76px}
+  .field .hint{font-size:12px}
+  .check{font-size:13px;line-height:1.35}
+  .check input{width:18px;height:18px}
+  .close{flex-basis:38px;height:38px;border-radius:12px}
+  .modal .btn{min-height:46px}
+  .fsteps{margin:0}
+  .fsteps li{padding-top:6px;border-top-width:2px}
+  .done-ico{width:52px;height:52px}
+  .news-full .body{font-size:14px;line-height:1.4}
+}
+@media (max-width:600px) and (max-height:660px){
+  .modal{padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));gap:8px}
+  .modal h2{font-size:18px}
+  .modal p.sub{display:none}
+  .modal .form-body,.fstep{gap:6px !important}
+  .field label{font-size:11.5px}
+  .field input,.field select{min-height:38px;padding:5px 10px}
+  .field textarea{min-height:64px}
+  .field .hint{display:none}
+  .modal .btn{min-height:42px}
+  .close{flex-basis:34px;height:34px}
+  .sum-chips button{min-height:34px}
+  .news-full .body{font-size:13.5px;line-height:1.35;gap:8px}
+  .fsteps li span{width:20px;height:20px}
+}
+@media (max-width:600px){.row3-eq{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){#dlg-connect,#dlg-news{width:100vw}}
+.news-full .body.two p::first-line{font-weight:700;color:var(--navy)}
+
+/* Информационные попапы: условия акции, оплата в приложении банка */
+#dlg-promo,#dlg-bank{width:min(760px,calc(100vw - 32px))}
+.info-steps{list-style:none;counter-reset:st;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--c,2),minmax(0,1fr));gap:10px}
+.info-steps li{counter-increment:st;display:flex;gap:12px;align-items:flex-start;background:var(--mist);border-radius:var(--r-s);padding:14px 16px;font-size:15px;line-height:1.4;color:var(--text)}
+.info-steps li::before{content:counter(st);flex:none;width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.info-terms{display:flex;flex-direction:column;gap:6px}
+.info-terms b{color:var(--navy);font-size:15px}
+.info-terms ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:14px;line-height:1.4;color:var(--muted)}
+.info-note{margin:0;background:var(--ice);border-radius:var(--r-s);padding:14px 16px;font-size:14px;line-height:1.45;color:var(--navy)}
+.info-actions{display:flex;gap:10px;flex-wrap:wrap}
+.info-actions .btn{flex:1 1 200px}
+.info-actions .btn-white{background:var(--ice);color:var(--navy)}
+.info-actions .btn-white:hover{background:#DCE5FF}
+button.pay-card{font:inherit;text-align:left;border:0;cursor:pointer}
+@media (max-width:600px){
+  #dlg-promo,#dlg-bank{width:100vw}
+  .info-steps{grid-template-columns:1fr;gap:8px}
+  .info-steps li{padding:10px 12px;font-size:14px}
+  .info-steps li::before{width:24px;height:24px;font-size:12px}
+  .info-actions .btn{flex-basis:100%}
+  .info-actions .btn-white{order:2}
+}
+@media (max-width:600px) and (max-height:760px){
+  .info-steps li{padding:8px 10px;font-size:13.5px;line-height:1.35}
+  .info-terms ul{font-size:12.5px;gap:2px;line-height:1.35}
+  .info-note{padding:10px 12px;font-size:13px}
+}
+@media (max-width:600px) and (max-height:660px){
+  .info-steps{gap:6px}
+  .info-steps li{padding:6px 10px;font-size:13px}
+  .info-terms ul{font-size:12px}
+}
+@media (min-width:601px) and (max-height:640px){
+  .info-steps li{padding:10px 14px;font-size:14px}
+  .info-terms ul{font-size:13px}
+}
+@media (max-width:600px) and (max-height:660px){.info-actions{flex-wrap:nowrap;gap:8px}.info-actions .btn-white{order:0;flex:0 0 auto;padding:0 16px}.info-actions .btn-blue{flex:1 1 0;padding:0 12px;font-size:15px}}
+
+/* ===== Попапы: система отступов (больше воздуха, без внутренней прокрутки) =====
+   --py/--px  поля попапа        --sec  между шапкой, содержимым и кнопками
+   --fg       между полями       --lg   подпись → поле     --ih высота поля
+   Уровни ниже меняют только переменные под высоту экрана. */
+.modal{--py:44px;--px:48px;--sec:28px;--fg:18px;--lg:8px;--ih:54px;--h2:28px;--btn:54px;--txt:15px;
+  padding:var(--py) var(--px) calc(var(--py) + env(safe-area-inset-bottom,0px));gap:var(--sec)}
+.modal h2{font-size:var(--h2);line-height:1.15}
+.modal p.sub{margin-top:10px;line-height:1.5;max-width:40em}
+.modal .form-body,.fstep{gap:var(--fg) !important}
+#dlg-connect .form-body{gap:var(--fg) !important}
+.modal .row2,.modal .row3,.modal .row-addr{gap:var(--fg) calc(var(--fg) - 2px)}
+.modal .field{gap:var(--lg)}
+.modal .field input,.modal .field select{min-height:var(--ih)}
+.modal .btn{min-height:var(--btn)}
+.modal .check{line-height:1.5}
+.fsteps{margin:0 0 calc(var(--fg) * .4)}
+.fstep-nav,.info-actions,.news-pager{margin-top:calc(var(--sec) - var(--fg))}
+.modal .form-body > .btn{margin-top:calc(var(--sec) - var(--fg))}
+.info-steps{gap:12px}
+.info-steps li{padding:18px 20px;font-size:var(--txt);line-height:1.5}
+.info-terms{gap:10px}
+.info-terms ul{gap:8px;line-height:1.5}
+.info-note{padding:16px 20px;line-height:1.55}
+.news-full .body{gap:18px;line-height:1.6;font-size:var(--txt)}
+.news-full .body.two{gap:20px}
+.news-full .body.two p{padding:20px 24px}
+.done{gap:16px}
+
+/* ноутбуки: окно браузера 700–820 px */
+@media (min-width:601px) and (max-height:820px){
+  .modal{--py:34px;--px:40px;--sec:22px;--fg:14px;--lg:6px;--ih:48px;--h2:24px;--btn:50px}
+  .info-steps li{padding:14px 18px}
+  .news-full .body.two p{padding:16px 20px}
+}
+/* невысокие окна: до 640 px */
+@media (min-width:601px) and (max-height:640px){
+  .modal{--py:24px;--px:32px;--sec:16px;--fg:10px;--lg:4px;--ih:44px;--h2:21px;--btn:46px;--txt:14px}
+  .info-steps li{padding:10px 14px;line-height:1.4}
+  .info-terms ul{gap:4px;line-height:1.4}
+  .news-full .body{line-height:1.45}
+  .news-full .body.two p{padding:12px 16px}
+}
+
+/* телефоны: попап на весь экран, кнопки прижаты к низу — под большой палец */
+@media (max-width:600px){
+  .modal{--py:28px;--px:20px;--sec:24px;--fg:16px;--lg:6px;--ih:50px;--h2:23px;--btn:52px;--txt:15px}
+  .modal .form-body{flex:1 1 auto}
+  .fstep:not([hidden]){flex:1 1 auto}
+  .fstep-nav,.info-actions,.news-pager,.modal .form-body > .btn{margin-top:auto}
+  .modal .form-body > .btn{margin-bottom:0}
+  .info-steps li{padding:14px 16px}
+}
+@media (max-width:600px) and (max-height:760px){
+  .modal{--py:18px;--px:16px;--sec:16px;--fg:10px;--lg:4px;--ih:44px;--h2:20px;--btn:48px;--txt:14px}
+  .info-steps li{padding:9px 12px;line-height:1.4}
+  .info-terms ul{gap:4px;line-height:1.4}
+  .news-full .body{line-height:1.45;gap:12px}
+}
+@media (max-width:600px) and (max-height:660px){
+  .modal{--py:12px;--px:14px;--sec:10px;--fg:7px;--lg:3px;--ih:38px;--h2:18px;--btn:42px;--txt:13px}
+  .info-steps li{padding:6px 10px;line-height:1.35}
+  .info-terms ul{gap:2px;line-height:1.35}
+  .news-full .body{line-height:1.35;gap:8px}
+}
+/* окна ноутбуков 641–700 px */
+@media (min-width:601px) and (min-height:641px) and (max-height:700px){
+  .modal{--py:26px;--px:36px;--sec:18px;--fg:11px;--lg:5px;--ih:46px;--h2:22px;--btn:48px}
+  .info-steps li{padding:12px 16px}
+}
+/* телефоны: информационные попапы */
+@media (max-width:600px){
+  .info-steps{gap:8px}
+  .info-steps li{padding:12px 14px;font-size:14px;line-height:1.45}
+  .info-terms{gap:6px}
+  .info-terms ul{font-size:13px;gap:4px;line-height:1.45}
+  .info-note{padding:12px 14px;font-size:13.5px}
+  .info-actions{flex-wrap:nowrap;gap:8px}
+  .info-actions .btn-white{order:0;flex:0 0 auto;padding:0 18px}
+  .info-actions .btn-blue{flex:1 1 0;padding:0 14px}
+}
+@media (max-width:600px) and (max-height:760px){
+  .info-steps{gap:6px}
+  .info-steps li{padding:8px 12px;font-size:13.5px;line-height:1.35}
+  .info-terms ul{font-size:12.5px;gap:2px;line-height:1.35}
+  .info-note{padding:10px 12px;font-size:13px}
+}
+@media (max-width:600px) and (max-height:660px){
+  .info-steps{gap:5px}
+  .info-steps li{padding:6px 10px;font-size:13px}
+  .info-steps li::before{width:22px;height:22px}
+  .info-terms{gap:3px}
+  .info-terms ul{font-size:12px}
+  .info-note{padding:8px 10px;font-size:12.5px;line-height:1.4}
+  .news-full .body{gap:6px}
+}
+@media (max-width:600px) and (max-height:580px){.news-full .body{line-height:1.3}}
+
+/* Карточки оплаты и новостей: действие — явная кнопка-«таблетка» со стрелкой */
+.pay-card em,.news-card .more{--arr:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  display:inline-flex;align-items:center;gap:8px;align-self:flex-start;justify-self:start;margin-top:auto;min-height:44px;padding:0 18px 0 20px;border-radius:999px;
+  background:var(--blue);color:#fff;font-style:normal;font-weight:700;font-size:15px;line-height:1;white-space:nowrap;
+  transition:background-color .2s ease,color .2s ease}
+.pay-card em::after,.news-card .more::after{content:"";flex:none;width:18px;height:18px;background:currentColor;-webkit-mask:var(--arr) center/contain no-repeat;mask:var(--arr) center/contain no-repeat;transition:translate .2s ease}
+.pay-card:hover em,.pay-card:focus-visible em,.news-card:hover .more,.news-card:focus-visible .more{background:var(--navy);color:#fff}
+.pay-card:hover em::after,.news-card:hover .more::after{translate:3px 0}
+/* на тёмных и синих карточках — белая кнопка */
+.pay-main em,.news-card.lead-news .more{background:#fff;color:var(--blue)}
+.pay-main:hover em,.pay-main:focus-visible em,.news-card.lead-news:hover .more,.news-card.lead-news:focus-visible .more{background:var(--ice);color:var(--blue)}
+.pay-card em{margin-top:auto;padding-top:0}
+.pay-card > span:not(.quick-ico){margin-bottom:6px}
+.news-card p{margin-bottom:6px}
+@media (max-width:600px){
+  .pay-card em{margin-top:8px;padding-top:0;min-height:40px;font-size:14px;padding:0 16px 0 18px}
+  .news-card .more{min-height:42px}
+}
+/* Кнопки в карточках: белые, без стрелки */
+.pay-card em::after,.news-card .more::after{content:none}
+.pay-card em,.news-card .more{background:#fff;color:var(--blue);padding:0 22px}
+.pay-card:hover em,.pay-card:focus-visible em,.news-card:hover .more,.news-card:focus-visible .more{background:var(--blue);color:#fff}
+.pay-main:hover em,.pay-main:focus-visible em,.news-card.lead-news:hover .more,.news-card.lead-news:focus-visible .more{background:var(--ice);color:var(--blue)}
+.pay-card em,.news-card .more,.pay-main em,.news-card.lead-news .more{color:var(--navy)}
+.pay-main:hover em,.pay-main:focus-visible em,.news-card.lead-news:hover .more,.news-card.lead-news:focus-visible .more{color:var(--navy)}
+
+/* «ТВ и другие услуги»: цена и понятная кнопка внизу карточки */
+button.extra{font:inherit;text-align:left;border:0;cursor:pointer;width:100%}
+.extra-foot{margin-top:auto;padding-top:6px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.extra .extra-foot em{margin-top:0;font-size:18px}
+.extra .extra-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:999px;background:var(--ice);color:var(--navy);font-weight:700;font-size:15px;line-height:1;white-space:nowrap;transition:background-color .2s ease,color .2s ease}
+.extra:hover .extra-btn,.extra:focus-visible .extra-btn{background:var(--blue);color:#fff}
+@media (max-width:600px){.extra .extra-btn{min-height:42px}}
+/* ссылка-кнопка внутри текста */
+.link-btn{background:none;border:0;padding:0;font:inherit;color:var(--blue);font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.link-btn:hover{color:var(--navy)}
