@@ -34,6 +34,11 @@
   <symbol id="i-cable" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v5M11 3v5M5 8h8v4a4 4 0 0 1-8 0z"/><path d="M9 16v1a4 4 0 0 0 4 4h2a4 4 0 0 0 4-4V7"/></g></symbol>
   <symbol id="i-tag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></g></symbol>
   <symbol id="i-chip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></g></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="5" rx="1.5"/><path d="M5 13v7h14v-7M12 8v12M12 8S10.5 3.5 8 4.2C5.8 4.8 7 8 12 8zm0 0s1.5-4.5 4-3.8C18.2 4.8 17 8 12 8z"/></g></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><path d="M9.5 9.5l2 2 3.5-3.5"/></g></symbol>
+  <symbol id="i-office" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9.5 21v-6h5v6"/></g></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></g></symbol>
   <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
 </svg>
 
@@ -42,11 +47,11 @@
 <div class="topbar">
   <div class="wrap">
     <div class="group">
-      <span class="hide-sm tb-item"><svg class="tb-ico" width="15" height="15" aria-hidden="true"><use href="#i-clock"/></svg>Абонентский отдел: 09:00–18:00</span>
+      <span class="hide-sm tb-item"><svg class="tb-ico" width="15" height="15" aria-hidden="true"><use href="#i-clock"/></svg>Техподдержка: пн–сб 9:00–24:00, вс 9:00–20:00</span>
       <span class="hide-sm tb-item"><svg class="tb-ico" width="15" height="15" aria-hidden="true"><use href="#i-pin"/></svg>Жуковский, ул. Гагарина, 48</span>
     </div>
     <div class="group">
-      <a class="tb-mail tb-item" href="mailto:admin@zhukovsky.net"><svg class="tb-ico" width="15" height="15" aria-hidden="true"><use href="#i-mail"/></svg>admin@zhukovsky.net</a>
+      <a class="tb-mail tb-item" href="mailto:abonent@zhukovsky.net"><svg class="tb-ico" width="15" height="15" aria-hidden="true"><use href="#i-mail"/></svg>abonent@zhukovsky.net</a>
       <a class="phone" href="tel:84984835700">8 (498) 48-3-57-00</a>
       <a class="hide-xs tb-item" href="https://t.me/zhuknet/" aria-label="Telegram" title="Telegram"><svg class="tb-ico" width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="url(#tgGrad)"/><path d="M22.9866 10.2088C23.1112 9.40332 22.3454 8.76755 21.6292 9.082L7.36482 15.3448C6.85123 15.5703 6.8888 16.3483 7.42147 16.5179L10.3631 17.4547C10.9246 17.6335 11.5325 17.541 12.0228 17.2023L18.655 12.6203C18.855 12.4821 19.073 12.7665 18.9021 12.9426L14.1281 17.8646C13.665 18.3421 13.7569 19.1512 14.314 19.5005L19.659 22.8523C20.2585 23.2282 21.0297 22.8506 21.1418 22.1261L22.9866 10.2088Z" fill="#fff"/><defs><linearGradient id="tgGrad" x1="16" y1="2" x2="16" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#37BBFE"/><stop offset="1" stop-color="#007DBB"/></linearGradient></defs></svg></a>
     </div>
@@ -55,20 +60,59 @@
 
 <header class="header">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="ZHUKNET — интернет-провайдер Жуковского 30 лет, на главную">
+    <a class="brand" href="./" aria-label="ZHUKNET — интернет-провайдер Жуковского 30 лет, на главную">
       <span class="logo"><svg viewBox="0 0 522 68" aria-hidden="true"><use href="#logo"/></svg></span>
       <span class="brand-tag" aria-hidden="true"><b>30 лет</b><span>интернет-провайдер<br>Жуковского</span></span>
     </a>
-    <nav class="nav" aria-label="Основное меню">
-      <a href="#tariffs">Тарифы</a>
-      <a href="#connect">Подключение</a>
-      <a href="#extras">ТВ и услуги</a>
-      <a href="#news">Новости</a>
-      <a href="#contacts">Контакты</a>
+    <nav class="nav" id="site-nav" aria-label="Основное меню">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="tarifs/">Тарифы</a></li>
+        <li class="has-sub">
+          <button class="nav-link nav-trigger" type="button" aria-expanded="false" aria-controls="sub-connect">Подключение<svg class="nav-chev" width="14" height="14" aria-hidden="true"><use href="#i-chev"/></svg></button>
+          <ul class="nav-sub" id="sub-connect">
+            <li><a href="online/">Онлайн-заявка на подключение</a></li>
+            <li><a href="./#connect">Как подключиться</a></li>
+            <li><a href="docs/">Договор и документы</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <button class="nav-link nav-trigger" type="button" aria-expanded="false" aria-controls="sub-services">ТВ и услуги<svg class="nav-chev" width="14" height="14" aria-hidden="true"><use href="#i-chev"/></svg></button>
+          <ul class="nav-sub" id="sub-services">
+            <li><a href="https://smotreshka.promo/zhukovsky/">ТВ «Смотрёшка»</a></li>
+            <li><a href="kabelnoe_televidenie/">Кабельное ТВ</a></li>
+            <li><a href="http://security.zhukovsky.net">Системы безопасности</a></li>
+            <li><a href="tarifs/#real-ip">Реальный IP-адрес</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <button class="nav-link nav-trigger" type="button" aria-expanded="false" aria-controls="sub-subscribers">Абонентам<svg class="nav-chev" width="14" height="14" aria-hidden="true"><use href="#i-chev"/></svg></button>
+          <ul class="nav-sub" id="sub-subscribers">
+            <li><a href="oplata_uslug/">Оплата услуг</a></li>
+            <li><a href="settings/">Настройки и инструкции</a></li>
+            <li><a href="docs/">Документы</a></li>
+            <li><a href="https://lk.zhukovsky.net">Личный кабинет</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <button class="nav-link nav-trigger" type="button" aria-expanded="false" aria-controls="sub-company">Компания<svg class="nav-chev" width="14" height="14" aria-hidden="true"><use href="#i-chev"/></svg></button>
+          <ul class="nav-sub" id="sub-company">
+            <li><a href="about/">О компании</a></li>
+            <li><a href="news/">Новости</a></li>
+            <li><a href="hot/">Акции</a></li>
+            <li><a href="contacts/">Контакты</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="nav-extra">
+        <a class="nav-extra-phone" href="tel:84984835700">8 (498) 48-3-57-00</a>
+        <span>Техподдержка: пн–сб 9:00–24:00, вс 9:00–20:00</span>
+        <a class="btn btn-blue" href="https://lk.zhukovsky.net"><svg width="20" height="20" aria-hidden="true"><use href="#i-user"/></svg>Личный кабинет</a>
+      </div>
     </nav>
     <div class="header-actions">
       <a class="lk-btn" href="https://lk.zhukovsky.net" aria-label="Войти в личный кабинет" title="Личный кабинет"><svg width="20" height="20" aria-hidden="true"><use href="#i-user"/></svg><span class="lk-label">Войти</span></a>
       <button class="btn btn-blue" type="button" data-open="pay">Оплатить</button>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -127,7 +171,7 @@
 
     <div class="tariffs-foot">
       <span id="plans-foot">Абонентская плата списывается 1-го числа месяца. Реальный IP-адрес — 200 ₽/мес. Тарифы для физических лиц.</span>
-      <a href="https://zhukovsky.net/tarifs"><b>Все тарифы и документы</b></a>
+      <a href="tarifs/"><b>Все тарифы и документы</b></a>
     </div>
 
     <div class="high-speed">
@@ -136,6 +180,151 @@
         <p>Проверим техническую возможность по вашему адресу и перезвоним.</p>
       </div>
       <button class="btn btn-blue" type="button" data-open="speed">Оставить заявку</button>
+    </div>
+  </div>
+</section>
+
+<!-- АКЦИИ -->
+<section class="promo-sec" id="promo" aria-labelledby="promo-title">
+  <div class="wrap">
+    <div class="news-head">
+      <h2 id="promo-title">Акции</h2>
+      <!-- <a href="hot/"><b>Все акции</b></a> — вернуть, когда появится страница акций -->
+    </div>
+    <div class="promo">
+      <div class="why-mesh promo-mesh" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="promo-text">
+        <span class="promo-tag">Бессрочная акция</span>
+        <h3>Приведи друга — получи месяц интернета бесплатно</h3>
+        <p>За каждого друга, который подключится к Zhukovsky.Net, вы получаете месяц безлимитного интернета до 100 Мбит/&#8288;с в подарок.</p>
+        <div class="promo-actions">
+          <a class="btn btn-blue" href="hot/">Условия акции</a>
+          <button class="btn promo-btn" type="button" data-open="connect">Оставить заявку</button>
+        </div>
+      </div>
+      <svg class="promo-art gx" viewBox="0 0 420 340" aria-hidden="true">
+        <defs>
+          <linearGradient id="gxTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E9BFF"/><stop offset="1" stop-color="#4B57FF"/></linearGradient>
+          <linearGradient id="gxLeft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1F2BFF"/><stop offset="1" stop-color="#0A10A8"/></linearGradient>
+          <linearGradient id="gxRight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A46FF"/><stop offset="1" stop-color="#1A22D6"/></linearGradient>
+          <linearGradient id="gxRib" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset=".5" stop-color="#D9D2FF" stop-opacity=".8"/><stop offset="1" stop-color="#A6B4FF" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="gxRibSide" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E6E1FF" stop-opacity=".95"/><stop offset="1" stop-color="#9E8CFF" stop-opacity=".75"/></linearGradient>
+          <linearGradient id="gxRing" x1="0" x2="1"><stop offset="0" stop-color="#7B5CFF" stop-opacity=".15"/><stop offset=".5" stop-color="#4B57FF" stop-opacity=".85"/><stop offset="1" stop-color="#7FE3FF" stop-opacity=".3"/></linearGradient>
+          <linearGradient id="gxWifi" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B9A6FF"/></linearGradient>
+          <linearGradient id="gxRay" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFF6C9" stop-opacity=".95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+          <radialGradient id="gxPodium" cx=".5" cy=".35" r=".7"><stop offset="0" stop-color="#C9BFFF"/><stop offset=".6" stop-color="#6D5CFF"/><stop offset="1" stop-color="#2B1CFF" stop-opacity=".2"/></radialGradient>
+          <radialGradient id="gxHalo"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset=".55" stop-color="#FFFFFF" stop-opacity=".45"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+          <radialGradient id="gxInside" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#FFF3B8"/><stop offset=".45" stop-color="#9E8CFF"/><stop offset="1" stop-color="#0C1640"/></radialGradient>
+          <radialGradient id="gxOrb" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#C9B8FF" stop-opacity=".9"/><stop offset="1" stop-color="#3D2BFF" stop-opacity=".35"/></radialGradient>
+          <radialGradient id="gxOrb2" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".4" stop-color="#7FE3FF" stop-opacity=".85"/><stop offset="1" stop-color="#0A14FF" stop-opacity=".3"/></radialGradient>
+          <g id="gxMini">
+            <polygon points="0,20 40,40 40,80 0,60" fill="url(#gxLeft)"/>
+            <polygon points="40,40 80,20 80,60 40,80" fill="url(#gxRight)"/>
+            <polygon points="40,0 80,20 40,40 0,20" fill="#C9BFFF"/>
+            <polygon points="16,28 24,32 24,72 16,68" fill="url(#gxRibSide)"/>
+            <polygon points="56,32 64,28 64,68 56,72" fill="url(#gxRibSide)"/>
+            <polygon points="16,12 24,8 64,28 56,32" fill="#fff"/>
+            <polygon points="56,8 64,12 24,32 16,28" fill="#fff"/>
+          </g>
+        </defs>
+
+        <circle cx="210" cy="190" r="170" fill="url(#gxHalo)"/>
+        <!-- стеклянные дуги Wi-Fi на фоне -->
+        <g class="gx-wifi" fill="none" stroke="url(#gxWifi)" stroke-linecap="round" opacity=".9" transform="translate(272 26)">
+          <path d="M28 120 a62 62 0 0 1 88 0" stroke-width="9"/>
+          <path d="M46 138 a36 36 0 0 1 52 0" stroke-width="9"/>
+          <circle cx="72" cy="158" r="7" fill="#fff" stroke="none"/>
+        </g>
+        <g transform="rotate(-10 210 206)"><ellipse cx="210" cy="206" rx="182" ry="52" fill="none" stroke="url(#gxRing)" stroke-width="5" opacity=".5"/></g>
+
+        <!-- подиум -->
+        <ellipse cx="210" cy="300" rx="156" ry="34" fill="url(#gxPodium)" opacity=".9"/>
+        <ellipse cx="210" cy="292" rx="156" ry="34" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2"/>
+        <ellipse class="gx-shadow" cx="210" cy="288" rx="98" ry="18" fill="#fff" opacity=".45"/>
+        <g transform="translate(318 236) scale(.62)"><use href="#gxMini" class="gx-mini"/></g>
+
+        <g class="gx-gift">
+          <!-- лучи из коробки -->
+          <g class="gx-rays">
+            <polygon points="196,150 160,0 196,0" fill="url(#gxRay)"/>
+            <polygon points="204,150 210,0 236,0" fill="url(#gxRay)"/>
+            <polygon points="216,152 270,6 296,20" fill="url(#gxRay)"/>
+            <polygon points="190,152 110,20 132,8" fill="url(#gxRay)"/>
+          </g>
+          <!-- внутренность коробки -->
+          <polygon points="128,163 210,122 292,163 210,204" fill="url(#gxInside)"/>
+          <!-- плашка вылетает из коробки -->
+          <g class="gx-chip">
+            <rect x="146" y="22" width="128" height="62" rx="20" fill="#0C1640"/>
+            <rect x="147" y="23" width="126" height="28" rx="19" fill="#fff" fill-opacity=".07"/>
+            <text x="210" y="52" text-anchor="middle" fill="#fff" font-family="Unbounded, Manrope, sans-serif" font-weight="700" font-size="19">+1 месяц</text>
+            <text x="210" y="72" text-anchor="middle" fill="#A6B4FF" font-family="Manrope, sans-serif" font-weight="700" font-size="11" letter-spacing="1.5">БЕСПЛАТНО</text>
+          </g>
+          <!-- корпус -->
+          <polygon points="128,163 210,204 210,284 128,243" fill="url(#gxLeft)"/>
+          <polygon points="210,204 292,163 292,243 210,284" fill="url(#gxRight)"/>
+          <polygon points="156,177 174,186 174,266 156,257" fill="url(#gxRibSide)"/>
+          <polygon points="246,186 264,177 264,257 246,266" fill="url(#gxRibSide)"/>
+          <path d="M210 204 V284" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>
+          <path d="M136 176 V232" stroke="#fff" stroke-opacity=".22" stroke-width="5" stroke-linecap="round"/>
+          <path d="M128 163 L210 204 L292 163" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="1.5"/>
+          <!-- крышка с бантом -->
+          <g class="gx-lid">
+            <polygon points="120,137 210,182 210,204 120,159" fill="url(#gxLeft)"/>
+            <polygon points="210,182 300,137 300,159 210,204" fill="url(#gxRight)"/>
+            <polygon points="156,155 174,164 174,186 156,177" fill="url(#gxRibSide)"/>
+            <polygon points="246,164 264,155 264,177 246,186" fill="url(#gxRibSide)"/>
+            <polygon points="210,92 300,137 210,182 120,137" fill="url(#gxTop)"/>
+            <polygon points="156,119 174,110 264,155 246,164" fill="url(#gxRib)"/>
+            <polygon points="246,110 264,119 174,164 156,155" fill="url(#gxRib)"/>
+            <path d="M120 137 L210 92 L300 137" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M210 182 V204" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/>
+            <path d="M210 136 C 184 98, 146 104, 160 126 C 168 140, 196 140, 210 136z" fill="url(#gxRib)" stroke="#fff" stroke-opacity=".85" stroke-width="2"/>
+            <path d="M210 136 C 236 98, 274 104, 260 126 C 252 140, 224 140, 210 136z" fill="url(#gxRib)" stroke="#fff" stroke-opacity=".85" stroke-width="2"/>
+            <path d="M172 118 C 182 116, 196 124, 204 132" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".9"/>
+            <path d="M204 140 C 196 156, 186 160, 178 170" fill="none" stroke="#E6E1FF" stroke-width="5" stroke-linecap="round"/>
+            <path d="M216 140 C 226 154, 240 158, 246 168" fill="none" stroke="#E6E1FF" stroke-width="5" stroke-linecap="round"/>
+            <ellipse cx="210" cy="136" rx="14" ry="9" fill="#fff"/>
+          </g>
+        </g>
+
+        <!-- передняя часть орбиты -->
+        <g transform="rotate(-10 210 206)"><path d="M28 206 A182 52 0 0 0 392 206" fill="none" stroke="url(#gxRing)" stroke-width="5"/></g>
+
+        <!-- конфетти -->
+        <g class="gx-confetti">
+          <rect x="206" y="150" width="8" height="12" rx="2" fill="#0A14FF" style="--x:-150px;--y:-110px;--r:320deg;--d:0s"/>
+          <rect x="206" y="150" width="7" height="11" rx="2" fill="#7B5CFF" style="--x:130px;--y:-120px;--r:-280deg;--d:.05s"/>
+          <rect x="206" y="150" width="6" height="10" rx="2" fill="#3BD98A" style="--x:-90px;--y:-140px;--r:200deg;--d:.1s"/>
+          <rect x="206" y="150" width="8" height="12" rx="2" fill="#FFC83D" style="--x:170px;--y:-60px;--r:-360deg;--d:.02s"/>
+          <rect x="206" y="150" width="7" height="10" rx="2" fill="#FF6B9A" style="--x:-175px;--y:-40px;--r:260deg;--d:.08s"/>
+          <rect x="206" y="150" width="6" height="11" rx="2" fill="#7FE3FF" style="--x:60px;--y:-150px;--r:300deg;--d:.12s"/>
+          <rect x="206" y="150" width="8" height="10" rx="2" fill="#A6B4FF" style="--x:-40px;--y:-160px;--r:-240deg;--d:.04s"/>
+          <rect x="206" y="150" width="7" height="12" rx="2" fill="#0A14FF" style="--x:110px;--y:-30px;--r:380deg;--d:.14s"/>
+          <rect x="206" y="150" width="6" height="9" rx="2" fill="#FFC83D" style="--x:-120px;--y:-170px;--r:-300deg;--d:.16s"/>
+          <rect x="206" y="150" width="8" height="11" rx="2" fill="#FF6B9A" style="--x:150px;--y:-150px;--r:220deg;--d:.09s"/>
+          <circle cx="210" cy="156" r="4.5" fill="#7B5CFF" style="--x:-60px;--y:-100px;--r:0deg;--d:.03s"/>
+          <circle cx="210" cy="156" r="4" fill="#3BD98A" style="--x:90px;--y:-90px;--r:0deg;--d:.11s"/>
+          <circle cx="210" cy="156" r="3.5" fill="#0A14FF" style="--x:-160px;--y:-130px;--r:0deg;--d:.07s"/>
+          <circle cx="210" cy="156" r="4" fill="#FFC83D" style="--x:20px;--y:-175px;--r:0deg;--d:.13s"/>
+          <circle cx="210" cy="156" r="3.5" fill="#7FE3FF" style="--x:185px;--y:-100px;--r:0deg;--d:.06s"/>
+          <path d="M207 152 q6 -6 12 0 q6 6 12 0" fill="none" stroke="#7B5CFF" stroke-width="3" stroke-linecap="round" style="--x:-130px;--y:-60px;--r:180deg;--d:.1s"/>
+          <path d="M207 152 q6 -6 12 0 q6 6 12 0" fill="none" stroke="#0A14FF" stroke-width="3" stroke-linecap="round" style="--x:100px;--y:-170px;--r:-200deg;--d:.02s"/>
+        </g>
+
+        <!-- сферы и искры -->
+        <circle class="gx-orb o1" cx="62" cy="230" r="18" fill="url(#gxOrb)"/>
+        <circle class="gx-orb o2" cx="300" cy="84" r="13" fill="url(#gxOrb2)"/>
+        <circle class="gx-orb o3" cx="110" cy="300" r="8" fill="url(#gxOrb2)"/>
+        <circle class="gx-orb o4" cx="330" cy="40" r="7" fill="url(#gxOrb)"/>
+        <circle class="gx-orb o5" cx="398" cy="196" r="6" fill="url(#gxOrb)"/>
+        <g class="gx-spark" fill="#4B57FF">
+          <path d="M330 210l3.5 8.5 8.5 3.5-8.5 3.5-3.5 8.5-3.5-8.5-8.5-3.5 8.5-3.5z"/>
+          <path class="s2" d="M100 196l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/>
+          <path class="s3" d="M140 60l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/>
+          <path class="s4" d="M290 280l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
@@ -181,7 +370,7 @@
     <div class="extras">
       <a class="extra" href="https://smotreshka.promo/zhukovsky/"><img class="extra-img" src="img/services/smotreshka.jpg" alt="Пара на диване смотрит «Смотрёшку» на большом телевизоре, рядом роутер и сетевое оборудование" style="object-position:center 70%" loading="lazy" width="1200" height="800"><b>ТВ «Смотрёшка»</b><span>IPTV-пакеты с PREMIER, AMEDIATEKA, START и WINK.</span><em>от 249 ₽/мес</em></a>
       <a class="extra" href="http://zhuktv.ru"><img class="extra-img" src="img/services/cable-tv.jpg" alt="Мужчина с пультом на диване, вокруг сцены из фильмов, спорта и передач о космосе" loading="lazy" width="1200" height="800"><b>Кабельное ТВ</b><span>Телевидение по кабелю для многоквартирных домов.</span><em>zhuktv.ru</em></a>
-      <a class="extra" href="https://zhukovsky.net/tarifs"><img class="extra-img" src="img/services/real-ip.jpg" alt="Ноутбук с картой сетевых соединений, подключённый кабелем к сетевому хранилищу, и метка геолокации" loading="lazy" width="1200" height="800"><b>Реальный IP-адрес</b><span>Для видеонаблюдения, серверов и удалённого доступа.</span><em>200 ₽/мес</em></a>
+      <a class="extra" href="tarifs/#real-ip"><img class="extra-img" src="img/services/real-ip.jpg" alt="Ноутбук с картой сетевых соединений, подключённый кабелем к сетевому хранилищу, и метка геолокации" loading="lazy" width="1200" height="800"><b>Реальный IP-адрес</b><span>Для видеонаблюдения, серверов и удалённого доступа.</span><em>200 ₽/мес</em></a>
       <a class="extra" href="http://security.zhukovsky.net"><img class="extra-img" src="img/services/security.jpg" alt="Умный домофон с камерой и смартфон с видеовызовом от домофона" loading="lazy" width="1200" height="800"><b>Системы безопасности</b><span>Умный домофон и видеонаблюдение.</span><em>security.zhukovsky.net</em></a>
     </div>
   </div>
@@ -192,13 +381,33 @@
   <div class="wrap">
     <div class="news-head">
       <h2>Новости</h2>
-      <a href="https://zhukovsky.net/news"><b>Все новости</b></a>
+      <a href="news/"><b>Все новости</b></a>
     </div>
     <div class="news">
       <button class="news-card lead-news" type="button" data-news="0"><time datetime="2026-06-11">11 июня 2026</time><b>График работы в День России</b><p>Абонентский отдел и техподдержка в праздничные дни работают по особому графику.</p><span class="more">Читать</span></button>
       <button class="news-card" type="button" data-news="1"><time datetime="2026-05-27">27 мая 2026</time><b>Обновление тарифных планов</b><p>С 1 июля 2026 года проведена индексация базовых тарифов.</p><span class="more">Читать</span></button>
       <button class="news-card" type="button" data-news="2"><time datetime="2026-04-29">29 апреля 2026</time><b>Работа в майские праздники</b><p>График абонентского отдела и техподдержки с 30 апреля по 11 мая.</p><span class="more">Читать</span></button>
     </div>
+  </div>
+</section>
+
+<!-- СПОСОБЫ ОПЛАТЫ -->
+<section class="section pay-sec" id="payment" aria-labelledby="pay-title">
+  <div class="wrap">
+    <div class="news-head">
+      <div class="pay-head">
+        <h2 id="pay-title">Как оплатить интернет</h2>
+        <p class="lead">Пополните счёт по номеру договора любым удобным способом.</p>
+      </div>
+      <a href="oplata_uslug/"><b>Все способы оплаты</b></a>
+    </div>
+    <div class="pay-grid">
+      <button class="pay-card pay-main" type="button" data-open="pay"><span class="quick-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-card"/></svg></span><b>Картой на сайте</b><span>Мир, Visa, MasterCard через ЮKassa. Вход в личный кабинет не нужен.</span><em>Оплатить</em></button>
+      <a class="pay-card" href="oplata_uslug/"><span class="quick-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-bank"/></svg></span><b>В приложении банка</b><span>СберБанк Онлайн и ВТБ: «Платежи» → «Интернет и ТВ» → «Zhuknet», номер договора.</span><em>Инструкция</em></a>
+      <a class="pay-card" href="https://lk.zhukovsky.net"><span class="quick-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-user"/></svg></span><b>В личном кабинете</b><span>Оплата, история платежей и обещанный платёж, если нужно продлить доступ.</span><em>Войти</em></a>
+      <a class="pay-card" href="contacts/"><span class="quick-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-office"/></svg></span><b>В офисе</b><span>Наличными или картой на ул. Гагарина, 48. Пн–пт 9:00–18:00, сб 10:00–17:00.</span><em>Как добраться</em></a>
+    </div>
+    <p class="pay-note">Юридическим лицам — безналичный расчёт по договору. Абонентская плата списывается 1-го числа: пополните счёт заранее, чтобы интернет не отключился.</p>
   </div>
 </section>
 
@@ -209,12 +418,11 @@
       <h2 id="faq-title">Частые вопросы</h2>
       <p class="lead">Не нашли ответ? Позвоните или напишите — поможем.</p>
       <div class="faq-actions">
-        <!-- На продакшене: открыть чат JivoSite (jivo_api.open()); пока ведёт в Telegram -->
-        <a class="btn faq-ask" href="https://t.me/zhuknet/">Задать вопрос</a>
+        <button class="btn faq-ask" type="button" data-open="ask">Задать вопрос</button>
       </div>
     </div>
     <div class="faq-list">
-        <details class="faq-item" open>
+        <details class="faq-item">
           <summary>Как узнать, можно ли подключиться по моему адресу?<span class="faq-ico" aria-hidden="true"></span></summary>
           <p>Оставьте заявку на сайте или позвоните по номеру 8 (498) 48-3-57-00 — проверим техническую возможность и предложим подходящий тариф.</p>
         </details>
@@ -224,11 +432,11 @@
         </details>
         <details class="faq-item">
           <summary>Где заключить договор?<span class="faq-ico" aria-hidden="true"></span></summary>
-          <p>Онлайн на сайте или в абонентском отделе по адресу: г. Жуковский, ул. Гагарина, 48. Отдел работает с 09:00 до 18:00.</p>
+          <p>Онлайн на сайте или в абонентском отделе по адресу: г. Жуковский, ул. Гагарина, 48. Отдел работает в будни с 9:00 до 18:00, в субботу с 10:00 до 17:00, воскресенье — выходной.</p>
         </details>
         <details class="faq-item">
           <summary>Как оплатить интернет?<span class="faq-ico" aria-hidden="true"></span></summary>
-          <p>Онлайн банковской картой по номеру договора — кнопка «Оплатить» в шапке сайта. Также оплата доступна в личном кабинете.</p>
+          <p>Картой на сайте — кнопка «Оплатить» в шапке, в приложениях СберБанк Онлайн и ВТБ (раздел «Интернет и ТВ», поиск «Zhuknet»), в личном кабинете или в офисе на ул. Гагарина, 48. Все способы — на странице <a href="oplata_uslug/">«Оплата услуг»</a>.</p>
         </details>
         <details class="faq-item">
           <summary>Когда списывается абонентская плата?<span class="faq-ico" aria-hidden="true"></span></summary>
@@ -286,10 +494,10 @@
     </div>
     <div class="info-card">
       <h2 style="font-size:28px">Контакты</h2>
-      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-phone"/></svg></span><div><small>Техподдержка и абонентский отдел</small><a href="tel:84984835700">8 (498) 48-3-57-00</a></div></div>
-      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-pin"/></svg></span><div><small>Абонентский отдел</small><b>г. Жуковский, ул. Гагарина, 48</b></div></div>
-      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-clock"/></svg></span><div><small>Режим работы</small><b>09:00–18:00</b></div></div>
-      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-mail"/></svg></span><div><small>Почта</small><a href="mailto:admin@zhukovsky.net">admin@zhukovsky.net</a></div></div>
+      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-phone"/></svg></span><div><small>Телефон службы поддержки</small><a href="tel:84984835700">8 (498) 48-3-57-00</a><span class="info-more"><a href="tel:84984821471">8 (498) 482-14-71</a>, <a href="tel:84984821421">8 (498) 482-14-21</a>, <a href="tel:89262085544">8 (926) 208-55-44</a></span></div></div>
+      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-head"/></svg></span><div><small>Техподдержка</small><b>Пн–сб 9:00–24:00, вс 9:00–20:00</b><span class="info-more"><a href="mailto:support@zhukovsky.net">support@zhukovsky.net</a></span></div></div>
+      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-clock"/></svg></span><div><small>Абонентский отдел</small><b>Пн–пт 9:00–18:00, сб 10:00–17:00</b><span class="info-more">Воскресенье — выходной · <a href="mailto:abonent@zhukovsky.net">abonent@zhukovsky.net</a></span></div></div>
+      <div class="info-row"><span class="quick-ico"><svg width="22" height="22" aria-hidden="true"><use href="#i-pin"/></svg></span><div><small>Адрес абонентского отдела</small><b>г. Жуковский, ул. Гагарина, 48</b><span class="info-more"><a href="https://yandex.ru/maps/org/zhuknet/1097758088/">Открыть на Яндекс.Картах</a></span></div></div>
     </div>
   </div>
 </section>
@@ -299,19 +507,24 @@
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <a class="logo" href="#top" aria-label="ZHUKNET — наверх"><svg viewBox="0 0 522 68" role="img" aria-label="ZHUKNET"><use href="#logo"/></svg></a>
+      <div class="footer-brand">
+        <a class="logo" href="./" aria-label="ZHUKNET — на главную"><svg viewBox="0 0 522 68" role="img" aria-label="ZHUKNET"><use href="#logo"/></svg></a>
         <span>Интернет-провайдер Жуковского с 30-летней историей.</span>
-        <a href="tel:84984835700" style="color:#fff;font-weight:800;font-size:20px">8 (498) 48-3-57-00</a>
+        <div class="footer-contacts">
+          <a class="footer-phone" href="tel:84984835700">8 (498) 48-3-57-00</a>
+          <small>Техподдержка: пн–сб 9:00–24:00, вс 9:00–20:00</small>
+          <a href="mailto:abonent@zhukovsky.net">abonent@zhukovsky.net</a>
+        </div>
         <a class="footer-tg" href="https://t.me/zhuknet/" aria-label="Telegram" title="Telegram"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg></a>
       </div>
-      <nav aria-label="Подключение"><b>Подключение</b><a href="#tariffs">Тарифы</a><button type="button" data-open="connect" style="all:unset;cursor:pointer">Онлайн-подключение</button><button type="button" data-open="speed" style="all:unset;cursor:pointer">Скорость выше 100 Мбит/&#8288;с</button></nav>
-      <nav aria-label="Абонентам"><b>Абонентам</b><a href="https://lk.zhukovsky.net">Личный кабинет</a><button type="button" data-open="pay" style="all:unset;cursor:pointer">Оплата онлайн</button><a href="https://zhukovsky.net/settings">Настройки</a><a href="https://zhukovsky.net/docs">Документы</a></nav>
-      <nav aria-label="Компания"><b>Компания</b><a href="https://zhukovsky.net/news">Новости</a><a href="https://zhukovsky.net/hot">Акции</a><a href="#contacts">Контакты</a></nav>
+      <nav aria-label="Подключение"><b>Подключение</b><a href="tarifs/">Тарифы</a><a href="online/">Онлайн-заявка</a><button type="button" data-open="speed" style="all:unset;cursor:pointer">Скорость выше 100 Мбит/&#8288;с</button><a href="./#connect">Как подключиться</a></nav>
+      <nav aria-label="Услуги"><b>ТВ и услуги</b><a href="https://smotreshka.promo/zhukovsky/">ТВ «Смотрёшка»</a><a href="kabelnoe_televidenie/">Кабельное ТВ</a><a href="http://security.zhukovsky.net">Системы безопасности</a><a href="tarifs/#real-ip">Реальный IP-адрес</a></nav>
+      <nav aria-label="Абонентам"><b>Абонентам</b><a href="https://lk.zhukovsky.net">Личный кабинет</a><a href="oplata_uslug/">Оплата услуг</a><a href="settings/">Настройки и инструкции</a><a href="docs/">Документы</a></nav>
+      <nav aria-label="Компания"><b>Компания</b><a href="about/">О компании</a><a href="news/">Новости</a><a href="hot/">Акции</a><a href="contacts/">Контакты</a></nav>
     </div>
     <div class="footer-bottom">
       <span>© ООО «Телесервис», 140180, Московская обл., г. Жуковский, ул. Гагарина, д. 48 · ИНН 5013053231 · ОГРН 1065013008455</span>
-      <a href="https://zhukovsky.net/docs">Политика конфиденциальности</a>
+      <a href="files/pers.pdf">Политика обработки персональных данных</a>
     </div>
   </div>
 </footer>
@@ -330,14 +543,14 @@
       <div class="field"><label for="c-name">Имя и фамилия</label><input id="c-name" name="name" autocomplete="name" required></div>
       <div class="row2">
         <div class="field"><label for="c-phone">Телефон</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
-        <div class="field"><label for="c-type">Тип жилья</label><select id="c-type" name="type"><option>Квартира</option><option>Частный дом</option></select></div>
+        <div class="field"><label for="c-type">Тип жилья</label><select id="c-type" name="type"><button type="button"><selectedcontent></selectedcontent></button><option>Квартира</option><option>Частный дом</option></select></div>
       </div>
       <div class="field"><label for="c-addr">Адрес подключения</label><input id="c-addr" name="address" autocomplete="street-address" placeholder="Улица, дом, квартира" required></div>
-      <div class="field"><label for="c-plan">Тариф</label><select id="c-plan" name="plan"></select><span class="hint">Тарифы выше 100 Мбит/&#8288;с — при технической возможности.</span></div>
+      <div class="field"><label for="c-plan">Тариф</label><select id="c-plan" name="plan"><button type="button"><selectedcontent></selectedcontent></button></select><span class="hint">Тарифы выше 100 Мбит/&#8288;с — при технической возможности.</span></div>
       <label class="check"><input type="checkbox" required checked> Согласен на обработку персональных данных</label>
       <button class="btn btn-blue" type="submit">Отправить заявку</button>
     </div>
-    <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-check"/></svg></span><h2>Заявка отправлена</h2><p class="sub" style="margin:0">Перезвоним в рабочее время: 09:00–18:00.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
+    <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-check"/></svg></span><h2>Заявка отправлена</h2><p class="sub" style="margin:0">Перезвоним в рабочее время абонентского отдела: пн–пт 9:00–18:00, сб 10:00–17:00.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
   </form>
 </dialog>
 
@@ -349,7 +562,7 @@
       <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
     </div>
     <div class="form-body" style="display:flex;flex-direction:column;gap:14px">
-      <div class="field"><label for="s-speed">Желаемая скорость</label><select id="s-speed" name="speed"><option>до 200 Мбит/с</option><option>до 300 Мбит/с</option><option>до 500 Мбит/с (частный сектор)</option><option>[до 2000 Мбит/с — уточнить у заказчика]</option></select></div>
+      <div class="field"><label for="s-speed">Желаемая скорость</label><select id="s-speed" name="speed"><button type="button"><selectedcontent></selectedcontent></button><option>до 200 Мбит/с</option><option>до 300 Мбит/с</option><option>до 500 Мбит/с (частный сектор)</option><option>[до 2000 Мбит/с — уточнить у заказчика]</option></select></div>
       <div class="row2">
         <div class="field"><label for="s-name">Имя</label><input id="s-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="s-phone">Телефон</label><input id="s-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
@@ -381,6 +594,30 @@
   </form>
 </dialog>
 
+<!-- ПОПАП: задать вопрос -->
+<dialog id="dlg-ask" aria-labelledby="t-ask">
+  <form class="modal" novalidate>
+    <div class="modal-head">
+      <div><h2 id="t-ask">Задать вопрос</h2><p class="sub">Перезвоним и ответим в рабочее время: пн–пт 9:00–18:00, сб 10:00–17:00.</p></div>
+      <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="form-body" style="display:flex;flex-direction:column;gap:14px">
+      <div class="row2">
+        <div class="field"><label for="q-name">Имя</label><input id="q-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="q-phone">Телефон</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="q-topic">Тема</label><select id="q-topic" name="topic"><button type="button"><selectedcontent></selectedcontent></button><option>Подключение</option><option>Тарифы и оплата</option><option>Техническая проблема</option><option>Договор и документы</option><option>Другое</option></select></div>
+        <div class="field"><label for="q-contract">Номер договора</label><input id="q-contract" name="contract" inputmode="numeric" placeholder="Если вы абонент"></div>
+      </div>
+      <div class="field"><label for="q-text">Вопрос</label><textarea id="q-text" name="question" rows="4" required></textarea><span class="hint">Пропал интернет? Быстрее позвонить: <a href="tel:84984835700">8 (498) 48-3-57-00</a></span></div>
+      <label class="check"><input type="checkbox" required checked> Согласен на обработку персональных данных</label>
+      <button class="btn btn-blue" type="submit">Отправить вопрос</button>
+    </div>
+    <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-check"/></svg></span><h2>Вопрос отправлен</h2><p class="sub" style="margin:0">Перезвоним в рабочее время абонентского отдела: пн–пт 9:00–18:00, сб 10:00–17:00.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
+  </form>
+</dialog>
+
 <!-- ПОПАП: карточка новости -->
 <dialog id="dlg-news" aria-labelledby="t-news">
   <div class="modal news-full">
@@ -389,7 +626,7 @@
       <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
     </div>
     <div class="body" id="n-body"></div>
-    <a href="https://zhukovsky.net/news"><b>Все новости</b></a>
+    <a href="news/"><b>Все новости</b></a>
   </div>
 </dialog>
 

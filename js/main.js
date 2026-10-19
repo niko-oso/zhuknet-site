@@ -16,11 +16,12 @@
     var d = DATA[key];
     var featuredIdx = d.plans.length > 1 ? 1 : -1;
     plansEl.style.setProperty('--cols', Math.min(d.plans.length, 4) === 1 ? 2 : d.plans.length);
+    plansEl.dataset.plans = d.plans.length;
     plansEl.innerHTML = d.plans.map(function(p,i){
       var f = i === featuredIdx;
       var high = p.s > 100;
       return '<article class="plan'+(f?' featured':'')+'">' +
-        '<div class="plan-top"><div><div class="plan-name">«'+d.name+'»</div><div class="plan-speed">до <span class="count" data-to="'+p.s+'">'+p.s+'</span> Мбит/с</div></div>' +
+        '<div class="plan-top"><div><div class="plan-name">«'+d.name+'»</div><div class="plan-speed">до <span class="count" data-to="'+p.s+'">'+p.s+'</span>&nbsp;Мбит/&#8288;с</div></div>' +
         '</div>' +
         '<div class="meter" aria-hidden="true"><div class="meter-track"><div class="meter-fill" data-w="'+(p.s/MAX*100)+'%"></div></div><div class="meter-scale"><span>0</span><span>500 Мбит/с</span></div></div>' +
         '<div class="plan-price"><b class="count" data-to="'+p.p+'">'+p.p.toLocaleString('ru-RU')+'</b><span>₽ / мес</span></div>' +
@@ -58,7 +59,7 @@
   function countUp(root){
     if (noMotion) return;
     var els = root.querySelectorAll('.count');
-    if (!seen){ els.forEach(function(el){ el.textContent = '0'; }); return; }
+    if (!seen) return; // до первого показа держим реальные цифры, чтобы никто не увидел «0 ₽»
     els.forEach(function(el, i){
       var to = +el.dataset.to, start = null, dur = 1300, delay = i * 60;
       el.textContent = '0';
@@ -79,6 +80,13 @@
     function upd(){ b.classList.toggle('show', window.scrollY > 600); }
     window.addEventListener('scroll', upd, {passive:true}); upd();
     b.addEventListener('click', function(){ window.scrollTo({top:0, behavior: noMotion ? 'auto' : 'smooth'}); });
+  })();
+  // Подарок в «Акциях» открывается, пока блок на экране
+  (function(){
+    var g = document.querySelector('.gx');
+    if (!g || noMotion) return;
+    if (!('IntersectionObserver' in window)){ g.classList.add('play'); return; }
+    new IntersectionObserver(function(en){ g.classList.toggle('play', en[0].isIntersecting); }, {threshold: 0.4}).observe(g);
   })();
   // Анимация шагов «Как подключиться» при появлении блока
   (function(){
@@ -111,9 +119,43 @@
   if (!noMotion && 'IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       if (entries[0].isIntersecting){ seen = true; countUp(plansEl); io.disconnect(); }
-    }, {threshold: 0.35});
+    }, {threshold: 0, rootMargin: '0px 0px -30% 0px'}); // процентный порог не срабатывает на высоких блоках и низких экранах
     io.observe(plansEl);
   } else { seen = true; plansEl.querySelectorAll('.count').forEach(function(el){ el.textContent = fmt(+el.dataset.to); }); }
+
+  // Меню: выпадающие разделы и мобильное меню
+  (function(){
+    var header = document.querySelector('.header'), nav = document.getElementById('site-nav'), burger = document.querySelector('.burger');
+    if (!header || !nav) return;
+    var mobile = matchMedia('(max-width:1080px)');
+    function closeSubs(except){
+      nav.querySelectorAll('.has-sub.open').forEach(function(li){
+        if (li === except) return;
+        li.classList.remove('open'); li.querySelector('.nav-trigger').setAttribute('aria-expanded','false');
+      });
+    }
+    function setMenu(on){
+      header.classList.toggle('menu-open', on);
+      document.body.classList.toggle('menu-lock', on);
+      if (burger){ burger.setAttribute('aria-expanded', on ? 'true' : 'false'); burger.setAttribute('aria-label', on ? 'Закрыть меню' : 'Открыть меню'); }
+      if (on) header.style.setProperty('--hb', Math.round(header.getBoundingClientRect().bottom) + 'px'); else closeSubs();
+    }
+    nav.querySelectorAll('.nav-trigger').forEach(function(t){
+      t.addEventListener('click', function(){
+        var li = t.parentElement, on = !li.classList.contains('open');
+        if (!mobile.matches) closeSubs(li);
+        li.classList.toggle('open', on); t.setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+    });
+    if (burger) burger.addEventListener('click', function(){ setMenu(!header.classList.contains('menu-open')); });
+    nav.addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('click', function(e){ if (!mobile.matches && !e.target.closest('.has-sub')) closeSubs(); });
+    document.addEventListener('keydown', function(e){
+      if (e.key !== 'Escape') return;
+      if (header.classList.contains('menu-open')){ setMenu(false); burger.focus(); } else closeSubs();
+    });
+    mobile.addEventListener('change', function(){ setMenu(false); });
+  })();
 
   // попапы
   function open(id, opts){
@@ -139,7 +181,7 @@
     f.addEventListener('submit', function(e){
       e.preventDefault();
       var bad = [].filter.call(f.querySelectorAll('[required]'), function(i){ return i.type==='checkbox' ? !i.checked : !i.value.trim(); });
-      f.querySelectorAll('input,select').forEach(function(i){ i.style.borderColor=''; });
+      f.querySelectorAll('input,select,textarea').forEach(function(i){ i.style.borderColor=''; });
       if (bad.length){ bad.forEach(function(i){ i.style.borderColor='#D93636'; }); bad[0].focus(); return; }
       f.classList.add('sent'); // здесь — отправка в CRM заказчика
     });
