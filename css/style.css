@@ -1380,3 +1380,72 @@ button.extra{font:inherit;text-align:left;border:0;cursor:pointer;width:100%}
 .extra{position:relative}
 .extra::before{content:"";position:absolute;top:0;left:0;right:0;aspect-ratio:3/2;z-index:1;pointer-events:none;
   background:linear-gradient(to top,rgba(8,19,61,.55) 0%,rgba(8,19,61,.22) 28%,rgba(8,19,61,0) 55%)}
+/* Мобильная: подарок выше — равные отступы от верха карточки и до плашки «Бессрочная акция» */
+@media (max-width:900px){.promo-art{margin:-2px auto 10px}}
+/* «ТВ и услуги»: бенто — фото на всю карточку, текст на тёмном градиенте снизу */
+.extras{grid-template-columns:1.3fr 1fr 1fr;grid-auto-rows:300px;gap:20px}
+.extra{position:relative;justify-content:flex-end;min-height:0;padding:28px;background:var(--navy);color:#fff}
+.extra:nth-child(1){grid-row:span 2}
+.extra:nth-child(2){grid-column:span 2}
+.extra .extra-img{position:absolute;inset:0;margin:0;width:100%;height:100%;aspect-ratio:auto;z-index:0}
+.extra::before{aspect-ratio:auto;bottom:0;background:linear-gradient(to top,rgba(8,19,61,.94) 0%,rgba(8,19,61,.72) 32%,rgba(8,19,61,.15) 62%,rgba(8,19,61,0) 80%)}
+.extra > :not(img){position:relative;z-index:2}
+.extra b{margin-top:auto;color:#fff;font-size:22px;line-height:1.2}
+.extra:nth-child(1) b{font-size:30px}
+.extra > span:not(.extra-foot){color:#D5DDFF;max-width:34em}
+.extra .extra-foot{margin-top:0;padding-top:10px;width:100%;flex-direction:row;align-items:center;justify-content:space-between;gap:12px}
+.extra .extra-foot em{color:#fff}
+.extra .extra-btn{background:#fff;color:var(--blue)}
+.extra:hover,.extra:focus-visible{color:#fff}
+.extra:hover .extra-btn,.extra:focus-visible .extra-btn{background:var(--blue);color:#fff}
+@media (max-width:900px){
+  .extras{grid-template-columns:1fr 1fr;grid-auto-rows:280px;gap:16px}
+  .extra:nth-child(1),.extra:nth-child(2){grid-row:auto;grid-column:1 / -1}
+  .extra:nth-child(1) b{font-size:26px}
+}
+@media (max-width:600px){
+  .extras{grid-template-columns:1fr;grid-auto-rows:300px;gap:14px}
+  .extra{padding:22px}
+  .extra b,.extra:nth-child(1) b{font-size:22px}
+}
+.extra .extra-foot em{white-space:nowrap}
+@media (max-width:600px){.extras{grid-auto-rows:340px}}
+.extra .extra-foot{flex-wrap:wrap;row-gap:10px}
+/* Смотрёшка: вертикальное фото — в широких карточках показываем верх с телевизором */
+.extra:nth-child(1) .extra-img{object-position:center 30%}
+@media (max-width:900px){.extra:nth-child(1) .extra-img{object-position:center 7%}}
+@media (max-width:600px){.extra:nth-child(2) .extra-img{object-position:62% center}}
+.extra:nth-child(3) .extra-img{object-position:center 25%}
+.extra:nth-child(4) .extra-img{object-position:center 20%}
+/* Палитра блока «20 лет» (индиго · фиолетовый · бирюзовый на #070B2E) — на баннере и карточках услуг */
+.extra::before{background:
+  radial-gradient(70% 55% at 0% 100%,rgba(43,28,255,.9),rgba(43,28,255,0) 70%),
+  radial-gradient(55% 45% at 60% 108%,rgba(123,92,255,.7),rgba(123,92,255,0) 70%),
+  radial-gradient(40% 38% at 104% 92%,rgba(61,213,255,.38),rgba(61,213,255,0) 70%),
+  linear-gradient(to top,rgba(7,11,46,.9) 0%,rgba(7,11,46,.55) 34%,rgba(7,11,46,0) 66%)}
+.hero{background:
+  radial-gradient(75% 45% at 0% 0%,rgba(43,28,255,.75),rgba(43,28,255,0) 70%),
+  radial-gradient(60% 40% at 100% 55%,rgba(123,92,255,.45),rgba(123,92,255,0) 70%),
+  radial-gradient(45% 30% at 15% 100%,rgba(61,213,255,.2),rgba(61,213,255,0) 70%),
+  #070B2E}
+@media (min-width:901px){
+  .hero-visual::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:
+    radial-gradient(42% 70% at 0% 18%,rgba(43,28,255,.75),rgba(43,28,255,0) 70%),
+    radial-gradient(36% 55% at 22% 100%,rgba(123,92,255,.55),rgba(123,92,255,0) 70%),
+    radial-gradient(22% 35% at 46% 100%,rgba(61,213,255,.25),rgba(61,213,255,0) 70%)}
+}
+@media (max-width:900px){.hero-visual::before{background:linear-gradient(rgba(7,11,46,.0),transparent)}}
+@media (max-width:900px){.hero-visual::before{height:80px;background:linear-gradient(rgba(14,14,70,.9),rgba(14,14,70,0))}}
+@media (min-width:901px) and (max-width:1150px){.hero-photo{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}}
+/* стыки фото и фона: фото растворяется в градиенте баннера */
+@media (min-width:901px) and (max-width:1150px){.hero-visual::after{content:none}}
+@media (max-width:900px){
+  .hero-visual::before{content:none}
+  .hero-photo{-webkit-mask-image:linear-gradient(transparent 0,#000 22%);mask-image:linear-gradient(transparent 0,#000 22%)}
+}
+/* Карточки услуг: цветной эффект снизу заметнее */
+.extra::before{background:
+  radial-gradient(85% 70% at 0% 100%,rgba(43,28,255,1),rgba(43,28,255,0) 72%),
+  radial-gradient(70% 60% at 58% 112%,rgba(123,92,255,.85),rgba(123,92,255,0) 72%),
+  radial-gradient(50% 50% at 106% 95%,rgba(61,213,255,.5),rgba(61,213,255,0) 72%),
+  linear-gradient(to top,rgba(7,11,46,.9) 0%,rgba(7,11,46,.6) 38%,rgba(7,11,46,0) 72%)}
