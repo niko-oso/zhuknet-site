@@ -1357,3 +1357,26 @@ button.extra{font:inherit;text-align:left;border:0;cursor:pointer;width:100%}
 .news-pager{margin-top:calc(var(--sec) - var(--fg) + 20px)}
 @media (min-width:601px){.news-pager{justify-content:flex-start}}
 @media (max-width:600px){.news-pager{margin-top:auto;padding-top:20px}}
+/* ПК: у фото баннера своё затемнение слева — убираем наше */
+@media (min-width:901px){
+  .hero-visual::after{content:none}
+  .hero-photo{-webkit-mask-image:none;mask-image:none}
+}
+/* 901–1150px: фото баннера сдвинуто вправо, чтобы семья не уходила под текст; левый край мягко растворяется в фоне */
+@media (min-width:901px) and (max-width:1150px){
+  .hero-visual{left:34%}
+  .hero-photo{object-position:100% 40%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%)}
+}
+@media (min-width:901px) and (max-width:1150px){
+  .hero-photo{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%);mask-image:linear-gradient(90deg,transparent 0,#000 8%)}
+}
+@media (min-width:901px) and (max-width:980px){.hero-visual{left:26%}}
+/* ПК от 1151px: фото баннера на всю ширину */
+@media (min-width:1151px){
+  .hero-photo{top:0;left:0;right:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:right 55%;-webkit-mask-image:none;mask-image:none}
+}
+@media (min-width:1151px){.hero-photo{object-position:right 70%}}
+/* Карточки услуг: мягкое затемнение фото снизу, как у баннера */
+.extra{position:relative}
+.extra::before{content:"";position:absolute;top:0;left:0;right:0;aspect-ratio:3/2;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(8,19,61,.55) 0%,rgba(8,19,61,.22) 28%,rgba(8,19,61,0) 55%)}
