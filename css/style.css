@@ -1449,3 +1449,23 @@ button.extra{font:inherit;text-align:left;border:0;cursor:pointer;width:100%}
   radial-gradient(70% 60% at 58% 112%,rgba(123,92,255,.85),rgba(123,92,255,0) 72%),
   radial-gradient(50% 50% at 106% 95%,rgba(61,213,255,.5),rgba(61,213,255,0) 72%),
   linear-gradient(to top,rgba(7,11,46,.9) 0%,rgba(7,11,46,.6) 38%,rgba(7,11,46,0) 72%)}
+/* Карточки услуг: кнопка не перекрашивается — растёт вместе с карточкой */
+.extra:hover .extra-btn,.extra:focus-visible .extra-btn{background:#fff;color:var(--blue);box-shadow:none}
+/* Наведение: фото внутри плавно приближается */
+.extra .extra-img{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .extra:hover .extra-img,.extra:focus-visible .extra-img{transform:scale(1.06)}
+}
+/* Внешние ссылки: стрелка ↗ в кнопке */
+a.extra[target="_blank"] .extra-btn{gap:6px}
+a.extra[target="_blank"] .extra-btn::after{content:"";flex:none;width:14px;height:14px;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M9 7h8v8'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M9 7h8v8'/%3E%3C/svg%3E") center/contain no-repeat}
+/* 901–1150px: в узких карточках компактнее текст, чтобы описание не теснило кнопку */
+@media (min-width:901px) and (max-width:1150px){
+  .extra:nth-child(n+3){padding:22px}
+  .extra:nth-child(n+3) b{font-size:19px}
+  .extra:nth-child(n+3) > span:not(.extra-foot){font-size:14px;line-height:1.4}
+  .extra:nth-child(n+3) .extra-foot em{font-size:16px}
+  .extra:nth-child(n+3) .extra-btn{padding:0 16px;font-size:14px;min-height:40px}
+}
