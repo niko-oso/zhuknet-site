@@ -509,3 +509,11 @@
   }, {threshold:.35});
   io.observe(sky);
 })();
+
+// Рамка фокуса — только для клавиатуры. Safari на iPhone показывает её и после касаний:
+// на крестике открытого попапа и на ленте новостей, куда фокус возвращается после закрытия
+(function(){
+  var root = document.documentElement;
+  document.addEventListener('pointerdown', function(){ root.classList.add('pointer-mode'); }, true);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Tab' || e.key.indexOf('Arrow') === 0) root.classList.remove('pointer-mode'); }, true);
+})();
