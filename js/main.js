@@ -1,11 +1,12 @@
 (function(){
+  var NH = 'Стоимость подключения — по адресу';
   var DATA = {
     flat:  { name:'Безлимитный', foot:'Для многоквартирных домов. Абонентская плата списывается 1-го числа месяца. Реальный IP-адрес — 200 ₽/мес.',
              plans:[{s:100,p:600},{s:200,p:850,n:'При технической возможности'},{s:300,p:1050,n:'При технической возможности'}] },
-    house: { name:'Дачный', foot:'Для частного сектора. Абонентская плата списывается 1-го числа месяца. Реальный IP-адрес — 200 ₽/мес.',
-             plans:[{s:100,p:750},{s:200,p:950},{s:300,p:1200},{s:500,p:1600}] },
-    daily: { name:'На каждый день', foot:'Абонентская плата списывается ежедневно — удобно, если не хотите платить за месяц вперёд.',
-             plans:[{s:60,p:650,n:'Списание ежедневно'}] }
+    house: { name:'Дачный', foot:'Для частного сектора. Стоимость подключения рассчитаем по адресу. Абонентская плата списывается 1-го числа месяца. Реальный IP-адрес — 200 ₽/мес.',
+             plans:[{s:100,p:750,n:NH},{s:200,p:950,n:NH},{s:300,p:1200,n:NH},{s:500,p:1600,n:NH}] },
+    daily: { name:'На каждый день', foot:'Только для многоквартирных домов. Абонентская плата списывается ежедневно — удобно, если не хотите платить за месяц вперёд.',
+             plans:[{s:60,p:650,n:'Только в многоквартирных домах · списание ежедневно'}] }
   };
   var MAX = 500;
   var plansEl = document.getElementById('plans');
@@ -318,4 +319,193 @@
       });
     }, 400);
   }
+})();
+
+// Слайдер баннеров на первом экране: стрелки, точки, свайп, клавиши ←/→, автопрокрутка с паузой
+(function(){
+  var hero = document.querySelector('.hero');
+  if (!hero) return;
+  var slides = hero.querySelectorAll('.hero-slide');
+  var visuals = hero.querySelectorAll('.hero-visuals .hero-visual');
+  var dots = hero.querySelectorAll('.hn-dot');
+  var pauseBtn = hero.querySelector('.hn-pause');
+  var nav = hero.querySelector('.hero-nav');
+  var track = hero.querySelector('.hero-track');
+  var n = slides.length;
+  if (n < 2){ if (nav) nav.hidden = true; return; }
+
+  var DUR = 7000, cur = 0, timer = null, left = DUR, startedAt = 0;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var stopped = reduce, hold = false;   // stopped — выключено кнопкой/настройкой; hold — пауза под курсором/фокусом
+  hero.style.setProperty('--hs-dur', DUR / 1000 + 's');
+
+  function show(i){
+    cur = (i + n) % n;
+    slides.forEach(function(s, k){
+      var on = k === cur;
+      s.classList.toggle('is-active', on);
+      s.setAttribute('aria-hidden', on ? 'false' : 'true');
+      if ('inert' in s) s.inert = !on;
+    });
+    visuals.forEach(function(v, k){
+      var was = v.classList.contains('is-active');
+      v.classList.toggle('is-active', k === cur);
+      if (was && k !== cur){ v.classList.add('is-leaving'); setTimeout(function(){ v.classList.remove('is-leaving'); }, 900); }
+    });
+    dots.forEach(function(d, k){ if (k === cur) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
+    hero.classList.toggle('is-light', slides[cur].classList.contains('tone-light'));
+    fit();
+    restart();
+  }
+  function restart(){
+    clearTimeout(timer); left = DUR;
+    // перезапуск полоски прогресса
+    hero.classList.remove('hs-auto'); void hero.offsetWidth;
+    if (!stopped){ hero.classList.add('hs-auto'); run(); }
+  }
+  function run(){
+    clearTimeout(timer);
+    if (stopped || hold) return;
+    startedAt = Date.now();
+    timer = setTimeout(function(){ if (away) due = true; else show(cur + 1); }, left);
+  }
+  function setHold(v){
+    if (v === hold) return;
+    hold = v;
+    hero.classList.toggle('hs-hold', v);
+    if (v){ clearTimeout(timer); left = Math.max(0, left - (Date.now() - startedAt)); }
+    else run();
+  }
+  function setStopped(v){
+    stopped = v;
+    pauseBtn.setAttribute('aria-pressed', v ? 'true' : 'false');
+    pauseBtn.setAttribute('aria-label', v ? 'Включить автопрокрутку' : 'Остановить автопрокрутку');
+    restart();
+  }
+
+  hero.addEventListener('click', function(e){
+    var b = e.target.closest('[data-hs]'), g = e.target.closest('[data-hs-go]');
+    if (b) show(cur + +b.dataset.hs);
+    else if (g) show(+g.dataset.hsGo);
+  });
+  pauseBtn.addEventListener('click', function(){ setStopped(!stopped); });
+  nav.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft'){ e.preventDefault(); show(cur - 1); }
+    if (e.key === 'ArrowRight'){ e.preventDefault(); show(cur + 1); }
+  });
+
+  // пауза, пока пользователь читает баннер или работает с ним
+  hero.addEventListener('mouseenter', function(){ setHold(true); });
+  hero.addEventListener('mouseleave', function(){ setHold(false); });
+  hero.addEventListener('focusin', function(){ setHold(true); });
+  hero.addEventListener('focusout', function(e){ if (!hero.contains(e.relatedTarget)) setHold(false); });
+  document.addEventListener('visibilitychange', function(){ setHold(document.hidden); });
+
+  // свайп на телефоне
+  var x0 = null, y0 = 0;
+  hero.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive:true});
+  hero.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(cur + (dx < 0 ? 1 : -1));
+  }, {passive:true});
+
+  // телефон и планшет: высота баннера по его содержимому, смена высоты — плавная.
+  // Срабатывает для любого числа слайдов: новые баннеры подхватываются автоматически
+  var mq = matchMedia('(max-width:900px)');
+  function fit(){
+    if (!track) return;
+    var on = mq.matches;
+    track.classList.toggle('hs-fit', on);
+    track.style.height = on ? slides[cur].offsetHeight + 'px' : '';
+  }
+  if ('ResizeObserver' in window) slides.forEach(function(s){ new ResizeObserver(function(){ if (s === slides[cur]) fit(); }).observe(s); });
+  window.addEventListener('resize', fit);
+
+  // баннер ушёл с экрана — не листаем: иначе страница под ним прыгала бы при смене высоты
+  var away = false, due = false;
+  if ('IntersectionObserver' in window) new IntersectionObserver(function(es){
+    away = !es[0].isIntersecting;
+    if (!away && due){ due = false; show(cur + 1); }
+  }).observe(hero);
+
+  show(0); if (reduce) setStopped(true);
+})();
+
+// FAQ: открыт только один вопрос (запасной вариант для браузеров без <details name>)
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if (!d.open) return;
+      items.forEach(function(o){ if (o !== d && o.open) o.open = false; });
+    });
+  });
+})();
+
+
+// «Мы местные»: запуск «гонки» самолётов при появлении блока
+(function(){
+  var race = document.querySelector('.race');
+  if (!race || !('IntersectionObserver' in window)) return;
+  // анимация имеет смысл только в раскладке ПК (дорожки в строку); на планшете и телефоне — сразу итоговое состояние
+  if (!window.matchMedia('(min-width:901px)').matches) return;
+  race.classList.add('js-anim');
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ race.classList.add('in'); io.disconnect(); } });
+  }, {threshold:.35});
+  io.observe(race);
+})();
+
+
+
+// «20 лет»: самолёты пролетают по своим следам, держатся в точке, плавно исчезают — и цикл повторяется.
+// Позиция и угол самолёта берутся из самой линии следа, поэтому самолёт всегда точно на линии.
+(function(){
+  var sky = document.querySelector('.why-city .why-sky');
+  if (!sky || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var HOLD = 1600, FADE = 700, GAP = 900;
+  var flights = [];
+  sky.querySelectorAll('[data-fly]').forEach(function(p){
+    var path = sky.querySelector('#' + p.dataset.fly);
+    flights.push({ p: p, path: path, len: path.getTotalLength(),
+                   trails: [].slice.call(path.parentNode.querySelectorAll('path')),
+                   dur: +p.dataset.dur * 1000, delay: +p.dataset.delay * 1000 });
+  });
+  var cycle = 0;
+  flights.forEach(function(f){ cycle = Math.max(cycle, f.delay + f.dur); });
+  cycle += HOLD + FADE + GAP;
+  function ease(t){ return t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2; }
+  function place(f, k){
+    var d = Math.max(1, k * f.len);
+    var a = f.path.getPointAtLength(d), b = f.path.getPointAtLength(Math.max(0, d - 1.5));
+    var ang = Math.atan2(a.y - b.y, a.x - b.x) * 180 / Math.PI;
+    f.p.setAttribute('transform', 'translate(' + a.x + ' ' + a.y + ') rotate(' + ang + ')');
+    f.trails.forEach(function(t){ t.style.strokeDashoffset = 1 - k; });
+  }
+  function setAlpha(f, v){ f.p.style.opacity = v; f.trails.forEach(function(t){ t.style.opacity = v; }); }
+  flights.forEach(function(f){
+    f.trails.forEach(function(t){ t.dataset.op = t.getAttribute('opacity') || 1; t.style.strokeDasharray = '1 1'; });
+    place(f, 0); setAlpha(f, 0);
+  });
+  function setAlphaTrail(f, v){ f.p.style.opacity = v; f.trails.forEach(function(t){ t.style.opacity = v * t.dataset.op; }); }
+  var io = new IntersectionObserver(function(es){
+    if (!es[0].isIntersecting) return;
+    io.disconnect();
+    var t0 = performance.now();
+    (function tick(now){
+      var tc = (now - t0) % cycle;
+      flights.forEach(function(f){
+        var t = (tc - f.delay) / f.dur;
+        if (t < 0){ setAlphaTrail(f, 0); place(f, 0); return; }
+        place(f, ease(Math.min(1, t)));
+        var fadeStart = cycle - GAP - FADE;
+        var v = tc < fadeStart ? 1 : Math.max(0, 1 - (tc - fadeStart) / FADE);
+        setAlphaTrail(f, v);
+      });
+      requestAnimationFrame(tick);
+    })(t0);
+  }, {threshold:.35});
+  io.observe(sky);
 })();

@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ZHUKNET — домашний интернет в Жуковском</title>
-<meta name="description" content="Zhukovsky.Net — интернет-провайдер Жуковского с 2006 года. Тарифы до 500 Мбит/с, бесплатное подключение, оплата онлайн и личный кабинет.">
+<meta name="description" content="Zhukovsky.Net — интернет-провайдер Жуковского с 2006 года. Тарифы до 500 Мбит/с, бесплатное подключение в многоквартирных домах, оплата онлайн и личный кабинет.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="css/style.css?v=2026-10-20-32">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&family=Great+Vibes&display=swap">
+<link rel="stylesheet" href="css/style.css?v=blue3-61">
 </head>
 <body>
 
@@ -40,6 +40,9 @@
   <symbol id="i-office" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9.5 21v-6h5v6"/></g></symbol>
   <symbol id="i-file" viewBox="0 0 40 48"><path d="M7 1h19l13 13v28a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V6a5 5 0 0 1 5-5z" fill="currentColor"/><path d="M26 1v8a5 5 0 0 0 5 5h8z" fill="#fff" fill-opacity=".45"/></symbol>
   <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></g></symbol>
+  <symbol id="i-plane" viewBox="0 0 64 64"><!-- силуэт самолёта с герба Жуковского; рисуется носом вверх и поворачивается носом вправо --><path transform="rotate(90 32 32)" fill="currentColor" fill-rule="evenodd" d="M32 2L34.6 10L36 20L37 26L60 47L58 51.5L46 48L45.2 52L50.5 57.5L48.5 61L38.5 57L35.2 61.5H28.8L25.5 57L15.5 61L13.5 57.5L18.8 52L18 48L6 51.5L4 47L27 26L28 20L29.4 10Z M32 9.5C30.9 11.5 30.6 15 31 19.5H33C33.4 15 33.1 11.5 32 9.5Z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></symbol>
   <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></g></symbol>
 </svg>
 
@@ -62,15 +65,15 @@
 <header class="header">
   <div class="wrap">
     <a class="brand" href="./" aria-label="ZHUKNET — интернет-провайдер Жуковского 20 лет, на главную">
-      <span class="logo"><svg viewBox="0 0 522 68" aria-hidden="true"><use href="#logo"/></svg></span>
-      <span class="brand-tag" aria-hidden="true"><b>20 лет</b><span>интернет-провайдер<br>Жуковского</span></span>
+      <span class="brand-main"><span class="logo"><svg viewBox="0 0 522 68" aria-hidden="true"><use href="#logo"/></svg></span><span class="brand-city" aria-hidden="true">Интернет-провайдер в г.&nbsp;Жуковском</span></span>
+      <span class="brand-tag" aria-hidden="true"><b><svg class="brand-plane" width="14" height="14" viewBox="0 0 64 64"><use href="#i-plane"/></svg>20 лет</b><span>интернет-провайдер<br>Жуковского</span></span>
     </a>
     <nav class="nav" id="site-nav" aria-label="Основное меню">
       <ul class="nav-list">
         <li><a class="nav-link" href="#tariffs">Тарифы</a></li>
         <li><a class="nav-link" href="#connect">Подключение</a></li>
-        <li><a class="nav-link" href="#extras">ТВ и услуги</a></li>
         <li><a class="nav-link" href="#payment">Оплата</a></li>
+        <li><a class="nav-link" href="#extras">ТВ и услуги</a></li>
         <li><a class="nav-link" href="#news">Новости</a></li>
         <li><a class="nav-link" href="#contacts">Контакты</a></li>
       </ul>
@@ -91,24 +94,54 @@
 <main id="main">
 
 <!-- ПЕРВЫЙ ЭКРАН -->
-<section class="hero" id="top">
+<!-- Слайдер баннеров: каждый баннер = .hero-slide (текст) + .hero-visual с тем же data-slide (фон).
+     Новый баннер: скопировать пару блоков, поменять data-slide и тексты; светлому фону — класс tone-light у .hero-slide. -->
+<section class="hero" id="top" aria-roledescription="карусель" aria-label="Главные предложения">
   <div class="wrap">
-    <div class="hero-text">
-      <h1><span>Домашний интернет, в&nbsp;котором качество превыше всего</span></h1>
-      <p class="lead">Гарантированная скорость до 500 Мбит/&#8288;с, тарифы для квартир и частных домов и бесплатное подключение.</p>
-      <div class="hero-ctas">
-        <button class="btn btn-lamp" type="button" data-open="connect">Подключить интернет</button>
-        <a class="btn btn-ghost" href="#tariffs">Смотреть тарифы</a>
+    <div class="hero-track" aria-live="off">
+      <div class="hero-text hero-slide is-active" data-slide="0" role="group" aria-roledescription="слайд" aria-label="1 из 2">
+        <h1><span>Домашний интернет, в&nbsp;котором качество превыше всего</span></h1>
+        <p class="lead">Гарантированная скорость до 500 Мбит/&#8288;с, тарифы для квартир и частных домов и бесплатное подключение*.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-lamp" type="button" data-open="connect">Подключить интернет</button>
+          <a class="btn btn-ghost" href="#tariffs">Смотреть тарифы</a>
+        </div>
+        <div class="hero-facts">
+          <div><strong>от 600 ₽</strong><span>в месяц за безлимит</span></div>
+          <div><strong>0 ₽<sup>*</sup></strong><span>за подключение</span></div>
+          <div><strong>до 500 Мбит/&#8288;с</strong><span>в частном секторе</span></div>
+        </div>
+        <p class="hero-note">* Бесплатное подключение — в многоквартирных домах.</p>
       </div>
-      <div class="hero-facts">
-        <div><strong>от 600 ₽</strong><span>в месяц за безлимит</span></div>
-        <div><strong>0 ₽</strong><span>за подключение</span></div>
-        <div><strong>до 500 Мбит/&#8288;с</strong><span>в частном секторе</span></div>
+      <div class="hero-text hero-slide" data-slide="1" role="group" aria-roledescription="слайд" aria-label="2 из 2">
+        <h2 class="hero-h"><span>Кино и&nbsp;ТВ вместе с&nbsp;интернетом</span></h2>
+        <p class="lead">ТВ «Смотрёшка» с онлайн-кинотеатрами PREMIER, AMEDIATEKA, START и WINK — на телевизоре, телефоне и ноутбуке.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-lamp" href="https://smotreshka.promo/zhukovsky/" target="_blank" rel="noopener">Выбрать пакет<span class="sr"> (сайт Смотрёшки, откроется в новой вкладке)</span></a>
+          <a class="btn btn-ghost" href="#extras">Все услуги</a>
+        </div>
+        <div class="hero-facts">
+          <div><strong>от 249 ₽</strong><span>в месяц за пакет</span></div>
+          <div><strong>4 кинотеатра</strong><span>в одной подписке</span></div>
+        </div>
       </div>
     </div>
-
   </div>
-  <div class="hero-visual" aria-hidden="true"><img class="hero-photo" src="img/hero.jpg?v=2026-10-20-8" width="1672" height="941" alt="" fetchpriority="high" decoding="async"></div>
+  <div class="hero-visuals" aria-hidden="true">
+    <div class="hero-visual is-active" data-slide="0"><img class="hero-photo" src="img/hero-city.jpg?v=1" width="1672" height="940" alt="" fetchpriority="high" decoding="async"></div>
+    <div class="hero-visual" data-slide="1"><img class="hero-photo" src="img/hero-tv.jpg?v=1" width="1672" height="941" alt="" loading="lazy" decoding="async"></div>
+  </div>
+  <div class="wrap hero-nav-wrap">
+    <div class="hero-nav">
+      <button class="hn-btn hn-prev" type="button" data-hs="-1" aria-label="Предыдущий баннер"><svg width="20" height="20" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <div class="hn-dots">
+        <button class="hn-dot" type="button" data-hs-go="0" aria-label="Баннер 1" aria-current="true"><i></i></button>
+        <button class="hn-dot" type="button" data-hs-go="1" aria-label="Баннер 2"><i></i></button>
+      </div>
+      <button class="hn-btn hn-next" type="button" data-hs="1" aria-label="Следующий баннер"><svg width="20" height="20" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <button class="hn-btn hn-pause" type="button" aria-label="Остановить автопрокрутку" aria-pressed="false"><svg class="hn-i-pause" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1.2" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1.2" fill="currentColor"/></svg><svg class="hn-i-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6v10.8a1 1 0 0 0 1.5.9l8.6-5.4a1 1 0 0 0 0-1.8L5.5 1.7A1 1 0 0 0 4 2.6z" fill="currentColor"/></svg></button>
+    </div>
+  </div>
 </section>
 
 <!-- БЫСТРЫЙ ДОСТУП -->
@@ -175,23 +208,23 @@
       </div>
       <svg class="promo-art gx" viewBox="0 0 420 340" aria-hidden="true">
         <defs>
-          <linearGradient id="gxTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E9BFF"/><stop offset="1" stop-color="#4B57FF"/></linearGradient>
-          <linearGradient id="gxLeft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1F2BFF"/><stop offset="1" stop-color="#0A10A8"/></linearGradient>
-          <linearGradient id="gxRight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A46FF"/><stop offset="1" stop-color="#1A22D6"/></linearGradient>
-          <linearGradient id="gxRib" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset=".5" stop-color="#D9D2FF" stop-opacity=".8"/><stop offset="1" stop-color="#A6B4FF" stop-opacity=".95"/></linearGradient>
-          <linearGradient id="gxRibSide" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E6E1FF" stop-opacity=".95"/><stop offset="1" stop-color="#9E8CFF" stop-opacity=".75"/></linearGradient>
-          <linearGradient id="gxRing" x1="0" x2="1"><stop offset="0" stop-color="#7B5CFF" stop-opacity=".15"/><stop offset=".5" stop-color="#4B57FF" stop-opacity=".85"/><stop offset="1" stop-color="#7FE3FF" stop-opacity=".3"/></linearGradient>
-          <linearGradient id="gxWifi" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B9A6FF"/></linearGradient>
+          <linearGradient id="gxTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B0D6F5"/><stop offset="1" stop-color="#1F96E8"/></linearGradient>
+          <linearGradient id="gxLeft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0080ED"/><stop offset="1" stop-color="#03539F"/></linearGradient>
+          <linearGradient id="gxRight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A7FDC"/><stop offset="1" stop-color="#0470D2"/></linearGradient>
+          <linearGradient id="gxRib" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset=".5" stop-color="#E3F0FC" stop-opacity=".8"/><stop offset="1" stop-color="#B0D6F5" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="gxRibSide" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EAF4FD" stop-opacity=".95"/><stop offset="1" stop-color="#8EC6F2" stop-opacity=".75"/></linearGradient>
+          <linearGradient id="gxRing" x1="0" x2="1"><stop offset="0" stop-color="#5BB3EE" stop-opacity=".15"/><stop offset=".5" stop-color="#1F96E8" stop-opacity=".85"/><stop offset="1" stop-color="#E1EFFC" stop-opacity=".3"/></linearGradient>
+          <linearGradient id="gxWifi" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#B0D6F5"/></linearGradient>
           <linearGradient id="gxRay" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFF6C9" stop-opacity=".95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
-          <radialGradient id="gxPodium" cx=".5" cy=".35" r=".7"><stop offset="0" stop-color="#C9BFFF"/><stop offset=".6" stop-color="#6D5CFF"/><stop offset="1" stop-color="#2B1CFF" stop-opacity=".2"/></radialGradient>
+          <radialGradient id="gxPodium" cx=".5" cy=".35" r=".7"><stop offset="0" stop-color="#D4E8FA"/><stop offset=".6" stop-color="#2E9DEA"/><stop offset="1" stop-color="#1F96E8" stop-opacity=".2"/></radialGradient>
           <radialGradient id="gxHalo"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset=".55" stop-color="#FFFFFF" stop-opacity=".45"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
-          <radialGradient id="gxInside" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#FFF3B8"/><stop offset=".45" stop-color="#9E8CFF"/><stop offset="1" stop-color="#0C1640"/></radialGradient>
-          <radialGradient id="gxOrb" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#C9B8FF" stop-opacity=".9"/><stop offset="1" stop-color="#3D2BFF" stop-opacity=".35"/></radialGradient>
-          <radialGradient id="gxOrb2" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".4" stop-color="#7FE3FF" stop-opacity=".85"/><stop offset="1" stop-color="#0A14FF" stop-opacity=".3"/></radialGradient>
+          <radialGradient id="gxInside" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#FFF3B8"/><stop offset=".45" stop-color="#8EC6F2"/><stop offset="1" stop-color="#0D2340"/></radialGradient>
+          <radialGradient id="gxOrb" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".35" stop-color="#DDEDFB" stop-opacity=".9"/><stop offset="1" stop-color="#0080ED" stop-opacity=".35"/></radialGradient>
+          <radialGradient id="gxOrb2" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".4" stop-color="#E1EFFC" stop-opacity=".85"/><stop offset="1" stop-color="#0080ED" stop-opacity=".3"/></radialGradient>
           <g id="gxMini">
             <polygon points="0,20 40,40 40,80 0,60" fill="url(#gxLeft)"/>
             <polygon points="40,40 80,20 80,60 40,80" fill="url(#gxRight)"/>
-            <polygon points="40,0 80,20 40,40 0,20" fill="#C9BFFF"/>
+            <polygon points="40,0 80,20 40,40 0,20" fill="#D4E8FA"/>
             <polygon points="16,28 24,32 24,72 16,68" fill="url(#gxRibSide)"/>
             <polygon points="56,32 64,28 64,68 56,72" fill="url(#gxRibSide)"/>
             <polygon points="16,12 24,8 64,28 56,32" fill="#fff"/>
@@ -226,10 +259,10 @@
           <polygon points="128,163 210,122 292,163 210,204" fill="url(#gxInside)"/>
           <!-- плашка вылетает из коробки -->
           <g class="gx-chip">
-            <rect x="146" y="22" width="128" height="62" rx="20" fill="#0C1640"/>
+            <rect x="146" y="22" width="128" height="62" rx="20" fill="#0D2340"/>
             <rect x="147" y="23" width="126" height="28" rx="19" fill="#fff" fill-opacity=".07"/>
             <text x="210" y="52" text-anchor="middle" fill="#fff" font-family="Unbounded, Manrope, sans-serif" font-weight="700" font-size="19">+1 месяц</text>
-            <text x="210" y="72" text-anchor="middle" fill="#A6B4FF" font-family="Manrope, sans-serif" font-weight="700" font-size="11" letter-spacing="1.5">БЕСПЛАТНО</text>
+            <text x="210" y="72" text-anchor="middle" fill="#B0D6F5" font-family="Manrope, sans-serif" font-weight="700" font-size="11" letter-spacing="1.5">БЕСПЛАТНО</text>
           </g>
           <!-- корпус -->
           <polygon points="128,163 210,204 210,284 128,243" fill="url(#gxLeft)"/>
@@ -253,8 +286,8 @@
             <path d="M210 136 C 184 98, 146 104, 160 126 C 168 140, 196 140, 210 136z" fill="url(#gxRib)" stroke="#fff" stroke-opacity=".85" stroke-width="2"/>
             <path d="M210 136 C 236 98, 274 104, 260 126 C 252 140, 224 140, 210 136z" fill="url(#gxRib)" stroke="#fff" stroke-opacity=".85" stroke-width="2"/>
             <path d="M172 118 C 182 116, 196 124, 204 132" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".9"/>
-            <path d="M204 140 C 196 156, 186 160, 178 170" fill="none" stroke="#E6E1FF" stroke-width="5" stroke-linecap="round"/>
-            <path d="M216 140 C 226 154, 240 158, 246 168" fill="none" stroke="#E6E1FF" stroke-width="5" stroke-linecap="round"/>
+            <path d="M204 140 C 196 156, 186 160, 178 170" fill="none" stroke="#EAF4FD" stroke-width="5" stroke-linecap="round"/>
+            <path d="M216 140 C 226 154, 240 158, 246 168" fill="none" stroke="#EAF4FD" stroke-width="5" stroke-linecap="round"/>
             <ellipse cx="210" cy="136" rx="14" ry="9" fill="#fff"/>
           </g>
         </g>
@@ -264,23 +297,23 @@
 
         <!-- конфетти -->
         <g class="gx-confetti">
-          <rect x="206" y="150" width="8" height="12" rx="2" fill="#0A14FF" style="--x:-150px;--y:-110px;--r:320deg;--d:0s"/>
-          <rect x="206" y="150" width="7" height="11" rx="2" fill="#7B5CFF" style="--x:130px;--y:-120px;--r:-280deg;--d:.05s"/>
+          <rect x="206" y="150" width="8" height="12" rx="2" fill="#0080ED" style="--x:-150px;--y:-110px;--r:320deg;--d:0s"/>
+          <rect x="206" y="150" width="7" height="11" rx="2" fill="#5BB3EE" style="--x:130px;--y:-120px;--r:-280deg;--d:.05s"/>
           <rect x="206" y="150" width="6" height="10" rx="2" fill="#3BD98A" style="--x:-90px;--y:-140px;--r:200deg;--d:.1s"/>
-          <rect x="206" y="150" width="8" height="12" rx="2" fill="#FFC83D" style="--x:170px;--y:-60px;--r:-360deg;--d:.02s"/>
+          <rect x="206" y="150" width="8" height="12" rx="2" fill="#B0D6F5" style="--x:170px;--y:-60px;--r:-360deg;--d:.02s"/>
           <rect x="206" y="150" width="7" height="10" rx="2" fill="#FF6B9A" style="--x:-175px;--y:-40px;--r:260deg;--d:.08s"/>
-          <rect x="206" y="150" width="6" height="11" rx="2" fill="#7FE3FF" style="--x:60px;--y:-150px;--r:300deg;--d:.12s"/>
-          <rect x="206" y="150" width="8" height="10" rx="2" fill="#A6B4FF" style="--x:-40px;--y:-160px;--r:-240deg;--d:.04s"/>
-          <rect x="206" y="150" width="7" height="12" rx="2" fill="#0A14FF" style="--x:110px;--y:-30px;--r:380deg;--d:.14s"/>
-          <rect x="206" y="150" width="6" height="9" rx="2" fill="#FFC83D" style="--x:-120px;--y:-170px;--r:-300deg;--d:.16s"/>
+          <rect x="206" y="150" width="6" height="11" rx="2" fill="#E1EFFC" style="--x:60px;--y:-150px;--r:300deg;--d:.12s"/>
+          <rect x="206" y="150" width="8" height="10" rx="2" fill="#B0D6F5" style="--x:-40px;--y:-160px;--r:-240deg;--d:.04s"/>
+          <rect x="206" y="150" width="7" height="12" rx="2" fill="#0080ED" style="--x:110px;--y:-30px;--r:380deg;--d:.14s"/>
+          <rect x="206" y="150" width="6" height="9" rx="2" fill="#B0D6F5" style="--x:-120px;--y:-170px;--r:-300deg;--d:.16s"/>
           <rect x="206" y="150" width="8" height="11" rx="2" fill="#FF6B9A" style="--x:150px;--y:-150px;--r:220deg;--d:.09s"/>
-          <circle cx="210" cy="156" r="4.5" fill="#7B5CFF" style="--x:-60px;--y:-100px;--r:0deg;--d:.03s"/>
+          <circle cx="210" cy="156" r="4.5" fill="#5BB3EE" style="--x:-60px;--y:-100px;--r:0deg;--d:.03s"/>
           <circle cx="210" cy="156" r="4" fill="#3BD98A" style="--x:90px;--y:-90px;--r:0deg;--d:.11s"/>
-          <circle cx="210" cy="156" r="3.5" fill="#0A14FF" style="--x:-160px;--y:-130px;--r:0deg;--d:.07s"/>
-          <circle cx="210" cy="156" r="4" fill="#FFC83D" style="--x:20px;--y:-175px;--r:0deg;--d:.13s"/>
-          <circle cx="210" cy="156" r="3.5" fill="#7FE3FF" style="--x:185px;--y:-100px;--r:0deg;--d:.06s"/>
-          <path d="M207 152 q6 -6 12 0 q6 6 12 0" fill="none" stroke="#7B5CFF" stroke-width="3" stroke-linecap="round" style="--x:-130px;--y:-60px;--r:180deg;--d:.1s"/>
-          <path d="M207 152 q6 -6 12 0 q6 6 12 0" fill="none" stroke="#0A14FF" stroke-width="3" stroke-linecap="round" style="--x:100px;--y:-170px;--r:-200deg;--d:.02s"/>
+          <circle cx="210" cy="156" r="3.5" fill="#0080ED" style="--x:-160px;--y:-130px;--r:0deg;--d:.07s"/>
+          <circle cx="210" cy="156" r="4" fill="#B0D6F5" style="--x:20px;--y:-175px;--r:0deg;--d:.13s"/>
+          <circle cx="210" cy="156" r="3.5" fill="#E1EFFC" style="--x:185px;--y:-100px;--r:0deg;--d:.06s"/>
+          <path d="M207 152 q6 -6 12 0 q6 6 12 0" fill="none" stroke="#5BB3EE" stroke-width="3" stroke-linecap="round" style="--x:-130px;--y:-60px;--r:180deg;--d:.1s"/>
+          <path d="M207 152 q6 -6 12 0 q6 6 12 0" fill="none" stroke="#0080ED" stroke-width="3" stroke-linecap="round" style="--x:100px;--y:-170px;--r:-200deg;--d:.02s"/>
         </g>
 
         <!-- сферы и искры -->
@@ -289,7 +322,7 @@
         <circle class="gx-orb o3" cx="110" cy="300" r="8" fill="url(#gxOrb2)"/>
         <circle class="gx-orb o4" cx="330" cy="40" r="7" fill="url(#gxOrb)"/>
         <circle class="gx-orb o5" cx="398" cy="196" r="6" fill="url(#gxOrb)"/>
-        <g class="gx-spark" fill="#4B57FF">
+        <g class="gx-spark" fill="#1F96E8">
           <path d="M330 210l3.5 8.5 8.5 3.5-8.5 3.5-3.5 8.5-3.5-8.5-8.5-3.5 8.5-3.5z"/>
           <path class="s2" d="M100 196l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/>
           <path class="s3" d="M140 60l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/>
@@ -303,62 +336,149 @@
 <!-- ПОЧЕМУ ZHUKNET -->
 <section aria-label="О компании">
   <div class="wrap">
-    <div class="why">
+    <div class="why why-city">
       <div class="why-mesh" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <div>
+      <!-- Айдентика города: небо, облака, самолёты с инверсионным следом -->
+      <svg class="why-sky" viewBox="0 0 1200 680" preserveAspectRatio="xMinYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="trailA" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".7" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity=".85"/></linearGradient>
+          <linearGradient id="trailB" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".7"/></linearGradient>
+          <filter id="cloudBlur" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+          <g id="cloud"><circle cx="40" cy="40" r="26"/><circle cx="76" cy="28" r="34"/><circle cx="116" cy="42" r="24"/><rect x="18" y="40" width="120" height="26" rx="13"/></g>
+        </defs>
+        <g class="sky-clouds" fill="#fff" filter="url(#cloudBlur)">
+          <use href="#cloud" transform="translate(-30 560) scale(2.2)" opacity=".34"/>
+          <use href="#cloud" transform="translate(250 600) scale(1.6)" opacity=".28"/>
+          <use href="#cloud" transform="translate(470 40) scale(1.1)" opacity=".2"/>
+          <use href="#cloud" transform="translate(960 600) scale(1.8)" opacity=".26"/>
+        </g>
+        <!-- большой самолёт: след петлёй снизу слева -->
+        <g class="sky-trail t1">
+          <path id="flyA" pathLength="1" d="M-40 520 C 100 480, 150 360, 80 300 C 20 250, 40 170, 160 150 C 280 130, 400 150, 474 98" fill="none" stroke="url(#trailA)" stroke-width="3" stroke-linecap="round"/>
+          <path pathLength="1" d="M-36 531 C 104 492, 157 368, 88 307 C 29 258, 47 181, 162 161 C 283 141, 404 160, 479 107" fill="none" stroke="url(#trailA)" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+        </g>
+        <g class="sky-plane p1" data-fly="flyA" data-dur="3" data-delay="0" transform="translate(474 98) rotate(-36)"><g transform="scale(.85)"><use href="#i-plane" x="-32" y="-32" width="64" height="64" color="#fff"/></g></g>
+        <!-- третий самолёт: взлетает справа от «20» -->
+        <g class="sky-trail t3"><path id="flyB" pathLength="1" d="M436 584 C 492 566, 520 530, 520 478" fill="none" stroke="url(#trailA)" stroke-width="2.5" stroke-linecap="round"/></g>
+        <g class="sky-plane p3" data-fly="flyB" data-dur="1.6" data-delay="1.6" transform="translate(520 478) rotate(-88)"><g transform="scale(.5)"><use href="#i-plane" x="-32" y="-32" width="64" height="64" color="#fff"/></g></g>
+      </svg>
+      <div class="why-left">
+        <div class="why-cityname"><span class="why-script">Жуковский</span><span class="why-eyebrow">город авиации — и наш город</span></div>
         <div class="big"><span class="big-num" data-to="20">20</span><small>лет обеспечиваем горожан Жуковского качественным интернетом</small></div>
         <p class="why-quote">Честность, ответственность, качество услуги.</p>
       </div>
       <div class="why-grid">
         <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-gauge"/></svg><b>Гарантированная скорость</b><span>Скорость по тарифу закреплена в договоре.</span></div>
-        <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-tag"/></svg><b>Гибкая тарифная сетка</b><span>Отдельные тарифы для квартир, частных домов и посуточная оплата.</span></div>
+        <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-bolt"/></svg><b>Быстро решаем проблемы</b><span>Мы здесь, в Жуковском: в большинстве случаев устраняем неполадки в течение суток.</span></div>
         <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-map"/></svg><b>Большой охват</b><span>Подключаем многоквартирные дома и частный сектор Жуковского.</span></div>
-        <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-chip"/></svg><b>Современное оборудование</b><span>Сеть рассчитана на скорости до 500 Мбит/&#8288;с.</span></div>
+        <div class="why-card"><svg width="28" height="28" aria-hidden="true"><use href="#i-chip"/></svg><b>Современное оборудование</b><span>Сеть рассчитана на скорости до 1 Гбит/&#8288;с.</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- КАК ПОДКЛЮЧИТЬСЯ -->
-<section class="section" id="connect">
+<section class="section" id="connect" aria-labelledby="conn-title">
   <div class="wrap">
-    <div class="tariffs-head" style="margin-bottom:0">
-      <h2>Как подключиться</h2>
+    <div class="conn-head">
+      <div>
+        <h2 id="conn-title">Как подключиться</h2>
+        <p class="lead">Три шага — от заявки до работающего интернета.</p>
+      </div>
       <button class="btn btn-blue" type="button" data-open="connect">Оставить заявку</button>
     </div>
-    <ol class="steps">
-      <li class="step"><span class="step-n">1</span><b>Заявка на сайте</b><span>Оставьте адрес и телефон — подтвердим возможность подключения и согласуем время.</span></li>
-      <li class="step"><span class="step-n">2</span><b>Договор</b><span>Заключите договор в абонентском отделе на ул. Гагарина, 48 или онлайн.</span></li>
-      <li class="step"><span class="step-n">3</span><b>Подключение</b><span>Монтажники проведут кабель и настроят интернет. Подключение бесплатное.</span></li>
+    <ol class="csteps">
+      <li class="cstep">
+        <div class="cstep-top"><span class="cstep-n">01</span></div>
+        <b>Заявка</b>
+        <p>Оставьте адрес и телефон на сайте или позвоните — проверим возможность подключения и согласуем время.</p>
+        <span class="cstep-tag">Онлайн или по телефону</span>
+      </li>
+      <li class="cstep">
+        <div class="cstep-top"><span class="cstep-n">02</span></div>
+        <b>Договор</b>
+        <p>Заключите договор онлайн или в абонентском отделе на ул.&nbsp;Гагарина,&nbsp;48.</p>
+        <span class="cstep-tag">Онлайн или в офисе</span>
+      </li>
+      <li class="cstep">
+        <div class="cstep-top"><span class="cstep-n">03</span></div>
+        <b>Подключение</b>
+        <p>Монтажники проведут кабель и настроят интернет — можно сразу пользоваться.</p>
+        <span class="cstep-tag">0 ₽ в многоквартирных домах</span>
+      </li>
     </ol>
   </div>
 </section>
 
-<!-- ТВ И ДОП. УСЛУГИ -->
-<section class="section" id="extras" style="background:var(--mist)">
-  <div class="wrap">
-    <h2>Телевидение и другие услуги</h2>
-    <div class="extras">
-      <a class="extra" href="https://smotreshka.promo/zhukovsky/" target="_blank" rel="noopener"><img class="extra-img" src="img/services/smotreshka.jpg?v=2026-10-20-6" alt="Пара вечером смотрит космический фильм на большом телевизоре" loading="lazy" width="900" height="1200"><b>ТВ «Смотрёшка»</b><span>IPTV-пакеты с PREMIER, AMEDIATEKA, START и WINK.</span><span class="extra-foot"><em>от 249 ₽/мес</em><span class="extra-btn">Выбрать пакет<span class="sr"> (сайт Смотрёшки, откроется в новой вкладке)</span></span></span></a>
-      <a class="extra" href="http://zhuktv.ru" target="_blank" rel="noopener"><img class="extra-img" src="img/services/cable-tv.jpg?v=2026-10-20-6" alt="Семья на диване смотрит передачу о слонах на большом телевизоре" loading="lazy" width="1600" height="667"><b>Кабельное ТВ</b><span>Телевидение по кабелю для многоквартирных домов.</span><span class="extra-foot"><span class="extra-btn">На сайт ЖукTV<span class="sr"> (откроется в новой вкладке)</span></span></span></a>
-      <button class="extra" type="button" data-open="ip"><img class="extra-img" src="img/services/real-ip.jpg?v=2026-10-20-5" alt="Ноутбук с картинками с камер видеонаблюдения, сетевое хранилище и роутер на рабочем столе вечером" loading="lazy" width="1000" height="862"><b>Реальный IP-адрес</b><span>Для видеонаблюдения, серверов и удалённого доступа.</span><span class="extra-foot"><em>200 ₽/мес</em><span class="extra-btn">Подключить</span></span></button>
-      <a class="extra" href="http://security.zhukovsky.net" target="_blank" rel="noopener"><img class="extra-img" src="img/services/security.jpg?v=2026-10-20-6" alt="Умный домофон с камерой у входа в дом вечером и камера видеонаблюдения под навесом" loading="lazy" width="1000" height="862"><b>Системы безопасности</b><span>Умный домофон и видеонаблюдение.</span><span class="extra-foot"><span class="extra-btn">Подробнее<span class="sr"> (сайт систем безопасности, откроется в новой вкладке)</span></span></span></a>
-    </div>
-  </div>
-</section>
 
-<!-- НОВОСТИ -->
-<section class="section" id="news">
+<!-- МЫ МЕСТНЫЕ: «гонка» — длина маршрута = время до решения проблемы -->
+<section class="section local-sec" id="local" aria-labelledby="local-title">
   <div class="wrap">
-    <div class="news-head">
-      <h2>Новости</h2>
-      <div class="sl-nav">
-        <button class="sl-btn" type="button" data-sl="-1" aria-controls="news-track" aria-label="Предыдущие новости"><svg width="22" height="22" aria-hidden="true"><use href="#i-chev"/></svg></button>
-        <button class="sl-btn" type="button" data-sl="1" aria-controls="news-track" aria-label="Следующие новости"><svg width="22" height="22" aria-hidden="true"><use href="#i-chev"/></svg></button>
+    <div class="why race-card">
+      <div class="why-mesh" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <!-- покрытие: абстрактная сеть с импульсами -->
+      <svg class="race-stela race-map race-cov" viewBox="0 0 400 410" aria-hidden="true">
+        <defs>
+          <symbol id="cvt" viewBox="0 0 30 44"><rect x="1.5" y="1.5" width="27" height="41" rx="4" fill="#1A7FE8" stroke="#fff" stroke-width="2.2"/><g fill="#fff"><rect x="7" y="8" width="5" height="5" rx="1"/><rect x="18" y="8" width="5" height="5" rx="1" opacity=".55"/><rect x="7" y="18" width="5" height="5" rx="1" opacity=".55"/><rect x="18" y="18" width="5" height="5" rx="1"/><rect x="7" y="28" width="5" height="5" rx="1"/><rect x="18" y="28" width="5" height="5" rx="1" opacity=".55"/></g></symbol>
+          <symbol id="cvh" viewBox="0 0 36 32"><path d="M3 15 L18 3 L33 15 V29.5 H3 Z" fill="#1A7FE8" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><rect x="14.5" y="17" width="7" height="7" rx="1.2" fill="#fff"/></symbol>
+          <radialGradient id="cvCore"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="200" cy="205" r="150" fill="none" stroke="#fff" stroke-opacity=".16" stroke-dasharray="3 7"/>
+        <circle cx="200" cy="205" r="95" fill="none" stroke="#fff" stroke-opacity=".1"/>
+        <g class="cv-lines" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1.6" stroke-linecap="round"><path d="M228.3 176.7 Q287.4 167.9 306.1 98.9"/><path d="M240.0 205.0 Q288.1 240.6 350.0 205.0"/><path d="M228.3 233.3 Q237.1 292.4 306.1 311.1"/><path d="M200.0 245.0 Q164.4 293.1 200.0 355.0"/><path d="M171.7 233.3 Q112.6 242.1 93.9 311.1"/><path d="M160.0 205.0 Q111.9 169.4 50.0 205.0"/><path d="M171.7 176.7 Q162.9 117.6 93.9 98.9"/></g>
+        <g class="cv-pulse" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path pathLength="1" d="M228.3 176.7 Q287.4 167.9 306.1 98.9" style="animation-delay:0.45s"/><path pathLength="1" d="M240.0 205.0 Q288.1 240.6 350.0 205.0" style="animation-delay:0.90s"/><path pathLength="1" d="M228.3 233.3 Q237.1 292.4 306.1 311.1" style="animation-delay:1.35s"/><path pathLength="1" d="M200.0 245.0 Q164.4 293.1 200.0 355.0" style="animation-delay:1.80s"/><path pathLength="1" d="M171.7 233.3 Q112.6 242.1 93.9 311.1" style="animation-delay:2.25s"/><path pathLength="1" d="M160.0 205.0 Q111.9 169.4 50.0 205.0" style="animation-delay:2.70s"/><path pathLength="1" d="M171.7 176.7 Q162.9 117.6 93.9 98.9" style="animation-delay:3.15s"/></g>
+        <g class="cv-glow" fill="url(#cvCore)"><circle cx="306.1" cy="98.9" r="26" style="animation-delay:2.25s"/><circle cx="350.0" cy="205.0" r="26" style="animation-delay:2.70s"/><circle cx="306.1" cy="311.1" r="26" style="animation-delay:3.15s"/><circle cx="200.0" cy="355.0" r="26" style="animation-delay:3.60s"/><circle cx="93.9" cy="311.1" r="26" style="animation-delay:4.05s"/><circle cx="50.0" cy="205.0" r="26" style="animation-delay:4.50s"/><circle cx="93.9" cy="98.9" r="26" style="animation-delay:4.95s"/></g>
+        <g class="cv-bld"><use href="#cvh" x="288.1" y="82.9" width="36" height="32"/><use href="#cvt" x="335.0" y="183.0" width="30" height="44"/><use href="#cvh" x="288.1" y="295.1" width="36" height="32"/><use href="#cvt" x="185.0" y="333.0" width="30" height="44"/><use href="#cvh" x="75.9" y="295.1" width="36" height="32"/><use href="#cvt" x="35.0" y="183.0" width="30" height="44"/><use href="#cvh" x="75.9" y="82.9" width="36" height="32"/></g>
+        <!-- центр: роутер / узел ZHUKNET с волнами Wi-Fi -->
+        <circle cx="200" cy="205" r="80" fill="url(#cvCore)" opacity=".5"/>
+        <g class="cv-waves" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" transform="translate(200 205)">
+          <path class="w1" d="M-30 -44 A53 53 0 0 1 30 -44"/>
+          <path class="w2" d="M-40 -60 A72 72 0 0 1 40 -60"/>
+          <path class="w3" d="M-50 -76 A91 91 0 0 1 50 -76"/>
+          <path class="w4" d="M-60 -92 A110 110 0 0 1 60 -92"/>
+          <path class="w5" d="M-70 -108 A129 129 0 0 1 70 -108"/>
+          <path class="w6" d="M-80 -124 A148 148 0 0 1 80 -124"/>
+        </g>
+        <rect x="168" y="173" width="64" height="64" rx="20" fill="#fff"/>
+        <g transform="translate(183 188) scale(1.42)" fill="none" stroke="#0080ED" stroke-width="2.2" stroke-linecap="round"><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M5.5 12.4a10 10 0 0 1 13 0"/><path d="M9 15.9a5 5 0 0 1 6 0"/><circle cx="12" cy="19.2" r="1.1" fill="#0080ED"/></g>
+      </svg>
+
+
+
+
+
+      <div class="race-head">
+        <span class="why-eyebrow">Почему с нами спокойнее</span>
+        <h2 id="local-title">Мы рядом — и&nbsp;это заметно</h2>
+        <p>Мы работаем в&nbsp;Жуковском, поэтому знаем город, дома и&nbsp;свою сеть. Когда что-то случается, вопрос решают люди, которые находятся в&nbsp;нескольких минутах от&nbsp;вас.</p>
+      </div>
+      <div class="race">
+        <div class="lane lane-fed">
+          <div class="lane-name"><b>Когда сервис далеко</b><span>общий центр поддержки</span></div>
+          <div class="lane-track">
+            <ol class="lane-stops">
+              <li>Обращение уходит в&nbsp;общий центр</li>
+              <li>Специалист разбирается в&nbsp;адресе с&nbsp;нуля</li>
+              <li>Выезд планируют по&nbsp;очереди</li>
+            </ol>
+            <span class="lane-plane" aria-hidden="true"></span>
+            <span class="lane-time"><b>Срок</b><small>зависит от&nbsp;загрузки</small></span>
+          </div>
+        </div>
+        <div class="lane lane-us">
+          <div class="lane-name"><b>ZHUKNET в&nbsp;Жуковском</b><span>офис на ул.&nbsp;Гагарина, 48</span></div>
+          <div class="lane-track">
+            <ol class="lane-stops">
+              <li>Отвечают местные специалисты</li>
+              <li>Знаем ваш дом и&nbsp;сеть</li>
+              <li>Мастер выезжает из&nbsp;Жуковского</li>
+            </ol>
+            <span class="lane-plane" aria-hidden="true"></span>
+            <span class="lane-time"><b>≈ 24 часа</b><small>в большинстве случаев</small></span>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- Карточки собираются из массива NEWS в js/main.js -->
-    <div class="news news-slider" id="news-track" role="region" aria-label="Лента новостей" tabindex="0"></div>
   </div>
 </section>
 
@@ -382,46 +502,70 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section faq" id="faq" aria-labelledby="faq-title">
-  <div class="wrap faq-grid">
-    <div class="faq-side">
-      <h2 id="faq-title">Частые вопросы</h2>
-      <p class="lead">Не нашли ответ? Позвоните или напишите — поможем.</p>
-      <div class="faq-actions">
-        <button class="btn faq-ask" type="button" data-open="ask">Задать вопрос</button>
+<!-- ТВ И ДОП. УСЛУГИ -->
+<section class="section" id="extras" style="background:var(--mist)">
+  <div class="wrap">
+    <h2>Телевидение и другие услуги</h2>
+    <div class="extras">
+      <a class="extra" href="https://smotreshka.promo/zhukovsky/" target="_blank" rel="noopener"><img class="extra-img" src="img/services/smotreshka-city.jpg?v=1" alt="Вечерняя гостиная: большой телевизор с фильмами и каналами, диван и столик с попкорном" loading="lazy" width="1024" height="1536"><span class="quick-ico extra-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-tv"/></svg></span><b>ТВ «Смотрёшка»</b><span>IPTV-пакеты с PREMIER, AMEDIATEKA, START и WINK.</span><span class="extra-foot"><em>от 249 ₽/мес</em><span class="extra-btn">Выбрать пакет<span class="sr"> (сайт Смотрёшки, откроется в новой вкладке)</span></span></span></a>
+      <a class="extra" href="http://zhuktv.ru" target="_blank" rel="noopener"><img class="extra-img" src="img/services/cable-city.jpg?v=1" alt="Мужчина на диване смотрит телевизор, из экрана вылетают динозавр, лев, футболист, астронавт и гоночная машина" loading="lazy" width="1536" height="1024"><span class="quick-ico extra-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-cable"/></svg></span><b>Кабельное ТВ</b><span>Телевидение по кабелю для многоквартирных домов.</span><span class="extra-foot"><span class="extra-btn">На сайт ЖукTV<span class="sr"> (откроется в новой вкладке)</span></span></span></a>
+      <button class="extra" type="button" data-open="ip"><img class="extra-img" src="img/services/real-ip-city.jpg?v=1" alt="Рабочий стол вечером: монитор с четырьмя камерами видеонаблюдения и сетевое хранилище" loading="lazy" width="1254" height="1254"><span class="quick-ico extra-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-globe"/></svg></span><b>Реальный IP-адрес</b><span>Для видеонаблюдения, серверов и удалённого доступа.</span><span class="extra-foot"><em>200 ₽/мес</em><span class="extra-btn">Подключить</span></span></button>
+      <a class="extra" href="http://security.zhukovsky.net" target="_blank" rel="noopener"><img class="extra-img" src="img/services/security-city.jpg?v=1" alt="Видеодомофон на стене квартиры вечером, на экране курьер с посылкой" loading="lazy" width="1254" height="1254"><span class="quick-ico extra-ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-shield"/></svg></span><b>Системы безопасности</b><span>Умный домофон и видеонаблюдение.</span><span class="extra-foot"><span class="extra-btn">Подробнее<span class="sr"> (сайт систем безопасности, откроется в новой вкладке)</span></span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- НОВОСТИ -->
+<section class="section" id="news">
+  <div class="wrap">
+    <div class="news-head">
+      <h2>Новости</h2>
+      <div class="sl-nav">
+        <button class="sl-btn" type="button" data-sl="-1" aria-controls="news-track" aria-label="Предыдущие новости"><svg width="22" height="22" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <button class="sl-btn" type="button" data-sl="1" aria-controls="news-track" aria-label="Следующие новости"><svg width="22" height="22" aria-hidden="true"><use href="#i-chev"/></svg></button>
       </div>
     </div>
+    <!-- Карточки собираются из массива NEWS в js/main.js -->
+    <div class="news news-slider" id="news-track" role="region" aria-label="Лента новостей" tabindex="0"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="faq-head">
+      <h2 id="faq-title">Частые вопросы</h2>
+    </div>
     <div class="faq-list">
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Как узнать, можно ли подключиться по моему адресу?<span class="faq-ico" aria-hidden="true"></span></summary>
           <p>Оставьте заявку на сайте или позвоните по номеру 8 (498) 48-3-57-00 — проверим техническую возможность и предложим подходящий тариф.</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Сколько стоит подключение?<span class="faq-ico" aria-hidden="true"></span></summary>
-          <p>Подключение бесплатное. Вы платите только абонентскую плату по выбранному тарифу.</p>
+          <p>В многоквартирных домах подключение бесплатное — вы платите только абонентскую плату по выбранному тарифу. Стоимость подключения частного дома рассчитаем после проверки адреса.</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Где заключить договор?<span class="faq-ico" aria-hidden="true"></span></summary>
           <p>Онлайн на сайте или в абонентском отделе по адресу: г. Жуковский, ул. Гагарина, 48. Отдел работает в будни с 9:00 до 18:00, в субботу с 10:00 до 17:00, воскресенье — выходной.</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Как оплатить интернет?<span class="faq-ico" aria-hidden="true"></span></summary>
           <p>Картой на сайте — кнопка «Оплатить» в шапке, в приложениях СберБанк Онлайн и ВТБ (раздел «Интернет и ТВ», поиск «Zhuknet»), в личном кабинете или в офисе на ул. Гагарина, 48. Все способы — в блоке <a href="#payment">«Как оплатить интернет»</a>.</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Когда списывается абонентская плата?<span class="faq-ico" aria-hidden="true"></span></summary>
           <p>На тарифах «Безлимитный» и «Дачный» — 1-го числа каждого месяца в полном объёме. На тарифе «На каждый день» — ежедневно. Услуги предоставляются при положительном балансе.</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Можно ли подключить скорость выше 100 Мбит/&#8288;с?<span class="faq-ico" aria-hidden="true"></span></summary>
           <p>В многоквартирных домах доступны тарифы до 200 и 300 Мбит/&#8288;с, в частном секторе — до 500 Мбит/&#8288;с, при технической возможности. Оставьте заявку, и мы проверим ваш адрес.</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Как подключить телевидение «Смотрёшка»?<span class="faq-ico" aria-hidden="true"></span></summary>
           <p>Пакеты стоят от 249 ₽ в месяц и подключаются к любому ежемесячному тарифу на интернет. Подробнее о пакетах — на странице «Смотрёшки».</p>
         </details>
-        <details class="faq-item">
+        <details class="faq-item" name="faq">
           <summary>Пропал интернет. Что делать?<span class="faq-ico" aria-hidden="true"></span></summary>
           <p>Проверьте баланс в личном кабинете и перезагрузите роутер. Если не помогло — посмотрите инструкции в разделе «Настройки» или позвоните в техподдержку: 8 (498) 48-3-57-00.</p>
         </details>
@@ -441,8 +585,8 @@
       </div>
       <svg class="cta-art" viewBox="0 56 640 144" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
-          <linearGradient id="ctaPulse" x1="0" x2="1"><stop offset="0" stop-color="#7FE3FF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
-          <radialGradient id="ctaGlow"><stop offset="0" stop-color="#A6B4FF" stop-opacity=".55"/><stop offset="1" stop-color="#A6B4FF" stop-opacity="0"/></radialGradient>
+          <linearGradient id="ctaPulse" x1="0" x2="1"><stop offset="0" stop-color="#E1EFFC"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+          <radialGradient id="ctaGlow"><stop offset="0" stop-color="#B0D6F5" stop-opacity=".55"/><stop offset="1" stop-color="#B0D6F5" stop-opacity="0"/></radialGradient>
         </defs>
         <g transform="translate(548 186) scale(.8) translate(-548 -186)">
         <circle cx="548" cy="132" r="100" fill="url(#ctaGlow)"/>
@@ -479,7 +623,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <a class="logo" href="./" aria-label="ZHUKNET — на главную"><svg viewBox="0 0 522 68" role="img" aria-label="ZHUKNET"><use href="#logo"/></svg></a>
+        <div class="footer-logo"><a class="logo" href="./" aria-label="ZHUKNET — на главную"><svg viewBox="0 0 522 68" role="img" aria-label="ZHUKNET"><use href="#logo"/></svg></a></div>
         <span>Интернет-провайдер Жуковского с 2006 года.</span>
         <div class="footer-contacts">
           <a class="footer-phone" href="tel:84984835700">8 (498) 48-3-57-00</a>
@@ -488,8 +632,8 @@
         </div>
         <a class="footer-tg" href="https://t.me/zhuknet/" aria-label="Telegram" title="Telegram"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"/></svg></a>
       </div>
-      <nav aria-label="Абонентам"><b>Абонентам</b><button class="f-btn" type="button" data-open="connect">Онлайн-договор</button><button class="f-btn" type="button" data-open="speed">Скорость выше 100 Мбит/&#8288;с</button><button class="f-btn" type="button" data-open="pay">Оплатить онлайн</button><a href="https://lk.zhukovsky.net">Личный кабинет</a><button class="f-btn" type="button" data-open="ask">Задать вопрос</button></nav>
-      <nav aria-label="Разделы"><b>Разделы</b><a href="#tariffs">Тарифы</a><a href="#connect">Как подключиться</a><a href="#extras">ТВ и услуги</a><a href="#payment">Оплата</a><a href="#news">Новости</a><a href="#faq">Частые вопросы</a><a href="#contacts">Контакты</a></nav>
+      <nav aria-label="Абонентам"><b>Абонентам</b><button class="f-btn" type="button" data-open="connect">Онлайн-договор</button><button class="f-btn" type="button" data-open="speed">Скорость выше 100 Мбит/&#8288;с</button><button class="f-btn" type="button" data-open="pay">Оплатить онлайн</button><a href="https://lk.zhukovsky.net">Личный кабинет</a></nav>
+      <nav aria-label="Разделы"><b>Разделы</b><a href="#tariffs">Тарифы</a><a href="#connect">Как подключиться</a><a href="#payment">Оплата</a><a href="#extras">ТВ и услуги</a><a href="#news">Новости</a><a href="#faq">Частые вопросы</a><a href="#contacts">Контакты</a></nav>
       <nav aria-label="Документы" id="docs"><b>Документы</b><a href="files/dog_fiz.doc" download>Договор для физлиц</a><a href="files/dog_yur_new.doc" download>Договор для юрлиц</a><a href="files/reglament.doc" download>Регламент оказания услуг</a><a href="files/dog_smotreshka.doc" download>Договор ТВ «Смотрёшка»</a></nav>
       <div class="footer-req"><b>Реквизиты</b>
         <dl>
@@ -578,7 +722,7 @@
       <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
     </div>
     <div class="form-body" style="display:flex;flex-direction:column;gap:14px">
-      <div class="field"><label for="s-speed">Желаемая скорость</label><select id="s-speed" name="speed"><button type="button"><selectedcontent></selectedcontent></button><option>до 200 Мбит/с</option><option>до 300 Мбит/с</option><option>до 500 Мбит/с (частный сектор)</option><option>[до 2000 Мбит/с — уточнить у заказчика]</option></select></div>
+      <div class="field"><label for="s-speed">Желаемая скорость</label><select id="s-speed" name="speed"><button type="button"><selectedcontent></selectedcontent></button><option>до 200 Мбит/с</option><option>до 300 Мбит/с</option><option>до 500 Мбит/с (частный сектор)</option></select></div>
       <div class="row2">
         <div class="field"><label for="s-name">Имя</label><input id="s-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="s-phone">Телефон</label><input id="s-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
@@ -631,30 +775,6 @@
       <span class="hint" style="font-size:13px;color:var(--muted)">Абонентская плата списывается 1-го числа. Услуги предоставляются при положительном балансе.</span>
     </div>
     <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-card"/></svg></span><h2>Переходим к оплате</h2><p class="sub" style="margin:0">На продакшене здесь откроется платёжная форма ЮKassa.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
-  </form>
-</dialog>
-
-<!-- ПОПАП: задать вопрос -->
-<dialog id="dlg-ask" aria-labelledby="t-ask">
-  <form class="modal" novalidate>
-    <div class="modal-head">
-      <div><h2 id="t-ask">Задать вопрос</h2><p class="sub">Перезвоним и ответим в рабочее время: <span class="nw">пн–пт 9:00–18:00,</span> <span class="nw">сб 10:00–17:00.</span></p></div>
-      <button class="close" type="button" data-close aria-label="Закрыть"><svg width="22" height="22"><use href="#i-x"/></svg></button>
-    </div>
-    <div class="form-body" style="display:flex;flex-direction:column;gap:14px">
-      <div class="row2">
-        <div class="field"><label for="q-name">Имя</label><input id="q-name" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="q-phone">Телефон</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7" required></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label for="q-topic">Тема</label><select id="q-topic" name="topic"><button type="button"><selectedcontent></selectedcontent></button><option>Подключение</option><option>Тарифы и оплата</option><option>Техническая проблема</option><option>Договор и документы</option><option>Другое</option></select></div>
-        <div class="field"><label for="q-contract">Номер договора</label><input id="q-contract" name="contract" inputmode="numeric" placeholder="Если вы абонент"></div>
-      </div>
-      <div class="field"><label for="q-text">Вопрос</label><textarea id="q-text" name="question" rows="4" required></textarea><span class="hint">Пропал интернет? Быстрее позвонить: <a href="tel:84984835700">8 (498) 48-3-57-00</a></span></div>
-      <label class="check"><input type="checkbox" required checked> <span>Согласен на обработку <a href="files/pers.pdf" target="_blank" rel="noopener">персональных данных</a></span></label>
-      <button class="btn btn-blue" type="submit">Отправить вопрос</button>
-    </div>
-    <div class="done"><span class="done-ico"><svg width="32" height="32"><use href="#i-check"/></svg></span><h2>Вопрос отправлен</h2><p class="sub" style="margin:0">Перезвоним в рабочее время абонентского отдела: пн–пт 9:00–18:00, сб 10:00–17:00.</p><button class="btn btn-blue" type="button" data-close>Хорошо</button></div>
   </form>
 </dialog>
 
@@ -745,6 +865,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=2026-10-19-2" defer></script>
+<script src="js/main.js?v=blue3-51" defer></script>
 </body>
 </html>
