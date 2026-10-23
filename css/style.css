@@ -2177,3 +2177,5 @@ a.extra[target="_blank"] .extra-btn::after{content:"";flex:none;width:14px;heigh
 .hn-prev,.hn-next{background:var(--blue);color:#fff;box-shadow:0 4px 12px -4px rgba(0,128,237,.7)}
 .hn-prev:hover,.hn-next:hover{background:#1F96E8;color:#fff;transform:scale(1.06)}
 @media (max-width:900px){.hero-nav{padding:1px 8px}}
+/* телефон и планшет: стрелки снова видны */
+@media (max-width:900px){.hn-prev,.hn-next{display:inline-flex}.hero-nav{padding:1px}}
